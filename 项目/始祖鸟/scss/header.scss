@@ -1,0 +1,76 @@
+$my_width:75%;
+$my_width2:100%;
+@media screen and (min-width: 1200px) {
+  .header_content{width: $my_width;}
+}
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .header_content{width: $my_width2;}
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .header_content{width: $my_width2;}
+}
+@media screen and (min-width: 500px) and (max-width: 767px) {
+  .header_content{width: $my_width2;}
+}
+//header_content
+.header_content{
+  height: 100px;
+  margin: 0 auto;
+  nav > ul li .head {
+    &:before{
+      content: "";
+      display: block;
+      width: 50%;
+      max-width: 200px;
+      min-height: 40px;
+      margin-top: 12px;
+      z-index: -1;
+      position: absolute;
+    }
+    &:after{
+      content: "";
+      display: block;
+      height:2px;
+      width:0;
+      margin-top: 4px;
+      background: transparent;
+      transition: 0.3s ease;
+    }
+  }
+  nav > ul li .head{
+    a{
+      text-decoration: none;
+      font: 14px/20px "Avenir LT W01 85 Heavy", arial, sans-serif;
+      text-transform: uppercase;
+      color: #333;
+      cursor: pointer;
+    }
+  }
+  .right_nav{
+    box-sizing: content-box;
+    margin-left: 2rem;
+    float: left;
+    clear: right;
+    display: flex;
+    align-self: flex-end;
+    font: 14px/20px "Avenir LT W01 85 Heavy", arial, sans-serif;
+  }
+}
+.header_search{
+  cursor: pointer;
+  button{
+    .search{
+      text-decoration: none;
+      color: #333;
+    }
+    &:link{outline: none;}
+    a{outline: none;}
+  }
+
+  .icon_search{
+    img{
+      margin-top: -4px;
+      width: 18px;
+    }
+  }
+}

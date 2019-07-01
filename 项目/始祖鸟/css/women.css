@@ -1,0 +1,318 @@
+@media screen and (min-width: 1200px) {
+  .main .top_title {
+    width: 75%; }
+  .main .pro_firline {
+    width: 75%;
+    padding-top: 3rem; }
+  .hover_border .im_box {
+    padding: 0 20px; }
+  .main .pro_firline .w-80 {
+    width: 80% !important; }
+  .main .pro_firline .im_box {
+    height: 500px !important;
+    width: 328px !important; } }
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .main .top_title {
+    width: 100%; }
+  .main .pro_firline {
+    width: 75%;
+    padding-top: 3rem; }
+  .hover_border .im_box {
+    padding: 0 20px; }
+  .main .pro_firline .im_box {
+    height: 480px !important;
+    width: 328px !important; } }
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .main .top_title {
+    width: 100%; }
+  .main .pro_firline {
+    width: 100%;
+    padding-top: 3rem; }
+  .hover_border .im_box {
+    padding: 0 20px; }
+  .main .pro_firline .im_box {
+    width: 320px !important;
+    height: 480px !important;
+    padding: 2px; } }
+
+@media screen and (min-width: 500px) and (max-width: 767px) {
+  .main .top_title {
+    width: 100%; }
+  .main .pro_firline {
+    width: 100%;
+    margin: 0;
+    padding: 5px;
+    font-size: 16px; }
+  .main .pro_firline .w-80 {
+    width: 85% !important; }
+  .main .b_text {
+    font-size: 18px !important;
+    font-weight: 400 !important; }
+  .main .pro_firline .im_box {
+    width: 280px !important;
+    height: 480px !important;
+    padding: 0 !important; }
+  .ml-4, .mx-4 {
+    margin: 0 !important; }
+  .hover_border {
+    border: 0px solid transparent !important; }
+  .hover_border:hover {
+    border: 0px solid #ccc !important; } }
+
+body {
+  font-family: 'Avenir LT W01 85 Heavy', arial, sans-serif; }
+
+header {
+  border-bottom: 1px solid #ccc; }
+
+.my_header {
+  height: 100px;
+  box-sizing: border-box; }
+
+.content_top {
+  height: 400px;
+  max-height: 400px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1));
+  background: url("../img/women/banner.png") no-repeat top;
+  background-size: cover; }
+  .content_top .left_text {
+    width: 75%;
+    color: #fff; }
+    .content_top .left_text .top_t {
+      padding: 50px 0; }
+      .content_top .left_text .top_t .arrow {
+        height: 6px;
+        margin-left: 6px; }
+    .content_top .left_text p {
+      width: 450px;
+      font-size: 15px; }
+    .content_top .left_text a:first-child {
+      font-size: 14px;
+      color: #fff;
+      text-decoration: underline; }
+    .content_top .left_text .a2 {
+      padding: 9px 16px;
+      background-color: #000;
+      text-decoration: none; }
+
+.main .w-90 {
+  width: 90%; }
+
+.main .top_title {
+  padding-top: 5px; }
+
+.main .left_1 {
+  padding: 3px 20px 0 0; }
+  .main .left_1 .font_357 {
+    font-size: 20px; }
+  .main .left_1 .font_15 {
+    font-size: 15px; }
+
+.main .filter_bar {
+  width: 1px;
+  height: 26.25px;
+  background: #ccc;
+  margin-top: 7px; }
+
+.main .left_2 {
+  font-size: 14px;
+  padding: 10px 20px; }
+  .main .left_2 .arrow_black {
+    width: 12px; }
+
+.main .pro_firline {
+  min-width: 576px;
+  flex-flow: wrap; }
+  .main .pro_firline .hover_border {
+    border: 1px solid transparent; }
+  .main .pro_firline .hover_border:hover {
+    border: 1px solid #ccc; }
+  .main .pro_firline .w-lg-20 {
+    width: 20%; }
+  .main .pro_firline .im1 {
+    background: url("../img/women/pro_1.jpg") no-repeat center;
+    background-size: 90%;
+    height: 100%; }
+  .main .pro_firline .im1:hover {
+    background: url("../img/women/pro_1.1.jpg") no-repeat center;
+    background-size: cover;
+    height: 95%;
+    margin-bottom: 3rem; }
+  .main .pro_firline .im2 {
+    background: url("../img/women/pro_2.jpg") no-repeat center;
+    background-size: 90%;
+    height: 100%; }
+  .main .pro_firline .im2:hover {
+    background: url("../img/women/pro_2.1.jpg") no-repeat center;
+    background-size: cover;
+    height: 95%;
+    margin-bottom: 3rem; }
+  .main .pro_firline .im3 {
+    background: url("../img/women/pro_3.jpg") no-repeat center;
+    background-size: 90%;
+    height: 100%; }
+  .main .pro_firline .im3:hover {
+    background: url("../img/women/pro_3.1.jpg") no-repeat center;
+    background-size: cover;
+    height: 95%;
+    margin-bottom: 3rem; }
+  .main .pro_firline .im4 {
+    background: url("../img/women/pro_4.jpg") no-repeat center;
+    background-size: 90%;
+    height: 100%; }
+  .main .pro_firline .im4:hover {
+    background: url("../img/women/pro_4.1.jpg") no-repeat center;
+    background-size: cover;
+    height: 95%;
+    margin-bottom: 3rem; }
+  .main .pro_firline .im2_1 {
+    background: url("../img/women/pro2_1.jpg") no-repeat center;
+    background-size: 90%;
+    height: 100%; }
+  .main .pro_firline .im2_1:hover {
+    background: url("../img/women/pro2_1.1.jpg") no-repeat center;
+    background-size: cover;
+    height: 95%;
+    margin-bottom: 3rem; }
+  .main .pro_firline .im2_2 {
+    background: url("../img/women/pro2_2.jpg") no-repeat center;
+    background-size: 90%;
+    height: 100%; }
+  .main .pro_firline .im2_2:hover {
+    background: url("../img/women/pro2_2.1.jpg") no-repeat center;
+    background-size: cover;
+    height: 95%;
+    margin-bottom: 3rem; }
+  .main .pro_firline .im2_3 {
+    background: url("../img/women/pro2_3.jpg") no-repeat center;
+    background-size: 90%;
+    height: 100%; }
+  .main .pro_firline .im2_3:hover {
+    background: url("../img/women/pro2_3.1.jpg") no-repeat center;
+    background-size: cover;
+    height: 95%;
+    margin-bottom: 3rem; }
+  .main .pro_firline .im2_4 {
+    background: url("../img/women/pro2_4.jpg") no-repeat center;
+    background-size: 90%;
+    height: 100%; }
+  .main .pro_firline .im2_4:hover {
+    background: url("../img/women/pro2_4.1.jpg") no-repeat center;
+    background-size: cover;
+    height: 95%;
+    margin-bottom: 3rem; }
+  .main .pro_firline .im3_1 {
+    background: url("../img/women/pro3_1.jpg") no-repeat center;
+    background-size: 90%;
+    height: 100%; }
+  .main .pro_firline .im3_1:hover {
+    background: url("../img/women/pro3_1.1.jpg") no-repeat center;
+    background-size: cover;
+    height: 95%;
+    margin-bottom: 3rem; }
+  .main .pro_firline .im3_2 {
+    background: url("../img/women/pro3_2.jpg") no-repeat center;
+    background-size: 90%;
+    height: 100%; }
+  .main .pro_firline .im3_2:hover {
+    background: url("../img/women/pro3_2.1.jpg") no-repeat center;
+    background-size: cover;
+    height: 95%;
+    margin-bottom: 3rem; }
+  .main .pro_firline .im3_3 {
+    background: url("../img/women/pro3_3.jpg") no-repeat center;
+    background-size: 90%;
+    height: 100%; }
+  .main .pro_firline .im3_3:hover {
+    background: url("../img/women/pro3_3.1.jpg") no-repeat center;
+    background-size: cover;
+    height: 95%;
+    margin-bottom: 3rem; }
+  .main .pro_firline .im3_4 {
+    background: url("../img/women/pro3_4.jpg") no-repeat center;
+    background-size: 90%;
+    height: 100%; }
+  .main .pro_firline .im3_4:hover {
+    background: url("../img/women/pro3_4.1.jpg") no-repeat center;
+    background-size: cover;
+    height: 95%;
+    margin-bottom: 3rem; }
+  .main .pro_firline .im4_1 {
+    background: url("../img/women/pro4_1.jpg") no-repeat center;
+    background-size: 90%;
+    height: 100%; }
+  .main .pro_firline .im4_1:hover {
+    background: url("../img/women/pro4_1.1.jpg") no-repeat center;
+    background-size: cover;
+    height: 95%;
+    margin-bottom: 3rem; }
+  .main .pro_firline .im4_2 {
+    background: url("../img/women/pro4_2.jpg") no-repeat center;
+    background-size: 90%;
+    height: 100%; }
+  .main .pro_firline .im4_2:hover {
+    background: url("../img/women/pro4_2.1.jpg") no-repeat center;
+    background-size: cover;
+    height: 95%;
+    margin-bottom: 3rem; }
+  .main .pro_firline .im4_3 {
+    background: url("../img/women/pro4_3.jpg") no-repeat center;
+    background-size: 90%;
+    height: 100%; }
+  .main .pro_firline .im4_3:hover {
+    background: url("../img/women/pro4_3.1.jpg") no-repeat center;
+    background-size: cover;
+    height: 95%;
+    margin-bottom: 3rem; }
+  .main .pro_firline .im4_4 {
+    background: url("../img/women/pro4_4.jpg") no-repeat center;
+    background-size: 90%;
+    height: 100%; }
+  .main .pro_firline .im4_4:hover {
+    background: url("../img/women/pro4_4.1.jpg") no-repeat center;
+    background-size: cover;
+    height: 95%;
+    margin-bottom: 3rem; }
+  .main .pro_firline .im_box {
+    width: 288px;
+    height: 430px; }
+  .main .pro_firline .w-80 {
+    width: 80%; }
+  .main .pro_firline .w-90 {
+    width: 90%; }
+
+.main .carousel-control-prev-icon,
+.main .carousel-control-next-icon {
+  height: 27.59px;
+  width: 15px;
+  background: transparent no-repeat center center;
+  background-size: 100% 100%; }
+
+.main .carousel-control-prev-icon {
+  background-image: url("../img/women/arrow_right.png"); }
+
+.main .carousel-control-next-icon {
+  background-image: url("../img/women/arrow_left.png"); }
+
+.main .rmb_border {
+  border-right: 1px solid #000; }
+
+.main .b_text {
+  font-size: 15px; }
+
+.main .b_text .im_bg {
+  width: 80px;
+  height: 14px;
+  background: url("../img/women/rating-0.gif") no-repeat; }
+
+.main .im {
+  background: url("../img/women/rating-5.gif") no-repeat;
+  width: 90.19999%;
+  height: 14px;
+  left: 0; }
+
+.my_footer {
+  height: 750px;
+  box-sizing: border-box; }
