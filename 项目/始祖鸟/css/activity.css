@@ -1,0 +1,68 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; }
+
+.top {
+  background-color: #5b613f; }
+  .top .nav_logo {
+    padding: 1% 5%;
+    width: 60%;
+    float: right; }
+    .top .nav_logo .logo {
+      float: left;
+      width: 138px;
+      height: 65.36px; }
+    .top .nav_logo .menu {
+      float: right;
+      color: #dfdc42;
+      width: 240px;
+      font-size: 16px;
+      line-height: 65.36px;
+      text-align: right; }
+      .top .nav_logo .menu img {
+        vertical-align: 0; }
+  .top .content_top .main_top {
+    position: relative; }
+    .top .content_top .main_top .im1 {
+      margin-top: 14%;
+      margin-left: 10%; }
+    .top .content_top .main_top .logo2 {
+      position: absolute;
+      z-index: 100;
+      width: 400px;
+      left: 34%;
+      top: 20%; }
+    .top .content_top .main_top .top_right {
+      width: 60% !important;
+      float: right !important;
+      position: relative; }
+      .top .content_top .main_top .top_right .im2 {
+        position: relative;
+        top: 0;
+        right: 0;
+        width: 100%; }
+      .top .content_top .main_top .top_right p {
+        position: absolute;
+        z-index: 1000;
+        color: #e3e51f;
+        font-size: 30px;
+        font-weight: 700;
+        left: 30px;
+        bottom: 30px; }
+  .top .content_top .text {
+    float: right;
+    width: 40%;
+    text-align: center;
+    padding: 10% 0; }
+    .top .content_top .text p {
+      width: 32%;
+      margin: auto;
+      color: #e3e51f;
+      font-size: 18px; }
+
+.drop_section {
+  background: url(../img/activity/background_img.jpg) no-repeat center; }
+  .drop_section a {
+    display: inline-block;
+    line-height: 40px;
+    padding: 0 60px; }

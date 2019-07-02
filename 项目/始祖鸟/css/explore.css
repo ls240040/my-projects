@@ -58,23 +58,25 @@
       margin-bottom: 0px; }
     .origin_container .container_about .container_about_right .p2, .purpose_container .container_about .container_about_right .p2, .design_container .container_about .container_about_right .p2 {
       display: none; }
-  .origin_container .container_title, .purpose_container .container_title, .design_container .container_title {
+  .origin_container .container_title, .purpose_container .container_title, .design_container .container_title.performance .container_title {
     height: 300px !important;
     margin-top: 10px; }
-  .design_container .container_about {
+  .design_container .container_about, .performance {
     font-style: normal !important; }
-    .design_container .container_about > p {
+    .design_container .container_about > p, .performance > p {
       font-size: 18px;
       padding: 0px 20px 0 !important; }
-    .design_container .container_about .container_title {
+    .design_container .container_about .container_title, .performance .container_title {
       background-image: url("../img/explore/design.jpg");
       background-size: cover;
       width: 100%;
       height: 300px !important; }
-    .design_container .container_about .left2_p, .design_container .container_about .right2_p {
+    .design_container .container_about .left2_p, .design_container .container_about .right2_p, .performance .left2_p, .performance .right2_p {
       font-size: 15px !important; }
-      .design_container .container_about .left2_p span, .design_container .container_about .right2_p span {
+      .design_container .container_about .left2_p span, .design_container .container_about .right2_p span, .performance .left2_p span, .performance .right2_p span {
         font-size: 18px !important; }
+  .design_container .container_title {
+    height: 300px !important; }
   .design_container .container_title .container_title_text .title_text_wrapper p, .design_container .container_title .container_title_text .title_text_wrapper h2 {
     width: 100% !important;
     padding: 0 10px; }
@@ -93,7 +95,57 @@
     .craftsmanship .container_about .container_about_right .container_about_right a .bg_color {
       width: 60% !important; }
     .craftsmanship .container_about .container_about_right .container_about_right p {
-      margin: 0 !important; } }
+      margin: 0 !important; }
+  .performance {
+    margin-top: 60px; }
+    .performance .container_about_top .text_box {
+      margin-top: 0px !important; }
+    .performance .container_about_top div {
+      margin-top: 20px !important;
+      width: 90% !important;
+      margin: auto; }
+      .performance .container_about_top div .text_box {
+        padding: 6% 16px !important;
+        padding: 0 10px; }
+        .performance .container_about_top div .text_box p {
+          width: 60%;
+          margin-left: 20% !important;
+          font-size: 18px;
+          padding: 10px 30px !important;
+          line-height: 24px;
+          text-transform: uppercase; }
+    .performance .container_about_left {
+      width: 100% !important;
+      padding: 0 30px;
+      font-size: 18px; }
+    .performance .container_about_right {
+      width: 90% !important;
+      margin-top: 20px !important;
+      flex-flow: column !important;
+      flex-wrap: wrap !important;
+      margin-top: 20px !important;
+      margin: auto !important; }
+      .performance .container_about_right .d9 .text_box {
+        padding: 10% 16px !important; }
+      .performance .container_about_right .d9 .text_box p {
+        width: 60% !important;
+        margin-left: 20% !important;
+        font-size: 18px;
+        padding: 10px 30px !important;
+        line-height: 24px; }
+      .performance .container_about_right .d9, .performance .container_about_right .d10 {
+        width: 100% !important;
+        margin-top: 20px;
+        margin-left: -5%; }
+      .performance .container_about_right .text_box {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 6% 16px !important; }
+        .performance .container_about_right .text_box p {
+          color: #fff;
+          text-transform: uppercase;
+          margin: 0 !important; } }
 
 * {
   margin: 0px;
@@ -427,61 +479,6 @@ header {
       .craftsmanship .container_about .container_about_right .container_about_right a:hover {
         background-color: rgba(0, 0, 0, 0); }
 
-.performance .container_about_top {
-  max-width: 930px;
-  display: flex;
-  flex-flow: row;
-  flex-wrap: wrap; }
-  .performance .container_about_top div {
-    width: 25%; }
-  .performance .container_about_top .text_box {
-    width: 100%;
-    text-align: center;
-    padding: 40% 16px;
-    line-height: 15px;
-    text-transform: capitalize; }
-    .performance .container_about_top .text_box p {
-      padding: 12px;
-      margin: 0;
-      color: #fff;
-      background: #000; }
-  .performance .container_about_top .d1 h2 {
-    font-size: 25px;
-    text-align: center;
-    text-transform: uppercase; }
-  .performance .container_about_top .d1 p {
-    font-size: 15px;
-    line-height: 18px;
-    margin: 0; }
-  .performance .container_about_top .d2 {
-    background-image: url("../img/explore/gore-guide.jpg");
-    background-size: cover;
-    background-position: center; }
-  .performance .container_about_top .d3 {
-    background-image: url("../img/explore/hardshell-softshell.jpg");
-    background-size: cover;
-    background-position: center; }
-  .performance .container_about_top .d4 {
-    background-image: url("../img/explore/footwear.jpg");
-    background-size: cover;
-    background-position: center; }
-  .performance .container_about_top .d5 {
-    background-image: url("../img/explore/ac2.jpg");
-    background-size: cover;
-    background-position: center; }
-  .performance .container_about_top .d6 {
-    background-image: url("../img/explore/harnesses.jpg");
-    background-size: cover;
-    background-position: center; }
-  .performance .container_about_top .d7 {
-    background-image: url("../img/explore/tridex-gloves.jpg");
-    background-size: cover;
-    background-position: center; }
-  .performance .container_about_top .d8 {
-    background-image: url("../img/explore/technical-down.jpg");
-    background-size: cover;
-    background-position: center; }
-
 .performance .container_title {
   background-image: url("../img/explore/Performance.jpg");
   background-size: cover;
@@ -510,45 +507,119 @@ header {
   margin: 80px auto;
   font-size: 15px;
   line-height: 21px; }
+  .performance .container_about .container_about_top {
+    max-width: 930px;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap; }
+    .performance .container_about .container_about_top div {
+      width: 25%; }
+    .performance .container_about .container_about_top div:not(:first-child) {
+      background-color: rgba(0, 0, 0, 0.2);
+      background-blend-mode: multiply;
+      transition: 0.3s ease; }
+    .performance .container_about .container_about_top div:not(:first-child):hover {
+      background-color: rgba(0, 0, 0, 0);
+      transition: 0.3s ease; }
+    .performance .container_about .container_about_top .text_box {
+      width: 100%;
+      text-align: center;
+      padding: 40% 16px;
+      line-height: 15px;
+      text-transform: capitalize; }
+      .performance .container_about .container_about_top .text_box p {
+        padding: 12px;
+        margin: 0;
+        color: #fff;
+        background: #000; }
+    .performance .container_about .container_about_top .d1 h2 {
+      font-size: 25px;
+      text-align: center;
+      text-transform: uppercase; }
+    .performance .container_about .container_about_top .d1 p {
+      font-size: 15px;
+      line-height: 18px;
+      margin: 0; }
+    .performance .container_about .container_about_top .d2 {
+      background-image: url("../img/explore/gore-guide.jpg");
+      background-size: cover;
+      background-position: center; }
+    .performance .container_about .container_about_top .d3 {
+      background-image: url("../img/explore/hardshell-softshell.jpg");
+      background-size: cover;
+      background-position: center; }
+    .performance .container_about .container_about_top .d4 {
+      background-image: url("../img/explore/footwear.jpg");
+      background-size: cover;
+      background-position: center; }
+    .performance .container_about .container_about_top .d5 {
+      background-image: url("../img/explore/ac2.jpg");
+      background-size: cover;
+      background-position: center; }
+    .performance .container_about .container_about_top .d6 {
+      background-image: url("../img/explore/harnesses.jpg");
+      background-size: cover;
+      background-position: center; }
+    .performance .container_about .container_about_top .d7 {
+      background-image: url("../img/explore/tridex-gloves.jpg");
+      background-size: cover;
+      background-position: center; }
+    .performance .container_about .container_about_top .d8 {
+      background-image: url("../img/explore/technical-down.jpg");
+      background-size: cover;
+      background-position: center; }
   .performance .container_about .container_about_left {
     float: left;
-    margin-right: 60px;
-    width: 46%; }
-    .performance .container_about .container_about_left .box {
-      height: 240px;
-      background-image: url("../img/explore/obsessive-design-video.jpg");
-      background-size: cover; }
-      .performance .container_about .container_about_left .box:before {
-        content: "";
-        display: table; }
-      .performance .container_about .container_about_left .box .playBtn {
-        margin: 20% auto; }
-    .performance .container_about .container_about_left .left2_p {
-      font-size: 13px;
-      text-align: center; }
-      .performance .container_about .container_about_left .left2_p span {
-        line-height: 40px;
-        font-size: 15px; }
+    width: 45%;
+    margin-top: 60px; }
+    .performance .container_about .container_about_left a {
+      color: #000; }
+    .performance .container_about .container_about_left p {
+      margin-bottom: 11px; }
   .performance .container_about .container_about_right {
-    margin-top: 40px;
-    width: 46%;
-    float: right; }
-    .performance .container_about .container_about_right span {
-      font-size: 15px; }
-    .performance .container_about .container_about_right .box {
-      height: 240px;
-      background-image: url("../img/explore/commit-vidoe.jpg");
-      background-size: cover; }
-      .performance .container_about .container_about_right .box:before {
-        content: "";
-        display: table; }
-      .performance .container_about .container_about_right .box .playBtn {
-        margin: 20% auto; }
-    .performance .container_about .container_about_right .right2_p {
-      font-size: 13px;
-      text-align: center; }
-      .performance .container_about .container_about_right .right2_p span {
-        line-height: 40px; }
+    margin-top: 60px;
+    width: 54%;
+    float: right;
+    display: flex;
+    flex-flow: row; }
+    .performance .container_about .container_about_right div {
+      width: 54%; }
+    .performance .container_about .container_about_right div {
+      background-color: rgba(0, 0, 0, 0.2);
+      background-blend-mode: multiply;
+      transition: 0.3s ease; }
+    .performance .container_about .container_about_right div:hover {
+      background-color: rgba(0, 0, 0, 0); }
+    .performance .container_about .container_about_right .text_box {
+      width: 100%;
+      height: auto; }
+    .performance .container_about .container_about_right .d9 {
+      background-image: url("../img/explore/blog.jpg");
+      background-size: cover;
+      background-position: center; }
+    .performance .container_about .container_about_right .d10 {
+      background-image: url("../img/explore/academy.jpg");
+      background-size: cover;
+      background-position: center; }
+    .performance .container_about .container_about_right .text_box {
+      position: relative;
+      width: 100%;
+      text-align: center;
+      padding: 30% 16px;
+      line-height: 15px;
+      text-transform: capitalize; }
+      .performance .container_about .container_about_right .text_box p {
+        padding: 12px;
+        margin: 0;
+        color: #fff;
+        text-transform: uppercase;
+        margin-top: 10%; }
+      .performance .container_about .container_about_right .text_box .p1 {
+        background: #000; }
+      .performance .container_about .container_about_right .text_box img {
+        border-radius: 50%;
+        height: 80px;
+        width: auto; }
 
 .my_footer {
   height: 750px;
