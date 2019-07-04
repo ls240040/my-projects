@@ -1,0 +1,57 @@
+@media screen and (max-width: 1920px) {
+  .vp-head-mainbar-pc .vp-head-logo {
+    max-width: 1200px; } }
+
+body, ul, li, ol, li, ul, dl, dt, dd, h1, h2, h3, h4, h5, h6, p {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+.vp-head-topbar-pc {
+  width: 100%;
+  height: 32px;
+  background: #333;
+  font-size: 12px; }
+  .vp-head-topbar-pc a {
+    transition: color 0.2s ease-in-out; }
+  .vp-head-topbar-pc a:hover {
+    color: #999; }
+  .vp-head-topbar-pc a, .vp-head-topbar-pc i {
+    color: #ccc; }
+  .vp-head-topbar-pc .vp-head-topbar-navs {
+    padding-left: 48px;
+    display: inline-block; }
+    .vp-head-topbar-pc .vp-head-topbar-navs li {
+      float: left;
+      line-height: 32px; }
+      .vp-head-topbar-pc .vp-head-topbar-navs li a {
+        text-decoration: none; }
+    .vp-head-topbar-pc .vp-head-topbar-navs li:not(:last-child) {
+      padding-right: 42px; }
+  .vp-head-topbar-pc .vp-head-top-user {
+    padding-right: 48px;
+    float: right;
+    line-height: 32px; }
+    .vp-head-topbar-pc .vp-head-top-user a {
+      text-decoration: none; }
+    .vp-head-topbar-pc .vp-head-top-user .vp-user-shopcart {
+      margin-right: 42px; }
+    .vp-head-topbar-pc .vp-head-top-user .vp-user-login-box {
+      display: inline-block; }
+      .vp-head-topbar-pc .vp-head-top-user .vp-user-login-box .vp-user-login {
+        margin-right: 18px; }
+      .vp-head-topbar-pc .vp-head-top-user .vp-user-login-box .vp-user-register {
+        margin-left: 18px; }
+
+.vp-head-mainbar-pc .vp-head-logo {
+  margin: auto;
+  transition: all 4s ease-in-out; }
+  .vp-head-mainbar-pc .vp-head-logo a svg {
+    width: 106px;
+    padding: 16px 0 23px; }
+  .vp-head-mainbar-pc .vp-head-logo a {
+    display: inline-block;
+    fill: #fff;
+    transition: all 4s ease-in-out; }
+  .vp-head-mainbar-pc .vp-head-logo a:hover path {
+    fill: #415fff; }

@@ -1,5 +1,39 @@
-@media (max-width: 767px) {
-
+@media (max-width: 991px) {
+  .top{
+    .nav_logo{
+      width: 60%;
+      .logo{width: 30%!important;height:auto;}
+      .menu{margin-top: 8%!important;width: 100px!important;}
+    }
+    .content_top{
+      .main_top{
+        position: relative;
+        .im1{width: 25%!important;display: block!important;}
+        .logo2{z-index: 100;width: 40%!important;left: 0!important;top:22%!important;display: block!important;}
+        .top_right{
+          margin-top: 35%;
+          width: 100%!important;
+          .im2{position: relative!important;top: 0;left: 0!important;width: 100%!important;}
+          p{bottom:45%!important;}
+        }
+      }
+      .text{
+        width: 100%!important;
+        p{width: 35% !important;line-height: 33px;}
+      }
+    }
+  }
+  .drop_section, .drop_section2{
+    padding: 150px!important;
+    a{ padding:0 60px!important;line-height: 50px!important;}
+  }
+  .sponsor{
+    .im1 img{width: 35%!important;display: block;margin: auto;}
+    .im2 img{width: 30%!important;padding: 0 7%!important;}
+    .im3 img{width: 20%!important;padding: 0 4%!important;}
+    .im4 img{width: 20%!important;padding: 0 6%!important;}
+    .im5 img{width: 20%!important;padding: 0 6%!important;}
+  }
 }
 body {
   margin: 0;
@@ -12,27 +46,25 @@ body {
     padding:1% 5%;
     width: 60%;
     float: right;
-    .logo{float: left;width: 138px;height: 65.36px;}
+    .logo{float: left;width: 15%;height:auto;}
     .menu{
       float: right;
       color: rgb(223,220,66);
       width: 240px;
       font-size: 16px;
-      line-height: 65.36px;
       text-align: right;
+      margin-top: 4%;
       img{vertical-align:0;}
     }
   }
   .content_top{
     .main_top{
     position: relative;
-    .im1{margin-top:14%;margin-left: 10%;}
-    .logo2{position: absolute;z-index: 100;width: 400px;left: 34%;top:20%;}
+    .im1{margin-top:14%;margin-left: 10%;width: 15%;}
+    .logo2{position: absolute;z-index: 100;width: 20%;left: 34%;top:20%;}
     .top_right{
-      width: 60%!important;
-      //height: 866px;
+      width: 60%;
       float: right!important;
-      //overflow: hidden;
       position: relative;
       .im2{position: relative;top: 0;right: 0;width: 100%;}
       p{position: absolute;z-index: 1000;color:rgb(227,229,31);font-size: 30px;font-weight: 700;left: 30px;bottom:30px;}
@@ -40,17 +72,68 @@ body {
   }
     .text{
       float: right;
-      width: 40%;
+      width: 60%;
       text-align: center;
       padding: 10% 0;
-      p{width: 32%;margin: auto;color:rgb(227,229,31);font-size: 18px;}
+      p{width: 23%;margin: auto;color:rgb(227,229,31);font-size: 18px;}
     }
   }
 }
 
 //drop_section
-.drop_section{
-  background: url(../img/activity/background_img.jpg) no-repeat center;
-  a{display: inline-block;line-height: 40px;padding: 0 60px;}
+.drop_section{background: url(../img/activity/background_img.jpg) no-repeat center;background-attachment: fixed;}
+.drop_section2{background: url(../img/activity/372.0bd.180720_Squamish_Kenchenten_01029.jpg) no-repeat center;}
+.drop_section,.drop_section2{
+  background-size: cover;
+  padding: 300px;
+  div{
+    text-align: center;
+    a{display: inline-block;line-height: 40px;padding: 0 60px;background-color: rgb(91, 97, 63);color:rgb(227,229,31)!important;text-align: center!important;}
+    a:hover{
+      background-color: rgb(227,229,31);color:rgb(91, 97, 63)!important;cursor: pointer;
+    }
+
+  }
+}
+
+//contact
+.contact{
+  text-align: center;
+  font-size: 16px;
+  p:first-child{
+    width: 100%;
+    padding: 5%!important;
+    padding-bottom: 10%!important;
+    background-color: #fff;
+    font-size: 24px;
+  }
+  h3{padding-bottom: 15px;}
+  .email{
+    width:600px;
+    margin: auto;
+
+    a{text-decoration: none;color:#000;}
+  }
+  .team{
+    line-height: 50px;
+    padding-bottom: 2%;
+  }
+  img{padding: 15px 15px 5% 15px;}
+}
+
+//sponsor
+.sponsor{
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding-top: 5%;
+  p:first-child{padding-top: 0px;}
+  p{width: 100%;padding-bottom: 15px;padding-top: 25px;}
+  img{cursor: pointer;}
+  .im1 img{width: 7%;padding: 0 3%;box-sizing: initial;}
+  .im2 img{width: 6%;padding: 0 1%;box-sizing: initial;}
+  .im3 img{width: 5%;padding: 0 1%;box-sizing: initial;}
+  .im4 img{width: 4%;padding: 0 1%;box-sizing: initial;}
+  .im5 img{width: 4%;padding: 0 1%;box-sizing: initial;}
 }
 

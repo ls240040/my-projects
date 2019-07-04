@@ -1,3 +1,60 @@
+@media (max-width: 991px) {
+  .top .nav_logo {
+    width: 60%; }
+    .top .nav_logo .logo {
+      width: 30% !important;
+      height: auto; }
+    .top .nav_logo .menu {
+      margin-top: 8% !important;
+      width: 100px !important; }
+  .top .content_top .main_top {
+    position: relative; }
+    .top .content_top .main_top .im1 {
+      width: 25% !important;
+      display: block !important; }
+    .top .content_top .main_top .logo2 {
+      z-index: 100;
+      width: 40% !important;
+      left: 0 !important;
+      top: 22% !important;
+      display: block !important; }
+    .top .content_top .main_top .top_right {
+      margin-top: 35%;
+      width: 100% !important; }
+      .top .content_top .main_top .top_right .im2 {
+        position: relative !important;
+        top: 0;
+        left: 0 !important;
+        width: 100% !important; }
+      .top .content_top .main_top .top_right p {
+        bottom: 45% !important; }
+  .top .content_top .text {
+    width: 100% !important; }
+    .top .content_top .text p {
+      width: 35% !important;
+      line-height: 33px; }
+  .drop_section, .drop_section2 {
+    padding: 150px !important; }
+    .drop_section a, .drop_section2 a {
+      padding: 0 60px !important;
+      line-height: 50px !important; }
+  .sponsor .im1 img {
+    width: 35% !important;
+    display: block;
+    margin: auto; }
+  .sponsor .im2 img {
+    width: 30% !important;
+    padding: 0 7% !important; }
+  .sponsor .im3 img {
+    width: 20% !important;
+    padding: 0 4% !important; }
+  .sponsor .im4 img {
+    width: 20% !important;
+    padding: 0 6% !important; }
+  .sponsor .im5 img {
+    width: 20% !important;
+    padding: 0 6% !important; } }
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; }
@@ -10,30 +67,31 @@ body {
     float: right; }
     .top .nav_logo .logo {
       float: left;
-      width: 138px;
-      height: 65.36px; }
+      width: 15%;
+      height: auto; }
     .top .nav_logo .menu {
       float: right;
       color: #dfdc42;
       width: 240px;
       font-size: 16px;
-      line-height: 65.36px;
-      text-align: right; }
+      text-align: right;
+      margin-top: 4%; }
       .top .nav_logo .menu img {
         vertical-align: 0; }
   .top .content_top .main_top {
     position: relative; }
     .top .content_top .main_top .im1 {
       margin-top: 14%;
-      margin-left: 10%; }
+      margin-left: 10%;
+      width: 15%; }
     .top .content_top .main_top .logo2 {
       position: absolute;
       z-index: 100;
-      width: 400px;
+      width: 20%;
       left: 34%;
       top: 20%; }
     .top .content_top .main_top .top_right {
-      width: 60% !important;
+      width: 60%;
       float: right !important;
       position: relative; }
       .top .content_top .main_top .top_right .im2 {
@@ -51,18 +109,92 @@ body {
         bottom: 30px; }
   .top .content_top .text {
     float: right;
-    width: 40%;
+    width: 60%;
     text-align: center;
     padding: 10% 0; }
     .top .content_top .text p {
-      width: 32%;
+      width: 23%;
       margin: auto;
       color: #e3e51f;
       font-size: 18px; }
 
 .drop_section {
-  background: url(../img/activity/background_img.jpg) no-repeat center; }
-  .drop_section a {
-    display: inline-block;
-    line-height: 40px;
-    padding: 0 60px; }
+  background: url(../img/activity/background_img.jpg) no-repeat center;
+  background-attachment: fixed; }
+
+.drop_section2 {
+  background: url(../img/activity/372.0bd.180720_Squamish_Kenchenten_01029.jpg) no-repeat center; }
+
+.drop_section, .drop_section2 {
+  background-size: cover;
+  padding: 300px; }
+  .drop_section div, .drop_section2 div {
+    text-align: center; }
+    .drop_section div a, .drop_section2 div a {
+      display: inline-block;
+      line-height: 40px;
+      padding: 0 60px;
+      background-color: #5b613f;
+      color: #e3e51f !important;
+      text-align: center !important; }
+    .drop_section div a:hover, .drop_section2 div a:hover {
+      background-color: #e3e51f;
+      color: #5b613f !important;
+      cursor: pointer; }
+
+.contact {
+  text-align: center;
+  font-size: 16px; }
+  .contact p:first-child {
+    width: 100%;
+    padding: 5% !important;
+    padding-bottom: 10% !important;
+    background-color: #fff;
+    font-size: 24px; }
+  .contact h3 {
+    padding-bottom: 15px; }
+  .contact .email {
+    width: 600px;
+    margin: auto; }
+    .contact .email a {
+      text-decoration: none;
+      color: #000; }
+  .contact .team {
+    line-height: 50px;
+    padding-bottom: 2%; }
+  .contact img {
+    padding: 15px 15px 5% 15px; }
+
+.sponsor {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding-top: 5%; }
+  .sponsor p:first-child {
+    padding-top: 0px; }
+  .sponsor p {
+    width: 100%;
+    padding-bottom: 15px;
+    padding-top: 25px; }
+  .sponsor img {
+    cursor: pointer; }
+  .sponsor .im1 img {
+    width: 7%;
+    padding: 0 3%;
+    box-sizing: initial; }
+  .sponsor .im2 img {
+    width: 6%;
+    padding: 0 1%;
+    box-sizing: initial; }
+  .sponsor .im3 img {
+    width: 5%;
+    padding: 0 1%;
+    box-sizing: initial; }
+  .sponsor .im4 img {
+    width: 4%;
+    padding: 0 1%;
+    box-sizing: initial; }
+  .sponsor .im5 img {
+    width: 4%;
+    padding: 0 1%;
+    box-sizing: initial; }

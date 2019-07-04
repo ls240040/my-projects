@@ -1,0 +1,52 @@
+.top_content {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: #000; }
+  .top_content img {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 22;
+    top: 50%;
+    left: 50%;
+    width: 320px;
+    height: 160px; }
+  .top_content .video_background {
+    position: absolute;
+    z-index: 2;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0; }
+    .top_content .video_background video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 0 40%;
+      transform: scale(1.01);
+      max-width: 100%; }
+
+.fade-hide {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 62.5%;
+  background: url("../img/location/1.jpg") no-repeat center;
+  transform: scale(1.005);
+  background-size: cover;
+  z-index: 1; }
+  .fade-hide .overlay {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    z-index: 3;
+    bottom: 0;
+    transform: translateY(0);
+    transition: 700ms all cubic-bezier(0.49, 0.31, 0.27, 0.84); }
+    .fade-hide .overlay .content-container {
+      background: rgba(0, 151, 193, 0.9);
+      padding: 45px 0;
+      text-align: center;
+      font-size: 18px;
+      color: #fff; }
