@@ -1,3 +1,39 @@
+@media (max-width: 900px) {
+  .top_content {
+    height: 50vh !important; }
+  .jumpnav {
+    height: 100vh !important;
+    background-color: rgba(0, 0, 0, 0.2) !important;
+    background-blend-mode: multiply; }
+    .jumpnav .content-container .hero_content {
+      bottom: -40vw !important;
+      font-size: 16px !important;
+      padding: 0 20px; }
+    .jumpnav .nav_container {
+      margin: 50% 4% 0 !important; }
+      .jumpnav .nav_container p {
+        font-size: 24px !important;
+        margin-bottom: 20px !important; }
+      .jumpnav .nav_container .photo_box {
+        width: 45% !important;
+        height: 17vh !important;
+        border: 4px solid #fff !important;
+        box-shadow: 1px 0px 10px 0px;
+        font-size: 18px !important;
+        margin-right: 2% !important;
+        margin-bottom: 10px; }
+      .jumpnav .nav_container .photo_box:last-child {
+        margin-right: 0px; }
+  .intr_Nina {
+    height: 40vh !important; }
+  #mouse_over {
+    height: 50vh !important; }
+  .overlay .content-container {
+    padding: 20px 20px !important;
+    text-align: center;
+    font-size: 16px !important;
+    color: #fff; } }
+
 .top_content {
   height: 100vh;
   position: relative;
@@ -29,24 +65,196 @@
 
 .fade-hide {
   position: relative;
-  width: 100%;
+  width: 100vw;
   overflow: hidden;
   padding-top: 62.5%;
   background: url("../img/location/1.jpg") no-repeat center;
   transform: scale(1.005);
-  background-size: cover;
-  z-index: 1; }
+  background-size: 100%;
+  z-index: 1;
+  transition: 2s ease-in-out; }
   .fade-hide .overlay {
     position: absolute;
     width: 100%;
     left: 0;
     z-index: 3;
     bottom: 0;
-    transform: translateY(0);
-    transition: 700ms all cubic-bezier(0.49, 0.31, 0.27, 0.84); }
+    transform: translateY(100%);
+    transition: 700ms all cubic-bezier(0.49, 0.31, 0.27, 0.84) 500ms; }
     .fade-hide .overlay .content-container {
       background: rgba(0, 151, 193, 0.9);
       padding: 45px 0;
       text-align: center;
       font-size: 18px;
       color: #fff; }
+
+.fade-hide:hover {
+  background-size: 110%; }
+  .fade-hide:hover .overlay {
+    transform: translateY(0); }
+
+.pic {
+  padding-top: 37%;
+  background: url(../img/location/2.jpg) no-repeat center;
+  background-size: cover; }
+
+.intr_Nina {
+  overflow: hidden;
+  width: 100%;
+  height: 70vh; }
+  .intr_Nina div {
+    width: 50%;
+    height: 100%;
+    float: left; }
+  .intr_Nina .pic_text {
+    position: relative;
+    background: url(../img/location/3.jpg) no-repeat center;
+    background-size: cover; }
+    .intr_Nina .pic_text .content-container {
+      opacity: 0;
+      background-color: rgba(34, 78, 67, 0.9);
+      transition: 700ms all cubic-bezier(0.49, 0.31, 0.27, 0.84);
+      height: 100%;
+      position: absolute;
+      width: 100%;
+      color: #fff;
+      font-size: 18px;
+      text-align: center; }
+      .intr_Nina .pic_text .content-container .inner {
+        position: absolute;
+        width: 100%;
+        height: auto;
+        top: 50%;
+        margin-top: -70px; }
+    .intr_Nina .pic_text:hover .content-container {
+      opacity: 1; }
+  .intr_Nina .photo {
+    background: url(../img/location/4.png) no-repeat center;
+    transform: scale(1.005);
+    background-size: cover;
+    transition: 700ms all cubic-bezier(0.49, 0.31, 0.27, 0.84); }
+    .intr_Nina .photo:hover {
+      background: url(../img/location/5.jpg) no-repeat center;
+      background-size: cover; }
+
+.fade-hide2 {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 62.5%;
+  background: url("../img/location/4.jpg") no-repeat center;
+  transform: scale(1.005);
+  background-size: cover;
+  z-index: 1;
+  transition: 2s ease-in-out; }
+  .fade-hide2 .overlay {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    z-index: 3;
+    bottom: 0;
+    transform: translateY(100%);
+    transition: 700ms all cubic-bezier(0.49, 0.31, 0.27, 0.84) 500ms; }
+    .fade-hide2 .overlay .content-container {
+      background: rgba(0, 151, 193, 0.9);
+      padding: 45px 0;
+      text-align: center;
+      font-size: 18px;
+      color: #fff; }
+
+.fade-hide2:hover {
+  background: url("../img/location/6.jpg") no-repeat center;
+  background-size: cover; }
+  .fade-hide2:hover .overlay {
+    transform: translateY(0); }
+
+.jumpnav {
+  position: relative;
+  height: 200vh;
+  background: url("../img/location/fixed.jpg") no-repeat;
+  background-size: cover; }
+  .jumpnav:before {
+    content: "";
+    display: table; }
+  .jumpnav .content-container {
+    position: relative;
+    margin-top: 5vw;
+    left: 5%;
+    width: 90%;
+    height: 42.85714vw;
+    background: url("../img/location/8.jpg") no-repeat center;
+    background-size: contain;
+    text-align: center; }
+    .jumpnav .content-container .hero_content {
+      color: #fff;
+      position: absolute;
+      bottom: 3vw;
+      left: 6%;
+      right: 6%;
+      font-size: 18px;
+      line-height: 24px; }
+  .jumpnav .nav_container {
+    width: 100%;
+    margin: 13vw 5.5% 0; }
+    .jumpnav .nav_container .story {
+      font-size: 30px;
+      margin-bottom: 10vh;
+      text-align: center; }
+    .jumpnav .nav_container .photo_box {
+      width: 20%;
+      float: left;
+      text-align: center;
+      background-color: #002752;
+      margin-right: 3%;
+      height: 15vw;
+      border: 5px solid #fff;
+      box-shadow: 1px 0px 10px 0px;
+      font-size: 24px; }
+    .jumpnav .nav_container .photo_box:last-child {
+      margin-right: 0px; }
+    .jumpnav .nav_container p {
+      color: #fff; }
+    .jumpnav .nav_container .photo1 {
+      background: url("../img/location/9.jpg") no-repeat center;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.3);
+      background-blend-mode: multiply; }
+      .jumpnav .nav_container .photo1:hover {
+        background-color: rgba(0, 0, 0, 0);
+        transition: 700ms ease-in-out; }
+    .jumpnav .nav_container .photo2 {
+      background: url("../img/location/10.jpg") no-repeat center;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.3);
+      background-blend-mode: multiply; }
+      .jumpnav .nav_container .photo2:hover {
+        background-color: rgba(0, 0, 0, 0);
+        transition: 700ms ease-in-out; }
+    .jumpnav .nav_container .photo3 {
+      background: url("../img/location/11.jpg") no-repeat center;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.3);
+      background-blend-mode: multiply; }
+      .jumpnav .nav_container .photo3:hover {
+        background-color: rgba(0, 0, 0, 0);
+        transition: 700ms ease-in-out; }
+    .jumpnav .nav_container .photo4 {
+      background: url("../img/location/12.jpg") no-repeat center;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.3);
+      background-blend-mode: multiply; }
+      .jumpnav .nav_container .photo4:hover {
+        background-color: rgba(0, 0, 0, 0);
+        transition: 700ms ease-in-out; }

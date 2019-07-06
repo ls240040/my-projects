@@ -31,4 +31,65 @@
             </div>
         </div>
     </div>
+<div class="pic"></div>
+<!--人物介绍Nina Caprez-->
+<div class="intr_Nina">
+    <div class="pic_text">
+        <div class="content-container">
+            <div class="inner">
+                <p>Paolo Marrazzi</p>
+                <br/>
+                <p class="details">“Perché anche se mia mamma mi dice sepre di pettinarmi i capelli io non la ascolto mai.”</p>
+                只有一个Paolo Marrazzi。
+            </div>
+        </div>
+    </div>
+    <div class="photo"></div>
+</div>
+<!--fade-hide2-->
+<div class="fade-hide2">
+    <div class="overlay">
+        <div class="content-container">
+            <div class="content-copy">
+                阿尔卑斯山考验了我们的能力和胆量。走出电车，我们踏上了冰雪岩石的悬崖：4000米高度、狂风、变幻莫测的天气和决心。不进则退，没有回旋的余地。
+            </div>
+        </div>
+    </div>
+</div>
+<!--mouse_over-->
+<div id="mouse_over" class="position-relative">
+    <img src="../img/location/7.jpg" alt=""/>
+</div>
+<!--jumpnav-->
+<div class="jumpnav">
+    <div class="content-container">
+        <div class="hero_content">
+            这个背景的意义何在？在这种情况下，我们希望把实地考察变成冒险的一部分。在艰难的技术路线上携带大量物品使我们不能轻视周围巨大的空间，​​渺小的个人需集中所有精力来完成目标。我们为引人注目的岩石美景所吸引，我们与数百名在山下及周围的攀岩者一起分享。
+        </div>
+    </div>
+    <div class="nav_container">
+        <p class="story">故事：</p>
+        <div class="photo_box photo1">
+            <p>徒步</p>
+        </div>
+        <div class="photo_box photo2">
+            <p>休闲</p>
+        </div>
+        <div class="photo_box photo3">
+            <p>攀岩</p>
+        </div>
+        <div class="photo_box photo4">
+            <p>跑步</p>
+        </div>
+    </div>
+</div>
+<!--script-->
+<script type="text/javascript">
+    document.onmousemove = function (e) {
+        e = e||window.event;
+        var x = 0-e.clientX/document.body.offsetWidth;
+//        var y = 0-e.clientY/document.body.offsetHeight;
+        document.getElementById("mouse_over").style.transform = "translate("+x*820+"px)";
+    };
+</script>
 </body>
