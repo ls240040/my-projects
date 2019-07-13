@@ -1,0 +1,147 @@
+body {
+  background-color: #e4e4e4; }
+
+body, button, input, select, textarea {
+  font: 12px/1.5 Helvetica Neue,Helvetica,Arial,Microsoft Yahei,Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif; }
+
+ul {
+  padding: 0; }
+  ul li {
+    list-style: none; }
+
+.header {
+  width: 100%;
+  background: #fff;
+  padding-top: 20px; }
+  .header .header_nav {
+    width: 1200px;
+    margin: auto; }
+    .header .header_nav p {
+      font-size: 22px;
+      line-height: 36px;
+      margin: 22px 0 16px 26px; }
+    .header .header_nav p, .header .header_nav img {
+      float: left; }
+    .header .header_nav .card-text {
+      margin: 15px 0 16px 26px;
+      float: right;
+      background: url(../img/cart/sprites6.806df78.svg) no-repeat;
+      background-position: -42px -22px;
+      width: 320px;
+      height: 50px; }
+
+.layout {
+  margin-top: 20px !important;
+  width: 1200px;
+  margin: auto; }
+  .layout .sc-list .sc-pro-title {
+    background-color: #fff;
+    color: #a4a4a4;
+    font-size: 12px;
+    line-height: 40px;
+    padding-left: 40px; }
+    .layout .sc-list .sc-pro-title .checkbox {
+      float: left;
+      width: 150px; }
+      .layout .sc-list .sc-pro-title .checkbox .pro_im {
+        height: 200px; }
+      .layout .sc-list .sc-pro-title .checkbox input {
+        border: 0 none;
+        position: relative;
+        width: 14px;
+        height: 14px;
+        vertical-align: text-bottom;
+        margin-right: 15px; }
+      .layout .sc-list .sc-pro-title .checkbox input[type="checkbox"]:before {
+        content: "";
+        position: absolute;
+        background: url(../img/cart/icon-header.c4189e7.png) no-repeat;
+        border: 0 none;
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        background-position: -18px -129px;
+        cursor: default;
+        font-size: 0; }
+      .layout .sc-list .sc-pro-title .checkbox input[type="checkbox"]:checked:before {
+        content: "";
+        position: absolute;
+        background: url(../img/cart/icon-header.c4189e7.png) no-repeat;
+        border: 0 none;
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        background-position: 0 -129px;
+        cursor: default;
+        font-size: 0; }
+    .layout .sc-list .sc-pro-title ul li {
+      float: left;
+      width: 100px;
+      margin-left: 30px;
+      text-align: center; }
+    .layout .sc-list .sc-pro-title ul li:first-child {
+      width: 450px;
+      text-align: left; }
+    .layout .sc-list .sc-pro-title ul li:nth-child(3) {
+      height: 40px;
+      vertical-align: middle; }
+      .layout .sc-list .sc-pro-title ul li:nth-child(3) .count_box {
+        margin-left: 8px;
+        margin-top: 11px; }
+      .layout .sc-list .sc-pro-title ul li:nth-child(3) .minus {
+        line-height: 16px !important; }
+      .layout .sc-list .sc-pro-title ul li:nth-child(3) .minus, .layout .sc-list .sc-pro-title ul li:nth-child(3) .plus {
+        float: left;
+        border: 1px solid #d6d6d6;
+        width: 21px;
+        height: 20px;
+        line-height: 19px;
+        font-size: 16px;
+        text-align: center; }
+      .layout .sc-list .sc-pro-title ul li:nth-child(3) input {
+        float: left;
+        width: 42px;
+        height: 20px;
+        left: 22px;
+        text-align: center;
+        border: 1px solid #d6d6d6;
+        border-left: none;
+        border-right: none;
+        z-index: 1; }
+    .layout .sc-list .sc-pro-title ul .p-price-total {
+      color: #ca141d;
+      font-weight: 700; }
+    .layout .sc-list .sc-pro-title .total-price {
+      width: 32%;
+      float: right; }
+    .layout .sc-list .sc-pro-title .sc-total-price {
+      padding-right: 10px;
+      margin-top: 7px;
+      text-align: right; }
+      .layout .sc-list .sc-pro-title .sc-total-price em {
+        font-style: normal; }
+      .layout .sc-list .sc-pro-title .sc-total-price p, .layout .sc-list .sc-pro-title .sc-total-price label {
+        margin: 0; }
+      .layout .sc-list .sc-pro-title .sc-total-price label {
+        font-size: 14px; }
+      .layout .sc-list .sc-pro-title .sc-total-price .total {
+        line-height: 27px;
+        color: #ca151e;
+        font-size: 18px;
+        font-weight: 700; }
+      .layout .sc-list .sc-pro-title .sc-total-price .total-choose {
+        line-height: 18px; }
+        .layout .sc-list .sc-pro-title .sc-total-price .total-choose em {
+          color: #ca151e;
+          font-weight: 700;
+          font-style: italic;
+          padding: 0 5px; }
+    .layout .sc-list .sc-pro-title .sc-total-btn {
+      font-size: 18px;
+      color: #fff;
+      text-align: center;
+      line-height: 60px;
+      width: 180px;
+      height: 60px;
+      background-color: #ca151e;
+      margin-top: 5px; }
