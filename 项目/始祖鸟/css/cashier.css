@@ -1,0 +1,141 @@
+body {
+  font-size: 12px; }
+
+.header {
+  width: 100%;
+  background: #fff;
+  padding-top: 20px;
+  padding-bottom: 20px; }
+  .header .header_nav {
+    width: 1200px;
+    margin: auto; }
+    .header .header_nav p {
+      font-size: 18px;
+      line-height: 18px;
+      margin: 30px 0 16px 26px;
+      border-left: 1px solid #ccc;
+      padding-left: 20px; }
+    .header .header_nav p, .header .header_nav img {
+      float: left; }
+
+.order-info {
+  padding: 30px 20px;
+  border-top: 3px solid #63aa56;
+  width: 1200px;
+  margin: auto; }
+  .order-info .logo {
+    float: left;
+    margin-right: 20px; }
+  .order-info .orderWords01 {
+    line-height: 26px;
+    float: right;
+    width: 1050px; }
+    .order-info .orderWords01 .left {
+      float: left; }
+      .order-info .orderWords01 .left span {
+        font-weight: 600;
+        font-size: 12px; }
+        .order-info .orderWords01 .left span:last-child {
+          color: #da3232; }
+    .order-info .orderWords01 .right {
+      float: right; }
+      .order-info .orderWords01 .right .payNum span:first-child {
+        font-size: 12px; }
+      .order-info .orderWords01 .right .payNum span:last-child {
+        font-size: 24px;
+        color: #DA3232;
+        margin-right: 6px;
+        font-weight: 700; }
+    .order-info .orderWords01 h4 {
+      margin-bottom: 0;
+      margin-right: 20px;
+      float: left;
+      font-size: 18px;
+      line-height: 26px;
+      color: #53A724; }
+  .order-info .right-txt {
+    float: left; }
+  .order-info .orderInfo_show {
+    float: right; }
+  .order-info .orderWords02 {
+    line-height: 26px; }
+
+.cashier_order_area {
+  position: relative;
+  width: 1200px;
+  margin: auto;
+  margin-top: 80px; }
+  .cashier_order_area ul {
+    margin: 0;
+    padding: 0; }
+    .cashier_order_area ul li {
+      list-style: none;
+      float: left; }
+      .cashier_order_area ul li img {
+        width: auto;
+        height: 30px;
+        margin: 5px 0; }
+  .cashier_order_area .order-nav {
+    border-bottom: 1px solid #ccc; }
+    .cashier_order_area .order-nav .active-nav {
+      border-left: 1px solid #CCCCCC;
+      border-bottom: transparent;
+      background: #fff; }
+    .cashier_order_area .order-nav li {
+      margin-bottom: -2px;
+      border: 1px solid #CCCCCC;
+      border-left: transparent;
+      width: 168px;
+      padding: 10px 0;
+      text-align: center;
+      margin-right: 0;
+      font-size: 14px;
+      color: #000000;
+      background: #F2F2F2; }
+  .cashier_order_area .tab-content {
+    position: relative;
+    border: 1px solid #CCCCCC;
+    border-top: none;
+    padding: 37px 50px 37px 60px;
+    overflow: inherit; }
+    .cashier_order_area .tab-content .hide {
+      display: none; }
+    .cashier_order_area .tab-content ul {
+      width: 100%; }
+      .cashier_order_area .tab-content ul li {
+        position: relative;
+        margin-right: 10px;
+        margin-bottom: 16px;
+        width: 256px;
+        cursor: pointer; }
+        .cashier_order_area .tab-content ul li div {
+          text-align: center;
+          line-height: 50px;
+          border: 1px solid #ccc; }
+        .cashier_order_area .tab-content ul li .act-line {
+          text-align: left !important;
+          line-height: 22px;
+          color: #DA3232;
+          height: 24px; }
+        .cashier_order_area .tab-content ul li .unshow {
+          opacity: 0; }
+        .cashier_order_area .tab-content ul li .selected {
+          border: 1px solid #DA3232; }
+        .cashier_order_area .tab-content ul li i {
+          position: absolute;
+          width: 28px;
+          height: 24px;
+          bottom: 0;
+          right: -1px;
+          background: url(../img/cart/select_icon.png) no-repeat 0;
+          z-index: 10; }
+  .cashier_order_area .pay-button {
+    width: 200px;
+    background: #DA3232;
+    line-height: 50px;
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    margin-top: 20px;
+    right: 0; }

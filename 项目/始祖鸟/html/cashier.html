@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title></title>
+    <!-- 引入4个文件必须注意导入顺序-->
+    <link rel="stylesheet" href="../css/bootstrap.css"/>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/cashier.css"/>
+</head>
+<body>
+<!--header-->
+<div class="header">
+    <div class="header_nav clearfix">
+        <img src="../img/cart/logo.jpg" alt="logo"/>
+        <p>收银台</p>
+    </div>
+</div>
+<!--order-info-->
+<div class="order-info clearfix">
+    <img class="logo" src="../img/cart/success_icon.png" alt="logo"/>
+    <div class="right-txt">
+        <div class="orderWords01 clearfix">
+            <div class="left">
+                <h4 class="d-inline-block">订单提交成功，只差付款了~</h4>
+                <span>订单号：</span>
+                <span>11620214273</span>
+            </div>
+            <div class="right">
+                <div class="payNum">
+                    <span>订单金额：</span>
+                    <span>¥9600.00</span>
+                </div>
+            </div>
+        </div>
+        <div class="orderWords02 clearfix">
+            <span>请您在</span>
+            <em style="color: #da3232;font-weight: 700;font-style: normal">15分30秒</em>
+            <span>内完成支付，否则本次支付将自动取消。</span>
+            <div class="orderInfo_show">
+                <span>订单详情</span>
+                <img src="../img/cart/down%20arrow_icon.png" alt=""/>
+                <img class="d-none" src="../img/cart/arrow_icon.png" alt=""/>
+            </div>
+            <p class="m-0" style="color: #da3232;">
+                订单含付款减库存商品，支付完成才会为您预留库存，库存不足时系统将自动取消未支付的订单。
+            </p>
+            <p class="m-0" style="color: #da3232;">
+                今天23:59前付款，预计7月16日（周二）送达（受付款完成时间等因素可能发生变化）
+            </p>
+        </div>
+
+        <div class="d-none">
+            <ul>
+                <li show=""><span name="msg_sendNomber">订单编号：</span>
+                    <span style="color: #da3232;">11620214273</span>
+                </li>
+                <li>
+                    <span style="color: #da3232;">今天23:59前付款，预计7月16日（周二）送达（受付款完成时间等因素可能发生变化）</span>
+                </li>
+                <li show="">
+                    <span name="msg_takeInf">收货信息：</span>
+                    <span>梁*</span>
+                    <span>187****4658</span>
+                </li>
+                <li show="">
+                    <span name="msg_goodsName">商品名称：</span>
+                    <span>荣耀平板5 10.1英寸 4GB+64GB WIFI高配版（冰川蓝）,荣耀手表梦幻系列（珊瑚粉）,H...</span>
+                </li>
+                <li show="">
+                    <span name="msg_billInf">发票信息：</span>
+                    <span>电子普通发票</span><span>个人</span>
+                </li>
+                <li show="">
+                    <span name="msg_buyTime">购买时间：</span>
+                    <span>2019-07-14 11:28</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--cashier_order_area-->
+<div class="cashier_order_area clearfix">
+    <ul class="order-nav clearfix">
+        <li class="active-nav">常用</li>
+        <li>平台支付</li>
+        <li>分期支付</li>
+        <li>网银支付</li>
+    </ul>
+    <div class="tab-content clearfix">
+        <ul class="clearfix">
+            <li>
+                <span class="act-line" style="color: #fff;background: #DA3232;padding: 4px 8px;">推荐</span>
+                <div class="selected"><img src="../img/cart/WXPAY.png" alt=""/></div>
+                <i></i>
+            </li>
+            <li>
+                <span class="act-line unshow">推荐</span>
+                <div><img src="../img/cart/ALIPAY.png" alt=""/></div>
+            </li>
+            <li>
+                <span class="act-line unshow">推荐</span>
+                <div><img src="../img/cart/HUABEI.png" alt=""/></div>
+            </li>
+            <li>
+                <span class="act-line unshow">推荐</span>
+                <div><img src="../img/cart/HUAWEIPAY.png" alt=""/></div>
+            </li>
+            <li>
+                <span class="act-line">需安装掌上生活客户端</span>
+                <div><img src="../img/cart/CMBLIFE.png" alt=""/></div>
+            </li>
+        </ul>
+        <ul class="clearfix hide">
+            <li><div><img src="../img/cart/ALIPAY.png" alt=""/></div></li>
+            <li><div><img src="../img/cart/WXPAY.png" alt=""/></div></li>
+            <li><div><img src="../img/cart/HUAWEIPAY.png" alt=""/></div></li>
+            <li><div><img src="../img/cart/UNIONPAY.png" alt=""/></div></li>
+        </ul>
+        <ul class="hide clearfix">
+            <li><div><img src="../img/cart/HUABEI.png" alt=""/></div></li>
+            <li><div><img src="../img/cart/CMBLIFE.png" alt=""/></div></li>
+            <li><div><img src="../img/cart/ICBC.png" alt=""/></div></li>
+        </ul>
+        <ul class="hide clearfix">
+            <li><div><img src="../img/cart/ICBC.png" alt=""/></div></li>
+            <li><div><img src="../img/cart/CCB.png" alt=""/></div></li>
+            <li><div><img src="../img/cart/BCM.png" alt=""/></div></li>
+            <li><div><img src="../img/cart/ABC.png" alt=""/></div></li>
+        </ul>
+    </div>
+    <div class="pay-button" style="cursor: pointer">
+        确认支付
+    </div>
+</div>
+</body>
+</html>

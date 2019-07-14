@@ -1,0 +1,143 @@
+$my_width:1200px;
+body{font-size: 12px;}
+//header
+.header{
+  width: 100%;
+  background: #fff;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  .header_nav{
+    width:$my_width ;
+    margin: auto;
+    p{
+      font-size: 18px;
+      line-height: 18px;
+      margin:30px 0 16px 26px ;
+      border-left: 1px solid #ccc;
+      padding-left: 20px;
+    }
+    p,img{float: left}
+  }
+}
+//order-info
+.order-info{
+  padding:30px 20px;
+  border-top: 3px solid #63aa56;
+  width: $my_width;
+  margin: auto;
+  .logo{float: left;margin-right: 20px;}
+  .orderWords01{
+    line-height: 26px;
+    float: right;
+    width: 1050px;
+    .left{
+      float: left;
+      span{
+        font-weight: 600;
+        font-size: 12px;
+        &:last-child{color: #da3232;}
+      }
+    }
+    .right{
+      float: right;
+      .payNum{
+        span:first-child{font-size: 12px;}
+        span:last-child{
+          font-size: 24px;
+          color: #DA3232;
+          margin-right: 6px;
+          font-weight: 700;
+        }
+      }
+    }
+    h4{
+      margin-bottom: 0;
+      margin-right: 20px;
+      float: left;
+      font-size: 18px;
+      line-height: 26px;
+      color: #53A724;}
+  }
+  .right-txt{float: left}
+  .orderInfo_show{float: right;}
+  .orderWords02{line-height: 26px;}
+}
+//cashier_order_area
+.cashier_order_area{
+  position: relative;
+  width: $my_width;
+  margin: auto;
+  margin-top: 80px;
+  ul{
+    margin: 0;
+    padding: 0;
+    li{
+      list-style: none;
+      float: left;
+      img{
+        width: auto;
+        height: 30px;
+        margin: 5px 0;
+      }
+    }
+  }
+  .order-nav{
+    border-bottom: 1px solid #ccc;
+    .active-nav{border-left:1px solid #CCCCCC;border-bottom: transparent; background:#fff;}
+    li{
+      margin-bottom: -2px;
+      border: 1px solid #CCCCCC;
+      border-left: transparent;
+      width: 168px;
+      padding: 10px 0;
+      text-align: center;
+      margin-right: 0;
+      font-size: 14px;
+      color: #000000;
+      background: #F2F2F2;
+    }
+  }
+  .tab-content{
+    position: relative;
+    border: 1px solid #CCCCCC;
+    border-top: none;
+    padding: 37px 50px 37px 60px;
+    overflow: inherit;
+    .hide{display: none;}
+    ul{
+      width: 100%;
+      li{
+        position: relative;
+        margin-right: 10px;
+        margin-bottom: 16px;
+        width: 256px;
+        cursor: pointer;
+        div{text-align: center;line-height: 50px;border: 1px solid #ccc}
+        .act-line{text-align: left!important;line-height: 22px;color: #DA3232;height: 24px;}
+        .unshow{opacity: 0}
+        .selected{border: 1px solid #DA3232;}
+        i{
+          position: absolute;
+          width: 28px;
+          height: 24px;
+          bottom: 0;
+          right: -1px;
+          background: url(../img/cart/select_icon.png) no-repeat 0;
+          z-index: 10;
+        }
+      }
+    }
+  }
+  //pay-button
+  .pay-button{
+    width: 200px;
+    background: #DA3232;
+    line-height: 50px;
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    margin-top: 20px;
+    right: 0;
+  }
+}
