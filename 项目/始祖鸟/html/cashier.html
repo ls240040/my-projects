@@ -6,6 +6,7 @@
     <title></title>
     <!-- 引入4个文件必须注意导入顺序-->
     <link rel="stylesheet" href="../css/bootstrap.css"/>
+    <script src="../js/jquery-1.11.3.js"></script>
     <script src="../js/jquery.min.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
@@ -84,14 +85,14 @@
 </div>
 <!--cashier_order_area-->
 <div class="cashier_order_area clearfix">
-    <ul class="order-nav clearfix">
-        <li class="active-nav">常用</li>
-        <li>平台支付</li>
-        <li>分期支付</li>
-        <li>网银支付</li>
+    <ul class="order-nav clearfix" id="tab">
+        <li class="active-nav"><a href="javacript:;" data-toggle="tab" data-target="#content1">常用</a></li>
+        <li><a href="javacript:;" data-toggle="tab" data-target="#content2">平台支付</a></li>
+        <li><a href="javacript:;" data-toggle="tab" data-target="#content3">分期支付</a></li>
+        <li><a href="javacript:;" data-toggle="tab" data-target="#content4">网银支付</a></li>
     </ul>
-    <div class="tab-content clearfix">
-        <ul class="clearfix">
+    <div class="tab-content clearfix position-relative">
+        <ul id="content1" class="clearfix position-absolute bg-white">
             <li>
                 <span class="act-line" style="color: #fff;background: #DA3232;padding: 4px 8px;">推荐</span>
                 <div class="selected"><img src="../img/cart/WXPAY.png" alt=""/></div>
@@ -114,18 +115,18 @@
                 <div><img src="../img/cart/CMBLIFE.png" alt=""/></div>
             </li>
         </ul>
-        <ul class="clearfix hide">
+        <ul id="content2" class="clearfix position-absolute bg-white">
             <li><div><img src="../img/cart/ALIPAY.png" alt=""/></div></li>
             <li><div><img src="../img/cart/WXPAY.png" alt=""/></div></li>
             <li><div><img src="../img/cart/HUAWEIPAY.png" alt=""/></div></li>
             <li><div><img src="../img/cart/UNIONPAY.png" alt=""/></div></li>
         </ul>
-        <ul class="hide clearfix">
+        <ul id="content3" class="clearfix position-absolute bg-white">
             <li><div><img src="../img/cart/HUABEI.png" alt=""/></div></li>
             <li><div><img src="../img/cart/CMBLIFE.png" alt=""/></div></li>
             <li><div><img src="../img/cart/ICBC.png" alt=""/></div></li>
         </ul>
-        <ul class="hide clearfix">
+        <ul id="content4" class="clearfix position-absolute bg-white">
             <li><div><img src="../img/cart/ICBC.png" alt=""/></div></li>
             <li><div><img src="../img/cart/CCB.png" alt=""/></div></li>
             <li><div><img src="../img/cart/BCM.png" alt=""/></div></li>
@@ -136,5 +137,15 @@
         确认支付
     </div>
 </div>
+
+<script>
+    $("[data-toggle=tab]").click(function(){
+        var $a=$(this);
+        var $i=1;
+        var id=$a.attr("data-toggle");
+        var $div=$(id);
+        $div.css("z-index",$i++);
+    });
+</script>
 </body>
 </html>

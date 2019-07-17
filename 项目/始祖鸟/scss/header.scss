@@ -17,6 +17,9 @@ $my_width2:100%;
   height: 100px;
   margin: 0 auto;
   nav > ul li .head {
+    padding: 10px 0;
+    display: inline-block;
+    width: 100%;
     &:before{
       content: "";
       display: block;
@@ -32,9 +35,14 @@ $my_width2:100%;
       display: block;
       height:2px;
       width:0;
+      margin-left: 4px;
       margin-top: 4px;
-      background: transparent;
+      background: #000;
+      position: absolute;
       transition: 0.3s ease;
+    }
+    &:hover:after{
+      width:20px;
     }
   }
   nav > ul li .head{
@@ -73,4 +81,12 @@ $my_width2:100%;
       width: 18px;
     }
   }
+}
+.drop-menu{
+  position: absolute;
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  top:100%;
+  left: 0;
 }

@@ -149,19 +149,20 @@ header{height: 100px;}
     .description{max-width: 480px;min-width: 330px;margin: auto;margin-bottom: 20px;}
     //.rmb{font-size: 15px;font-weight: 700;}
     .rmb{font-size: 20px;font-weight: 700;}
-    .s1{color:#8b0305;}
+    .red{color:#8b0305;}
     .colour-thumbnails{
       display: flex;
       flex-flow: wrap;
       justify-content: center;
       width: 100%;
+      .pic{cursor: pointer;}
       div{
         margin: 10px 1px;
         padding: 4px;
         border: 1px solid transparent;
       }
       div:hover{border: 1px solid #000;}
-      .active{
+      .down{
         border: 1px solid #000;
       }
     }
@@ -233,6 +234,7 @@ header{height: 100px;}
     border: 0;
     border-bottom: 1px solid #ccc;
     .card-header{
+      cursor: pointer;
       padding: 0.75rem 1.25rem 0;
       span{font-size: 20px;}
       .float-right{

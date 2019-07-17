@@ -9,6 +9,7 @@
     <script src="../js/jquery.min.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery-1.11.3.js"></script>
     <link rel="stylesheet" href="../css/product.css"/>
 </head>
 <body>
@@ -28,7 +29,7 @@
     <!-- product_left-->
     <div class="product_left position-relative">
         <div class="im1">
-            <img src="../img/product/1.png" alt="product"/>
+            <img src="../img/product/1.png" class="my-big" alt="product"/>
         </div>
         <div class="im2">
             <img src="../img/product/alt-images-icon.jpeg" alt=""/>
@@ -59,23 +60,23 @@
         <img class="d-none" src="../img/product/1.png" alt="product"/>
         <div class="mt-3">
             <span>颜色:</span>
-            <span class="s1">Red Beach</span>
+            <span class="s1 red">Red Beach</span>
         </div>
         <div class="colour-thumbnails w-100">
             <div class="pic">
-                <img src="../img/product/01.png" alt=""/>
+                <img src="../img/product/01.png" data-target="../img/product/2.png" class="my-small" alt="Blackbird"/>
             </div>
             <div class="pic">
-                <img src="../img/product/02.png" alt=""/>
+                <img src="../img/product/02.png" data-target="../img/product/3.png" class="my-small" alt="Gwaii"/>
             </div>
             <div class="pic">
-                <img src="../img/product/03.png" alt=""/>
+                <img src="../img/product/03.png" data-target="../img/product/4.png" class="my-small" alt="Pilot"/>
+            </div>
+            <div class="pic down">
+                <img src="../img/product/04.png" data-target="../img/product/1.png" class="my-small" data-color="red" alt="Red Beach"/>
             </div>
             <div class="pic">
-                <img src="../img/product/04.png" alt=""/>
-            </div>
-            <div class="pic">
-                <img src="../img/product/05.png" alt=""/>
+                <img src="../img/product/05.png" data-target="../img/product/5.png" class="my-small" alt="Hecate Blue"/>
             </div>
         </div>
         <div class="mt-3">
@@ -89,7 +90,7 @@
             <div class="size mx-1">xl</div>
             <div class="size mx-1">xxl</div>
         </div>
-            <div class="button">立即下单</div>
+        <a href="cart.html" target="_blank" style="color: #000;text-decoration: none;"><div class="button">立即下单</div></a>
     </div>
 </div>
 <!--product__emotional-->
@@ -331,15 +332,42 @@
 </div>
 
 <script>
-    var btnObjs=document.getElementsByClassName("pic");
-    for(var i=0;i<btnObjs.length;i++){
-        btnObjs[i].onclick=function(){
-            for(var j=0;j<btnObjs.length;j++){
-                btnObjs[j].style.border="1px solid transparent";
-            }
-            this.style.border="1px solid #000";
-        }
-    }
+    $(".pic").click(function(e){
+        e.stopPropagation();
+        var $pic=$(this);
+        //给所有的div移除.down
+        $(".down").removeClass("down");
+//        var pics=$(".pic");//这里的$(".pic")是所有div
+//        for(var i=0;i<pics.length;i++){
+//            console.log(pics[i]);
+//            if($(pics[i]).hasClass("down")){
+//                //如果当前按钮的class是.down
+//                //就移除.down
+//                $(pics[i]).removeClass("down")
+//            }
+//        }
+        //给当前的div添加.down,$pic有遍历的意思
+        $pic.addClass("down");
+    });
+    $("img.my-small")
+            .click(function(){//2. 绑定事件
+                //获得当前点击的图片元素
+                var $img=$(this);
+                //3. 查找要修改的元素
+                var s=$(".s1");
+                s.html($img.attr("alt"));
+                if($img.is("[data-color=red]")){
+                    s.addClass("red");
+                }else{
+                    s.removeClass("red");
+                }
+                $("img.my-big")
+                    //4. 修改元素
+                        .attr(
+                        "src",
+                        $img.attr("data-target")
+                )
+            })
 </script>
 </body>
 </html>

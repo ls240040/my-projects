@@ -83,8 +83,10 @@ body{font-size: 12px;}
   }
   .order-nav{
     border-bottom: 1px solid #ccc;
-    .active-nav{border-left:1px solid #CCCCCC;border-bottom: transparent; background:#fff;}
+    .active-nav{border-left:1px solid #CCCCCC;border-bottom: transparent; background:#fff;
+    }
     li{
+      cursor: pointer;
       margin-bottom: -2px;
       border: 1px solid #CCCCCC;
       border-left: transparent;
@@ -95,6 +97,7 @@ body{font-size: 12px;}
       font-size: 14px;
       color: #000000;
       background: #F2F2F2;
+      a{text-decoration: none;color: #000;}
     }
   }
   .tab-content{

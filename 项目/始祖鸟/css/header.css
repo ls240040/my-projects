@@ -17,23 +17,31 @@
 .header_content {
   height: 100px;
   margin: 0 auto; }
-  .header_content nav > ul li .head:before {
-    content: "";
-    display: block;
-    width: 50%;
-    max-width: 200px;
-    min-height: 40px;
-    margin-top: 12px;
-    z-index: -1;
-    position: absolute; }
-  .header_content nav > ul li .head:after {
-    content: "";
-    display: block;
-    height: 2px;
-    width: 0;
-    margin-top: 4px;
-    background: transparent;
-    transition: 0.3s ease; }
+  .header_content nav > ul li .head {
+    padding: 10px 0;
+    display: inline-block;
+    width: 100%; }
+    .header_content nav > ul li .head:before {
+      content: "";
+      display: block;
+      width: 50%;
+      max-width: 200px;
+      min-height: 40px;
+      margin-top: 12px;
+      z-index: -1;
+      position: absolute; }
+    .header_content nav > ul li .head:after {
+      content: "";
+      display: block;
+      height: 2px;
+      width: 0;
+      margin-left: 4px;
+      margin-top: 4px;
+      background: #000;
+      position: absolute;
+      transition: 0.3s ease; }
+    .header_content nav > ul li .head:hover:after {
+      width: 20px; }
   .header_content nav > ul li .head a {
     text-decoration: none;
     font: 14px/20px "Avenir LT W01 85 Heavy", arial, sans-serif;
@@ -61,3 +69,11 @@
   .header_search .icon_search img {
     margin-top: -4px;
     width: 18px; }
+
+.drop-menu {
+  position: absolute;
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  top: 100%;
+  left: 0; }

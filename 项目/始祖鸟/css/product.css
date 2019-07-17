@@ -156,20 +156,22 @@ header {
     .product .product_right .rmb {
       font-size: 20px;
       font-weight: 700; }
-    .product .product_right .s1 {
+    .product .product_right .red {
       color: #8b0305; }
     .product .product_right .colour-thumbnails {
       display: flex;
       flex-flow: wrap;
       justify-content: center;
       width: 100%; }
+      .product .product_right .colour-thumbnails .pic {
+        cursor: pointer; }
       .product .product_right .colour-thumbnails div {
         margin: 10px 1px;
         padding: 4px;
         border: 1px solid transparent; }
       .product .product_right .colour-thumbnails div:hover {
         border: 1px solid #000; }
-      .product .product_right .colour-thumbnails .active {
+      .product .product_right .colour-thumbnails .down {
         border: 1px solid #000; }
     .product .product_right .size-thumbnails {
       margin-top: 10px; }
@@ -255,6 +257,7 @@ header {
     border: 0;
     border-bottom: 1px solid #ccc; }
     #parent .card .card-header {
+      cursor: pointer;
       padding: 0.75rem 1.25rem 0; }
       #parent .card .card-header span {
         font-size: 20px; }

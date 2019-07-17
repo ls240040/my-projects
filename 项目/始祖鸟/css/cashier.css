@@ -82,6 +82,7 @@ body {
       border-bottom: transparent;
       background: #fff; }
     .cashier_order_area .order-nav li {
+      cursor: pointer;
       margin-bottom: -2px;
       border: 1px solid #CCCCCC;
       border-left: transparent;
@@ -92,6 +93,9 @@ body {
       font-size: 14px;
       color: #000000;
       background: #F2F2F2; }
+      .cashier_order_area .order-nav li a {
+        text-decoration: none;
+        color: #000; }
   .cashier_order_area .tab-content {
     position: relative;
     border: 1px solid #CCCCCC;
