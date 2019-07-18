@@ -58,6 +58,7 @@ body{font-size: 12px;}
       line-height: 26px;
       color: #53A724;}
   }
+  .hide{display: none;}
   .right-txt{float: left}
   .orderInfo_show{float: right;}
   .orderWords02{line-height: 26px;}
@@ -83,32 +84,32 @@ body{font-size: 12px;}
   }
   .order-nav{
     border-bottom: 1px solid #ccc;
-    .active-nav{border-left:1px solid #CCCCCC;border-bottom: transparent; background:#fff;
+    .active{border-bottom: transparent; background:#fff;
     }
     li{
       cursor: pointer;
       margin-bottom: -2px;
-      border: 1px solid #CCCCCC;
-      border-left: transparent;
       width: 168px;
-      padding: 10px 0;
       text-align: center;
       margin-right: 0;
       font-size: 14px;
       color: #000000;
       background: #F2F2F2;
-      a{text-decoration: none;color: #000;}
+      a{text-decoration: none;color: #000;display: block;width: 100%;line-height: 50px;border: 1px solid #CCCCCC;border-left:transparent;}
+      &:first-child{border-left: 1px solid #CCCCCC;}
     }
   }
   .tab-content{
     position: relative;
+    height: 240px;
     border: 1px solid #CCCCCC;
     border-top: none;
     padding: 37px 50px 37px 60px;
     overflow: inherit;
-    .hide{display: none;}
     ul{
-      width: 100%;
+      width: 95%;
+      height: 80%;
+      padding-top: 2px;
       li{
         position: relative;
         margin-right: 10px;
@@ -119,15 +120,15 @@ body{font-size: 12px;}
         .act-line{text-align: left!important;line-height: 22px;color: #DA3232;height: 24px;}
         .unshow{opacity: 0}
         .selected{border: 1px solid #DA3232;}
-        i{
+      }
+      .check i{
           position: absolute;
           width: 28px;
           height: 24px;
           bottom: 0;
           right: -1px;
-          background: url(../img/cart/select_icon.png) no-repeat 0;
-          z-index: 10;
-        }
+          background: url(../img/cart/select_icon.png) no-repeat;
+          //z-index: 10;
       }
     }
   }

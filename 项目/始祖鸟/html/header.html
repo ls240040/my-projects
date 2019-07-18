@@ -18,7 +18,7 @@
 </head>
 <body>
 <!--nav-->
-<div class="header-content_wrapper position-relative border-bottom">
+<div class="header-content_wrapper position-relative">
     <div class="header_content py-4">
         <!-- header_content-left-->
         <div class="header_content-left row mx-0">
@@ -30,7 +30,7 @@
                     <ul class="clearfix list-unstyled pl-5 mt-4 float-left">
                         <li tabindex="0" class="float-left mx-md-4 mx-sm-2">
                            <span id="men" class="head">
-                                <a href="men.html" target="_blank" data-prefix="men">男装</a>
+                                <a href="men.html" target="_blank" data-prefix="men" data-count="0">男装</a>
                            </span>
                         </li>
                         <li class="float-left mx-md-4 mx-sm-2">
@@ -47,16 +47,72 @@
                 </nav>
             </div>
             <div class="drop-menu">
-                <ul>
-                    <li>服装</li>
-                    <li>软壳夹克</li>
-                    <li>保暖夹克</li>
-                    <li>裤装</li>
-                    <li>中间层&抓绒衣</li>
-                    <li>内层衣服</li>
-                    <li></li>
-                    <li></li>
-                </ul>
+                <div class="drop">
+                    <ul>
+                        <li>服装</li>
+                        <li data-count="1">软壳夹克</li>
+                        <li data-count="2">保暖夹克</li>
+                        <li data-count="3">裤装</li>
+                        <li data-count="4">中间层&抓绒衣</li>
+                        <li data-count="5">内层衣服</li>
+                        <li data-count="6">衬衫&上衣</li>
+                        <li data-count="7">短裤</li>
+                    </ul>
+                    <ul>
+                        <li data-count="8">背包</li>
+                        <li data-count="9">日用背包</li>
+                        <li data-count="10">多日</li>
+                        <li data-count="11">雪崩安全气囊</li>
+                        <li data-count="12">水袋背心</li>
+                        <li data-count="13">行李袋和手提包</li>
+                        <li data-count="14">旅行袋</li>
+                        <li data-count="15">通勤包</li>
+                    </ul>
+                    <ul>
+                        <li data-count="16">鞋履</li>
+                        <li data-count="17">靴子</li>
+                        <li data-count="18">鞋履</li>
+                        <li><br/></li>
+                        <li data-count="19">攀爬装备</li>
+                        <li data-count="20">安全带</li>
+                        <li data-count="21">绳带</li>
+                        <li data-count="22">粉袋</li>
+                    </ul>
+                    <ul>
+                        <li data-count="23">配件</li>
+                        <li data-count="24">手套</li>
+                        <li data-count="25">无边帽</li>
+                        <li data-count="26">帽子</li>
+                        <li data-count="27">产品保养</li>
+                        <li data-count="28">更多</li>
+                    </ul>
+                    <div style="width: 1px;height: 600px;background-color: #aaa;float: left"></div>
+                    <ul style="padding-left: 50px;">
+                        <li>用途</li>
+                        <li>登山&攀岩</li>
+                        <li>徒步远足</li>
+                        <li>单双板滑雪</li>
+                        <li>野外跑步</li>
+                        <li>休闲系列</li>
+                        <li>Arcteryx Essentials系列</li>
+                    </ul>
+                    <div style="width: 1px;height: 600px;background-color: #aaa;float: left"></div>
+                    <ul style="padding-left: 50px;">
+                        <li>更多商品</li>
+                        <li>春季型录</li>
+                        <li>新品</li>
+                        <li>Arcteryx畅销产品</li>
+                        <li>夹克查找器</li>
+                        <li>叠穿指南</li>
+                        <li>旅行和通勤</li>
+                        <li>向导之选</li>
+                    </ul>
+                    <div class="feature">
+                        <a class="content" href="javascript:;" style="background-color: rgba(0,0,0,.5)">
+                            <span data-prefix="men">软壳夹克</span>
+                        </a>
+                    </div>
+                </div>
             </div>
             <!-- header_content_right-->
             <div class="header_content_right col-5 px-0">
@@ -80,6 +136,37 @@
         </div>
     </div>
 </div>
-<div>
+<script src="../js/jquery-1.11.3.js"></script>
+<script>
+    $("#men").mouseenter(function(){
+        $(".drop-menu").addClass("hover");
+        $(".drop-menu").mouseleave(function(){
+            $(this).removeClass("hover")
+        });
+        $(".feature>.content").css("background-image",`url(../img/images/0.jpg)`).css("background-color","rgba(0,0,0,0)");
+    });
+    $("#men").mouseleave(function(){
+        $(".drop-menu").removeClass("hover");
+        $(".drop-menu").mouseenter(function(){
+            $(this).addClass("hover")
+        });
+    });
+
+//drop-menu
+    $(".drop ul li").mouseenter(function(e){
+        var h=$(e.target).html();
+        $(".feature>.content>span").html(h);
+        var i=parseInt($(this).attr("data-count"));
+        if(i>=0){
+            $(".feature>.content").css("background-image",`url(../img/images/${i}.jpg)`).css("background-color","rgba(0,0,0,0)");
+        }
+    });
+    $(".drop ul li").mouseleave(function(){
+        var i=parseInt($(this).attr("data-count"));
+        if(i>=0) {
+            $(".feature>.content").css("background-color", "rgba(0,0,0,.25)");
+        }
+    });
+</script>
 </body>
 </html>

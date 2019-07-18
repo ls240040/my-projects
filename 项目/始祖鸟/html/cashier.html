@@ -39,22 +39,20 @@
         </div>
         <div class="orderWords02 clearfix">
             <span>请您在</span>
-            <em style="color: #da3232;font-weight: 700;font-style: normal">15分30秒</em>
+            <span id="show" style="color: #DA3232;font-weight: 700;"></span>
             <span>内完成支付，否则本次支付将自动取消。</span>
             <div class="orderInfo_show">
                 <span>订单详情</span>
-                <img src="../img/cart/down%20arrow_icon.png" alt=""/>
-                <img class="d-none" src="../img/cart/arrow_icon.png" alt=""/>
+                <img src="../img/cart/down%20arrow_icon.png" alt="1"/>
             </div>
             <p class="m-0" style="color: #da3232;">
                 订单含付款减库存商品，支付完成才会为您预留库存，库存不足时系统将自动取消未支付的订单。
             </p>
-            <p class="m-0" style="color: #da3232;">
+            <p class="m-0 p1" style="color: #da3232;">
                 今天23:59前付款，预计7月16日（周二）送达（受付款完成时间等因素可能发生变化）
             </p>
         </div>
-
-        <div class="d-none">
+        <div class="hide orderWords03">
             <ul>
                 <li show=""><span name="msg_sendNomber">订单编号：</span>
                     <span style="color: #da3232;">11620214273</span>
@@ -86,14 +84,14 @@
 <!--cashier_order_area-->
 <div class="cashier_order_area clearfix">
     <ul class="order-nav clearfix" id="tab">
-        <li class="active-nav"><a href="javacript:;" data-toggle="tab" data-target="#content1">常用</a></li>
-        <li><a href="javacript:;" data-toggle="tab" data-target="#content2">平台支付</a></li>
-        <li><a href="javacript:;" data-toggle="tab" data-target="#content3">分期支付</a></li>
-        <li><a href="javacript:;" data-toggle="tab" data-target="#content4">网银支付</a></li>
+        <li><a  class="active" href="javacript:;" data-toggle="note" data-target="#content1">常用</a></li>
+        <li><a  href="javacript:;" data-toggle="note" data-target="#content2">平台支付</a></li>
+        <li><a  href="javacript:;" data-toggle="note" data-target="#content3">分期支付</a></li>
+        <li><a  href="javacript:;" data-toggle="note" data-target="#content4">网银支付</a></li>
     </ul>
-    <div class="tab-content clearfix position-relative">
-        <ul id="content1" class="clearfix position-absolute bg-white">
-            <li>
+    <div class="tab-content clearfix">
+        <ul id="content1" class="clearfix position-absolute bg-white" style="z-index: 1">
+            <li class="check">
                 <span class="act-line" style="color: #fff;background: #DA3232;padding: 4px 8px;">推荐</span>
                 <div class="selected"><img src="../img/cart/WXPAY.png" alt=""/></div>
                 <i></i>
@@ -116,36 +114,88 @@
             </li>
         </ul>
         <ul id="content2" class="clearfix position-absolute bg-white">
-            <li><div><img src="../img/cart/ALIPAY.png" alt=""/></div></li>
-            <li><div><img src="../img/cart/WXPAY.png" alt=""/></div></li>
-            <li><div><img src="../img/cart/HUAWEIPAY.png" alt=""/></div></li>
-            <li><div><img src="../img/cart/UNIONPAY.png" alt=""/></div></li>
+            <li>
+                <span class="act-line unshow">推荐</span>
+                <div><img src="../img/cart/ALIPAY.png" alt=""/></div>
+            </li>
+            <li class="check">
+                <span class="act-line" style="color: #fff;background: #DA3232;padding: 4px 8px;">推荐</span>
+                <div class="selected"><img src="../img/cart/WXPAY.png" alt=""/></div>
+                <i></i>
+            </li>
+            <li>
+                <span class="act-line unshow">推荐</span>
+                <div><img src="../img/cart/HUAWEIPAY.png" alt=""/></div>
+            </li>
+            <li>
+                <span class="act-line unshow">推荐</span>
+                <div><img src="../img/cart/UNIONPAY.png" alt=""/></div>
+            </li>
         </ul>
         <ul id="content3" class="clearfix position-absolute bg-white">
-            <li><div><img src="../img/cart/HUABEI.png" alt=""/></div></li>
-            <li><div><img src="../img/cart/CMBLIFE.png" alt=""/></div></li>
-            <li><div><img src="../img/cart/ICBC.png" alt=""/></div></li>
+            <li class="py-4"><div><img src="../img/cart/HUABEI.png" alt=""/></div></li>
+            <li class="py-4"><div><img src="../img/cart/CMBLIFE.png" alt=""/></div></li>
+            <li class="py-4"><div><img src="../img/cart/ICBC.png" alt=""/></div></li>
         </ul>
         <ul id="content4" class="clearfix position-absolute bg-white">
-            <li><div><img src="../img/cart/ICBC.png" alt=""/></div></li>
-            <li><div><img src="../img/cart/CCB.png" alt=""/></div></li>
-            <li><div><img src="../img/cart/BCM.png" alt=""/></div></li>
-            <li><div><img src="../img/cart/ABC.png" alt=""/></div></li>
+            <li class="py-4"><div><img src="../img/cart/ICBC.png" alt=""/></div></li>
+            <li class="py-4"><div><img src="../img/cart/CCB.png" alt=""/></div></li>
+            <li class="py-4"><div><img src="../img/cart/BCM.png" alt=""/></div></li>
+            <li class="py-4"><div><img src="../img/cart/ABC.png" alt=""/></div></li>
         </ul>
     </div>
     <div class="pay-button" style="cursor: pointer">
         确认支付
     </div>
 </div>
-
 <script>
-    $("[data-toggle=tab]").click(function(){
-        var $a=$(this);
-        var $i=1;
-        var id=$a.attr("data-toggle");
-        var $div=$(id);
-        $div.css("z-index",$i++);
+    let i=1;
+    $("[data-toggle=note]").click(function(e){
+        e.stopPropagation();
+        $(".active").removeClass("active");
+        $(this).addClass("active");
+        var id=$(this).attr("data-target");
+//        console.log(id);
+        var div=$(id);
+        div.css("z-index",i++);
     });
+    $(".orderInfo_show>span").click(function(){
+        if($(this).next().attr("src")=="../img/cart/down%20arrow_icon.png"){
+            $(this).next().attr("src","../img/cart/arrow_icon.png").css("width","10px");
+            $(".hide").removeClass("hide");
+            $(".orderWords01>.left span").addClass("hide");
+            $(".orderWords02 .p1").addClass("hide");
+        }else{
+            $(this).next().attr("src","../img/cart/down%20arrow_icon.png");
+            $(".orderWords03").addClass("hide");
+            $(".orderWords01>.left span").removeClass("hide");
+            $(".orderWords02 .p1").removeClass("hide");
+        }
+    });
+
+    (function(){
+        //1.数字每隔一秒递减 5 4 3 2 1
+//        var s=60;
+        var s=15*60;
+        var second=Math.floor(s%60);//不到一分钟的秒数
+        var minute=Math.floor(s/60);
+        var timer=setInterval(function(){
+            s--;
+            //2.减到0时，自动关闭
+            if(s>0){
+                if(second>0&&second<60){
+                    second--;
+                }else if(second==0){
+                    second=60;
+                    second--;
+                    minute--;
+                }
+                show.innerHTML=`${minute}分${second}秒`;
+            }else{
+                window.close();
+            }
+        },1000);
+    })();
 </script>
 </body>
 </html>

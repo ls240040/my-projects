@@ -1,5 +1,6 @@
 $my_width:75%;
 $my_width2:100%;
+//ul li{margin: 0;padding: 0;}
 @media screen and (min-width: 1200px) {
   .header_content{width: $my_width;}
 }
@@ -83,10 +84,45 @@ $my_width2:100%;
   }
 }
 .drop-menu{
+  background: #fff;
   position: absolute;
   width: 100%;
+  height: 0;
   padding: 20px;
-  border: 1px solid #ccc;
+  opacity: 0;
+  overflow: hidden;
   top:100%;
   left: 0;
+  z-index: 10;
+  border-top: 1px solid #ccc;
+  transform-origin: center top;
+  transition: all .3s ease-in-out;
+  .drop{width: $my_width;margin: auto;}
+  ul{
+    margin: 0;
+    float: left;
+    padding-right: 60px;
+    padding-left: 0;
+    li{list-style: none;text-decoration: none;line-height: 35px;font-size: 14px;cursor: pointer;}
+  }
+}
+.feature{
+  float: left;
+  .content{
+    position: relative;
+    //background-image: url(../img/images/1.jpg);
+    background-size: cover;
+    display: block;
+    text-decoration: none;
+    margin-top: 40px;
+    width: 300px;height: 200px;
+    background-blend-mode: multiply;
+    transition: background-color 0.4s ease;
+    span{color: #fff;line-height: 200px;font-weight: 700;text-align: center;font-size: 30px;display: block;width: 300px;}
+    &focus{border: 0;}
+  }
+}
+.hover{
+  height: 320px;
+  opacity: 1;
 }
