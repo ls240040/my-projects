@@ -13,12 +13,10 @@
     <link rel="stylesheet" href="../css/product.css"/>
 </head>
 <body>
-<header>
-    <iframe class="my_header w-100" src="header.html" frameborder="0" scrolling="no"></iframe>
-</header>
+<header id="header"></header>
 <!--nav_bar-->
 <div class="nav_bar">
-    <ul class="breadcrumb">
+    <ul class="breadcrumb bg-white">
         <li class="breadcrumb-item"><a href="#">Arc'teryx</a></li>
         <li class="breadcrumb-item"><a href="#">男装</a></li>
         <li class="breadcrumb-item display">Gamma MX连帽衣</li>
@@ -176,7 +174,7 @@
             <span class="arrow_left"><img src="../img/product/arrow_left.png" alt=""/></span>
             <span class="arrow_right"><img src="../img/product/arrow_right.png" alt=""/></span>
         </div>
-        <ul>
+        <ul id="ulImgs">
             <li style="background: url(../img/product/im1.jpg) no-repeat"></li>
             <li style="background: url(../img/product/im2.jpg) no-repeat"></li>
             <li style="background: url(../img/product/im3.jpg) no-repeat"></li>
@@ -187,6 +185,7 @@
             <li style="background: url(../img/product/im8.jpg) no-repeat"></li>
             <li style="background: url(../img/product/im9.jpg) no-repeat center"></li>
             <li style="background: url(../img/product/im10.jpg) no-repeat"></li>
+            <li style="background: url(../img/product/im1.jpg) no-repeat"></li>
         </ul>
     </div>
 </div>
@@ -330,7 +329,25 @@
         </div>
     </div>
 </div>
+<script src="../js/header.js"></script>
+<script>
+    var i=0;
+    var LIWIDTH=230;
+    var DURATION=500;
+    var LICOUNT=$("#ulImgs>li").length-1;
 
+    $("#ulImgs").style.marginLeft=-i*LIWIDTH+10+"px";
+    $(".arrow_left")
+    var canClick=true;
+    $(".arrow_right").click(function(){
+        move(1)
+    });
+    function move(n){
+        if(canClick){
+            console.log(i+n);
+        }
+    }
+</script>
 <script>
     $(".pic").click(function(e){
         e.stopPropagation();

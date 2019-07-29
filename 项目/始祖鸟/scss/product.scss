@@ -76,8 +76,6 @@ body{text-transform: uppercase;}
 //  .product_left{.im2{display: none!important;}}
 //}
 //header
-header{height: 100px;}
-.my_header{height: 100px;box-sizing: border-box;border-bottom: 1px solid #ccc}
 //nav_bar
 .nav_bar{
   width: $my_width;
@@ -88,7 +86,7 @@ header{height: 100px;}
   padding: 0.75rem 1rem;
   margin-bottom: 1rem;
   list-style: none;
-  background-color: #fff;
+  background-color: #fff!important;
   border-radius: 0.25rem;
 }
 .breadcrumb-item:not(:last-child){
