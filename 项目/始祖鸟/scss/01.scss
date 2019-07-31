@@ -328,6 +328,7 @@ $my_width2:49.7%;
    width: $my_width2;
    background: #000;
     overflow: hidden;
+    a{text-decoration: none;color: #fff;}
     .im{
       opacity: 0.8;
       transition: 3s ease-in;

@@ -68,14 +68,6 @@ body {
   .olapic_specific_widget .arrow .arrow_right {
     right: 0 !important; } }
 
-header {
-  height: 100px; }
-
-.my_header {
-  height: 100px;
-  box-sizing: border-box;
-  border-bottom: 1px solid #ccc; }
-
 .nav_bar {
   width: 75%;
   margin: auto;
@@ -85,7 +77,7 @@ header {
   padding: 0.75rem 1rem;
   margin-bottom: 1rem;
   list-style: none;
-  background-color: #fff;
+  background-color: #fff !important;
   border-radius: 0.25rem; }
 
 .breadcrumb-item:not(:last-child) {
@@ -287,24 +279,30 @@ header {
   position: relative;
   width: 100%; }
   .olapic_specific_widget .arrow {
-    width: 100%; }
+    width: 100%;
+    cursor: pointer; }
     .olapic_specific_widget .arrow span {
       position: absolute;
       top: 50%;
       margin-top: -10px; }
     .olapic_specific_widget .arrow img {
-      width: 15px; }
+      width: 15px;
+      cursor: pointer; }
     .olapic_specific_widget .arrow .arrow_left {
-      left: 10px; }
+      left: .5%;
+      cursor: pointer; }
     .olapic_specific_widget .arrow .arrow_right {
-      right: 10px; }
+      right: .5%;
+      cursor: pointer; }
   .olapic_specific_widget .im_box {
     width: 96%;
     margin: auto;
     overflow: hidden; }
   .olapic_specific_widget ul {
     padding: 0;
-    width: 2500px; }
+    width: 2640px; }
+  .olapic_specific_widget #ulImgs.transition {
+    transition: all .5s linear; }
   .olapic_specific_widget ul li {
     width: 230px;
     height: 230px;

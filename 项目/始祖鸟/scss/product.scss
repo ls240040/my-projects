@@ -266,10 +266,11 @@ body{text-transform: uppercase;}
   width: 100%;
   .arrow{
     width: 100%;
+    cursor: pointer;
     span{position: absolute;top:50%;margin-top: -10px;}
-    img{width: 15px;}
-    .arrow_left{left: 10px;}
-    .arrow_right{right: 10px;}
+    img{width: 15px;cursor: pointer;}
+    .arrow_left{left: .5%;cursor: pointer;}
+    .arrow_right{right: .5%;cursor: pointer;}
   }
   .im_box{
     width: 96%;
@@ -278,7 +279,10 @@ body{text-transform: uppercase;}
   }
   ul{
     padding: 0;
-    width: 2500px;
+    width: 2640px;
+  }
+  #ulImgs.transition{
+    transition:all .5s linear;
   }
   ul li{
     width: 230px;

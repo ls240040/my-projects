@@ -400,6 +400,9 @@
   width: 49.7%;
   background: #000;
   overflow: hidden; }
+  .content4 .d1 a, .content4 .d2 a {
+    text-decoration: none;
+    color: #fff; }
   .content4 .d1 .im, .content4 .d2 .im {
     opacity: 0.8;
     transition: 3s ease-in;

@@ -174,7 +174,7 @@
             <span class="arrow_left"><img src="../img/product/arrow_left.png" alt=""/></span>
             <span class="arrow_right"><img src="../img/product/arrow_right.png" alt=""/></span>
         </div>
-        <ul id="ulImgs">
+        <ul id="ulImgs" class="clearfix">
             <li style="background: url(../img/product/im1.jpg) no-repeat"></li>
             <li style="background: url(../img/product/im2.jpg) no-repeat"></li>
             <li style="background: url(../img/product/im3.jpg) no-repeat"></li>
@@ -331,24 +331,6 @@
 </div>
 <script src="../js/header.js"></script>
 <script>
-    var i=0;
-    var LIWIDTH=230;
-    var DURATION=500;
-    var LICOUNT=$("#ulImgs>li").length-1;
-
-    $("#ulImgs").style.marginLeft=-i*LIWIDTH+10+"px";
-    $(".arrow_left")
-    var canClick=true;
-    $(".arrow_right").click(function(){
-        move(1)
-    });
-    function move(n){
-        if(canClick){
-            console.log(i+n);
-        }
-    }
-</script>
-<script>
     $(".pic").click(function(e){
         e.stopPropagation();
         var $pic=$(this);
@@ -385,6 +367,63 @@
                         $img.attr("data-target")
                 )
             })
+</script>
+<!--轮播-->
+<script>
+    var i=0;
+    var LIWIDTH=240;
+    var DURATION=500;
+    var LICOUNT=10;
+    var $imBox=$(".im_box");
+    var $boxWidth=$imBox.css("width");
+    function moveTo(to){
+        if(to==undefined){//默认左移
+            to=i+1;
+        }
+        if(i==0){
+            if(to>i){//左移
+                $("#ulImgs").addClass("transition");
+            }else{//右移
+                //为了避免用户再次看到偷梁换柱的效果，先把transition class去掉
+                $("#ulImgs").removeClass("transition");
+                // 将ul-imgs拉到最左侧
+                $("#ulImgs").css("margin-left",-LIWIDTH*(LICOUNT+5)+'px');
+                //定时器是为了将偷梁换柱操作和加回transition属性的操作强行隔离开
+                setTimeout(function(){
+                    moveTo(LICOUNT-5);
+                },100);
+                return;
+            }
+        }
+        i=to;
+        $("#ulImgs").css("margin-left",-i*LIWIDTH+'px');
+        if(i==LICOUNT-4){
+            i=0;
+            setTimeout(function(){
+                $("#ulImgs").removeClass("transition");
+                $("#ulImgs").css("margin-left","0px");
+            },DURATION)
+        }
+    }
+    var $btnLeft=$(".arrow_left");
+    var $btnRight=$(".arrow_right");
+    var canClick=true;
+    $btnRight.click(function(){
+        move(1);
+    });
+    function move(n){
+        if(canClick){
+            console.log(i+n);
+            moveTo(i+n);
+            canClick=false;
+            setTimeout(function(){
+                canClick=true;
+            },DURATION)
+        }
+    }
+    $btnLeft.click(function(){
+        move(-1);
+    });
 </script>
 </body>
 </html>
