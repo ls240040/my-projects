@@ -292,17 +292,17 @@ header {
   .main .pro_firline .w-90 {
     width: 90%; }
 
-.main .carousel-control-prev-icon,
-.main .carousel-control-next-icon {
+.main .carousel-prev-icon,
+.main .carousel-next-icon {
   height: 27.59px;
   width: 15px;
   background: transparent no-repeat center center;
   background-size: 100% 100%; }
 
-.main .carousel-control-prev-icon {
+.main .carousel-prev-icon {
   background-image: url("../img/men/arrow_right.png"); }
 
-.main .carousel-control-next-icon {
+.main .carousel-next-icon {
   background-image: url("../img/men/arrow_left.png"); }
 
 .main .rmb_border {

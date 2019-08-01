@@ -115,17 +115,17 @@ header{border-bottom: 1px solid #ccc;}
     .w-80{width: 80%;}
     .w-90{width: 90%;}
     }
-  .carousel-control-prev-icon,
-  .carousel-control-next-icon {
+  .carousel-prev-icon,
+  .carousel-next-icon {
     height: 27.59px;
     width: 15px;
     background: transparent no-repeat center center;
     background-size: 100% 100%;
   }
-  .carousel-control-prev-icon {
+  .carousel-prev-icon {
     background-image: url("../img/women/arrow_right.png");
   }
-  .carousel-control-next-icon {
+  .carousel-next-icon {
     background-image: url("../img/women/arrow_left.png");
   }
   .rmb_border{border-right: 1px solid #000;}

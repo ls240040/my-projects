@@ -1,18 +1,30 @@
 @media screen and (min-width: 1200px) {
   .header_content {
-    width: 75%; } }
+    width: 75%; }
+  .drop-menu ul {
+    padding-right: 30px !important; }
+  .drop-menu .drop {
+    width: 80% !important; } }
 
 @media screen and (min-width: 992px) and (max-width: 1199px) {
   .header_content {
-    width: 100%; } }
+    width: 100%; }
+  .drop-menu ul {
+    padding-right: 20px !important; }
+  .drop-menu .drop {
+    width: 75%; } }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
   .header_content {
-    width: 100%; } }
+    width: 100%; }
+  .drop-menu {
+    display: none; } }
 
 @media screen and (min-width: 500px) and (max-width: 767px) {
   .header_content {
-    width: 100%; } }
+    width: 100%; }
+  .drop-menu {
+    display: none; } }
 
 .header_content {
   height: 100px;
@@ -86,8 +98,7 @@
   transition: all .3s ease-in-out; }
   .drop-menu .drop {
     width: 75%;
-    margin: auto;
-    padding: 20px 0; }
+    margin: auto; }
   .drop-menu ul {
     margin: 0;
     float: left;
