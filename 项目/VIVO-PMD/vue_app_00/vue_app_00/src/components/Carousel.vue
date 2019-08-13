@@ -1,14 +1,14 @@
 <template>
     <div>
-        
        <mt-swipe :auto="4000">
-            <mt-swipe-item v-for="(item,i) of 3" :key="i">
-                <h1 v-text="p1.title">Z5 全面实力派</h1>
-                <div>4800万超广角三摄|换新升级</div>
-                <span>>查看详情</span>
-                <span>>立即抢购</span>
-                <img :src="item.src">
-            </mt-swipe-item>
+            <mt-swipe-item v-for="(item,i) of items" :key="i">
+                <div id="text">
+                    <h1 v-text="item.title"></h1>
+                    <div class="subtitle" v-text="item.subtitle"></div>
+                    <span class="buy">>立即抢购</span>
+                </div>
+                <img :src="`http://127.0.0.1:5050/${item.img}`"/>
+            </mt-swipe-item> 
         </mt-swipe> 
     </div>
 </template>
@@ -16,29 +16,35 @@
 export default {
        data(){
            return {
-               animationList:[],
+               items:[],
+               i:0 
            }
+       },
+        methods:{
+            loadMore(){
+                //功能：获取数据
+                //1.发送请求
+                var url="/index/carousel";
+                this.axios.get(url).then(res=>{
+                    //2.获取服务器返回的结果
+                    console.log(res.data.data);
+                    //3.将返回结果保存
+                    this.items=res.data.data;
+                })
+                
+            }
        },
        created(){
-           this.loadAnimation();
-       },
-       methods:{
-           loadAnimation(){
-               var url="index/v1/carousel";
-               this.axios.get(url).then(
-                   res=>{
-                       console.log(res.data.data);
-                       //获得首页动画部分的9张图片
-                       this.animationList=res.data.data;
-                   }
-               )
-           }
-       }
+           this.loadMore();
+        },
+      
+       
    }
 </script>
 <style scoped>
     .mint-swipe{
         height:85vh;
+        color:#fff;
     }
    
     .mint-swipe >>> .mint-swipe-indicator{
@@ -52,5 +58,25 @@ export default {
     }
     .mint-swipe >>> .mint-swipe-indicator.is-active{
         background-color:#fff;
+    }
+    .mint-swipe #text{
+        position:absolute;
+        width:100%;
+        margin:auto;
+        border:1px solid red;
+        text-align:center;
+        margin-top:15vw;
+    }
+    h1{
+        font-size:26px;
+    }
+    span{
+        font-size:20px;
+    }
+    .buy{
+        font-size:20px;
+    }
+    .mint-swipe img{
+        width:100%;
     }
 </style>

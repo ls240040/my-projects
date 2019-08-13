@@ -1,18 +1,15 @@
-//bosideng_vue/app.js node程序
+//vue_server_00/app.js node程序
 //1:加载第三方模块
 //web服务器
 const express = require("express");
-const bodyParser = require("body-parser");
-const user = require("./routes/user");
-const index = require("./routes/index");
-const product = require("./routes/product");
-const cart = require("./routes/cart");
-//路由器导入
-
 //跨域
 const cors = require("cors");
 //session  的配置
 const session = require("express-session");
+//bodyParser
+const bodyParser = require("body-parser");
+//路由器导入
+const carousel = require("./routes/carousel");
 
 var app = express();
 
@@ -38,9 +35,8 @@ app.use(session({
 app.use(bodyParser.urlencoded({extended:false}));
 //托管静态资源到public目录下
 app.use(express.static('public'));
+
+
 /*使用路由器来管理路由*/
 // app.use("/index",index);
-app.use("/carousel",carousel);
-app.use("/index",index);
-app.use("/product",product);
-app.use("/cart",cart);
+app.use("/index",carousel);
