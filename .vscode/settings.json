@@ -1,4 +1,9 @@
 {
-    "open-in-browser.default": "Chrome",
-    "liveServer.settings.CustomBrowser": "chrome"
+    "open-in-browser.default": "open-in-browser.default:Chrome",
+    "liveServer.settings.CustomBrowser": "chrome",
+    "emmet.triggerExpansionOnTab": true,
+    "emmet.syntaxProfiles": {
+        "vue-html": "html",
+        "vue": "html"
+      }
 }
