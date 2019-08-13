@@ -5,7 +5,7 @@
                 <div id="text">
                     <h1 v-text="item.title"></h1>
                     <div class="subtitle" v-text="item.subtitle"></div>
-                    <span class="buy">>立即抢购</span>
+                    <div class="buy">>立即抢购</div>
                 </div>
                 <img :src="`http://127.0.0.1:5050/${item.img}`"/>
             </mt-swipe-item> 
@@ -72,9 +72,10 @@ export default {
     }
     span{
         font-size:20px;
+        margin-bottom:20px;
     }
-    .buy{
-        font-size:20px;
+    .buy[data-v-70b9d920]{
+        font-size:16px;
     }
     .mint-swipe img{
         width:100%;
