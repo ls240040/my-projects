@@ -12,6 +12,6 @@ CREATE TABLE vcarousel(
 );
 
 INSERT INTO vcarousel VALUES
-(NULL,'Z5 全面实力派','4800万超广角三摄|换新升级','1.jpg'),
+(NULL,'Z5 全面实力派','4800万超广角三摄  | 换新升级','1.jpg'),
 (NULL,'iQOO Neo','骁龙845 4500mAh续航','2.jpg'),
 (NULL,'Z5x 性能实力派','5000mAh大电池 骁龙710','3.jpg');

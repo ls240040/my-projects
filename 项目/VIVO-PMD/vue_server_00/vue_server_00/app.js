@@ -8,8 +8,9 @@ const cors = require("cors");
 const session = require("express-session");
 //bodyParser
 const bodyParser = require("body-parser");
+
 //路由器导入
-const carousel = require("./routes/carousel");
+const index = require("./routes/index");
 
 var app = express();
 
@@ -39,4 +40,4 @@ app.use(express.static('public'));
 
 /*使用路由器来管理路由*/
 // app.use("/index",index);
-app.use("/index",carousel);
+app.use("/",index);

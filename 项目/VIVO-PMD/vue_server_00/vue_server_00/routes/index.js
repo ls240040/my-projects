@@ -3,6 +3,7 @@ const router = express.Router();
 const pool=require("../pool");
 
 //首页轮播图片
+//http://127.0.0.1:5050/carousel
 router.get("/carousel",(req,res)=>{
   //              编号  图片
   var sql="SELECT cid,title,subtitle,img FROM vcarousel";
