@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 
+
 //引入第三方组件库 mint ui
 //1:完整引入mint-ui组件库中所有组件
 import MintUI from "mint-ui"

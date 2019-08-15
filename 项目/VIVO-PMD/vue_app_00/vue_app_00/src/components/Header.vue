@@ -36,4 +36,3 @@ export default {
 <style>
     @import url("../assets/css/header.css");
 </style>
-<script src="../assets/js/header.js"></script>
