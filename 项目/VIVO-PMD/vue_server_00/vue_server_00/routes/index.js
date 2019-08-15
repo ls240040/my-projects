@@ -13,4 +13,15 @@ router.get("/carousel",(req,res)=>{
   })
 })
 
+//首页内容图片
+//http://127.0.0.1:5050/index
+router.get("/index",(req,res)=>{
+  //              编号  图片
+  var sql="SELECT pid,title,subtitle,img FROM vcontent";
+  pool.query(sql,(err,result)=>{
+    if(err) throw err;
+    res.send({code:1,msg:"查询成功",data:result});
+  })
+})
+
 module.exports=router;

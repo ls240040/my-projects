@@ -1,11 +1,10 @@
 <template>
-    <div>
+    <div style="width:100%;">
        <mt-swipe :auto="4000">
             <mt-swipe-item v-for="(item,i) of items" :key="i">
                 <div id="text">
                     <h1 v-text="item.title"></h1>
                     <div class="subtitle" v-text="item.subtitle"></div>
-                    <div class="buy">> 立即抢购</div>
                 </div>
                 <img :src="`http://127.0.0.1:5050/${item.img}`"/>
             </mt-swipe-item> 
@@ -41,14 +40,31 @@ export default {
    }
 </script>
 <style scoped>
+    @media (max-width:767px){
+        .mint-swipe{
+            width:100%;
+            height:85vh;
+        }
+        .mint-swipe >>> .mint-swipe-indicator{
+            width: 44px;
+            height: 4px;
+        }
+    }   
+    @media (min-width:768px) and (max-width:1024px){
+        .mint-swipe{
+            width:100%;
+            height:110vh;
+        }
+        .mint-swipe >>> .mint-swipe-indicator{
+            width: 80px;
+            height: 6px;
+        }
+    } 
     .mint-swipe{
-        height:85vh;
         color:#fff;
     }
    
     .mint-swipe >>> .mint-swipe-indicator{
-        width: 44px;
-        height: 4px;
         display: inline-block;
         border-radius: 0%;
         background: #000;
@@ -58,6 +74,9 @@ export default {
     .mint-swipe >>> .mint-swipe-indicator.is-active{
         background-color:#fff;
     }
+    .mint-swipe img{
+        width:100%;
+    }
     .mint-swipe #text{
         position:absolute;
         width:100%;
@@ -66,7 +85,7 @@ export default {
         margin-top:20vw;
     }
     h1{
-        font-size:6vw;
+        font-size:7vw;
         margin:0;
         margin-bottom:10px;
     }

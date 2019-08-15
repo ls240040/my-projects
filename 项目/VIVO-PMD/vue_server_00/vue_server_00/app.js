@@ -10,6 +10,7 @@ const session = require("express-session");
 const bodyParser = require("body-parser");
 
 //路由器导入
+const carousel = require("./routes/index");
 const index = require("./routes/index");
 
 var app = express();
@@ -40,4 +41,5 @@ app.use(express.static('public'));
 
 /*使用路由器来管理路由*/
 // app.use("/index",index);
+app.use("/",carousel);
 app.use("/",index);
