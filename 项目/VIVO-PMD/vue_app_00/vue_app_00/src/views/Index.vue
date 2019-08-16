@@ -12,12 +12,16 @@
             </div>
             <img :src="`http://127.0.0.1:5050/content${item.img}`"/>
         </div>
+    <!-- Accordion -->
+        <my-accordion></my-accordion>    
     </div>
+    
 </template>
 <script>
 //引入子组件
 import Header from '../components/Header.vue'
 import Carousel from '../components/Carousel.vue'
+import Accordion from '../components/Accordion.vue'
 export default {
     data() {
         return {
@@ -44,7 +48,8 @@ export default {
     },
     components:{//注册子组件
         "my-header":Header,
-        "my-carousel":Carousel
+        "my-carousel":Carousel,
+        "my-accordion":Accordion
     },
 }
 </script>
