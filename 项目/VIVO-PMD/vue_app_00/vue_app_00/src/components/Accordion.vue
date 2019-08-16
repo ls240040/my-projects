@@ -25,4 +25,3 @@ export default {
     }
 }
 </script>
-<script src="js/mui.min.js"></script>
