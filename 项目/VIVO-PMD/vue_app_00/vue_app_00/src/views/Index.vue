@@ -19,9 +19,9 @@
 </template>
 <script>
 //引入子组件
-import Header from '../components/Header.vue'
-import Carousel from '../components/Carousel.vue'
-import Accordion from '../components/Accordion.vue'
+import Header from '../components/index/Header.vue'
+import Carousel from '../components/index/Carousel.vue'
+import Accordion from '../components/common/Accordion.vue'
 export default {
     data() {
         return {

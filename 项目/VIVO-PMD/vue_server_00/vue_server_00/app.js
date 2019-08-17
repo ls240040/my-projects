@@ -10,8 +10,12 @@ const session = require("express-session");
 const bodyParser = require("body-parser");
 
 //路由器导入
+//index
 const carousel = require("./routes/index");
 const index = require("./routes/index");
+//mall
+const mcarousel = require("./routes/mall");
+const micos = require("./routes/mall");
 
 var app = express();
 
@@ -43,3 +47,5 @@ app.use(express.static('public'));
 // app.use("/index",index);
 app.use("/",carousel);
 app.use("/",index);
+app.use("/mall",mcarousel);
+app.use("/mall",micos);

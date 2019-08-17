@@ -30,3 +30,29 @@ INSERT INTO vcontent VALUES
 (NULL,'U1大屏大电池','指纹人脸双识别','05.jpg'),
 (NULL,'对X27夏日印象一见钟情','遇见更多','06.jpg');
 
+/**商城轮播图**/
+CREATE TABLE mcarousel(
+    cid INT PRIMARY KEY AUTO_INCREMENT,
+    img VARCHAR(128)
+);
+INSERT INTO mcarousel VALUES
+(NULL,'m01.jpg'),
+(NULL,'m02.jpg'),
+(NULL,'m03.jpg'),
+(NULL,'m04.jpg'),
+(NULL,'m05.jpg');
+
+/**商城icos**/
+CREATE TABLE micos(
+    cid INT PRIMARY KEY AUTO_INCREMENT,
+    img VARCHAR(128)
+);
+INSERT INTO micos VALUES
+(NULL,'ico01.png'),
+(NULL,'ico02.png'),
+(NULL,'ico03.png'),
+(NULL,'ico04.png'),
+(NULL,'ico05.png'),
+(NULL,'ico06.png'),
+(NULL,'ico07.png'),
+(NULL,'ico08.png');
