@@ -56,3 +56,12 @@ INSERT INTO micos VALUES
 (NULL,'ico06.png'),
 (NULL,'ico07.png'),
 (NULL,'ico08.png');
+
+/**商城热卖**/
+CREATE TABLE hotsell(
+    cid INT PRIMARY KEY AUTO_INCREMENT,
+    img VARCHAR(128)
+);
+INSERT INTO hotsell VALUES
+(NULL,'hot01.png'),
+(NULL,'hot02.png');

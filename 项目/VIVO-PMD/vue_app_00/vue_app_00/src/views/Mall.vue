@@ -12,11 +12,15 @@
         <div id="icos" v-for="(item,i) of items" :key="i">
            <a href="javascript:;"><img :src="`http://127.0.0.1:5050/${item.img}`"/></a> 
         </div>
+        <!-- V抢购 -->
+        <!-- hotsell -->
+        <my-hotsell></my-hotsell>
     </div>
 </template>
 <script>
 import Head from "../components/common/Head.vue"
 import Mcarousel from "../components/mall/Mcarousel.vue"
+import Hotsell from "../components/mall/Hotsell.vue"
 export default {
     data(){
         return{
@@ -43,7 +47,8 @@ export default {
     },
     components:{
         "my-head":Head,
-        "my-mcarousel":Mcarousel
+        "my-mcarousel":Mcarousel,
+        "my-hotsell":Hotsell
     }
 }
 </script>
