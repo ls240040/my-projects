@@ -23,15 +23,37 @@ axios.defaults.withCredentials=true
 Vue.prototype.axios = axios;
 //main.js
 
-
-
-
-
-
-
+//9:引入vuex第三方模块
+import Vuex from "vuex"
+//11：注册Vuex（先注册->再创建实例对象）
+Vue.use(Vuex)
+//10：创建Vuex存储实例对象
+var store=new Vuex.Store({
+  //共享数据
+  state:{cartCount:0},
+  //添加修改数据的函数
+  mutations:{
+    increment(state){//购物车数量+1
+      state.cartCount++;
+    },
+    clear(state){//清空购物车
+      state.cartCount=0;
+    }
+  },
+  //添加获取数据函数
+  getters:{
+    getCartCount(state){
+      return state.cartCount;
+    }
+  },
+  //添加异步操作数据函数
+  actions:{}
+})
+//12：将实例对象添加Vue中
 Vue.config.productionTip = false
 
 new Vue({
   router,
-  render: h => h(App)
+  render: h => h(App), //App App.vue根组件
+  store
 }).$mount('#app')

@@ -16,6 +16,10 @@ const index = require("./routes/index");
 //mall
 const mcarousel = require("./routes/mall");
 const micos = require("./routes/mall");
+const hotsell = require("./routes/mall");
+const vrush = require("./routes/mall");
+const boutique = require("./routes/mall");
+const parts = require("./routes/mall");
 
 var app = express();
 
@@ -49,3 +53,7 @@ app.use("/",carousel);
 app.use("/",index);
 app.use("/mall",mcarousel);
 app.use("/mall",micos);
+app.use("/mall",hotsell);
+app.use("/mall",vrush);
+app.use("/mall",boutique);
+app.use("/mall",parts);

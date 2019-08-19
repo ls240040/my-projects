@@ -13,14 +13,22 @@
            <a href="javascript:;"><img :src="`http://127.0.0.1:5050/${item.img}`"/></a> 
         </div>
         <!-- V抢购 -->
+        <my-vrush></my-vrush>
         <!-- hotsell -->
         <my-hotsell></my-hotsell>
+        <!-- boutique -->
+        <my-boutique></my-boutique>
+        <!-- parts -->
+        <my-parts></my-parts>
     </div>
 </template>
 <script>
 import Head from "../components/common/Head.vue"
 import Mcarousel from "../components/mall/Mcarousel.vue"
+import Vrush from "../components/mall/Vrush.vue"
 import Hotsell from "../components/mall/Hotsell.vue"
+import Boutique from "../components/mall/Boutique.vue"
+import Parts from "../components/mall/Parts.vue"
 export default {
     data(){
         return{
@@ -48,7 +56,10 @@ export default {
     components:{
         "my-head":Head,
         "my-mcarousel":Mcarousel,
-        "my-hotsell":Hotsell
+        "my-vrush":Vrush,
+        "my-hotsell":Hotsell,
+        "my-boutique":Boutique,
+        "my-parts":Parts,
     }
 }
 </script>
