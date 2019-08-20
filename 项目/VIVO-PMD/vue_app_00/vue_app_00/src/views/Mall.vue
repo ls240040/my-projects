@@ -64,6 +64,9 @@ export default {
 }
 </script>
 <style scoped>
+    *{
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+    }
     #section-bg img{
         width: 100%;
         margin-top: 14.81481vw;

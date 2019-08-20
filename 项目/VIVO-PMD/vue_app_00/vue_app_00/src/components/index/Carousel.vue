@@ -43,7 +43,7 @@ export default {
     @media (max-width:767px){
         .mint-swipe{
             width:100%;
-            height:85vh;
+            height:150vw;
         }
         .mint-swipe >>> .mint-swipe-indicator{
             width: 44px;

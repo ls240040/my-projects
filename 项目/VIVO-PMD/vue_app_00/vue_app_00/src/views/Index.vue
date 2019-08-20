@@ -54,13 +54,16 @@ export default {
 }
 </script>
 <style scoped>
+  *{
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+    }
     #content{
         position:relative;
     }
     #content img{
         position: relative;
         z-index:9;
-        height:60vh;
+        height:80vw;
         transform:translate(-50%,0%);
         left:50%;
         display:block;

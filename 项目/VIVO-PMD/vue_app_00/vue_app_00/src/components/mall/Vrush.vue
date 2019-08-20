@@ -63,9 +63,11 @@ export default {
     }
     .vpro{
         float: left;
+        text-align: center;
+        margin-right:15px;
     }
     .vpro a img{
-        width: 6.5rem;
+        width: 7rem;
     }
     .info .name{
         font-size:18px;

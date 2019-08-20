@@ -79,7 +79,7 @@ export default {
     }
     #parpro h3{
         color:#333;
-        padding:0 30px 0;
+        padding:0 20px 0;
         font-size:14px;
         margin:20px 0 5px;
         line-height: 1.2;

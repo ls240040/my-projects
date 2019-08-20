@@ -20,6 +20,8 @@ const hotsell = require("./routes/mall");
 const vrush = require("./routes/mall");
 const boutique = require("./routes/mall");
 const parts = require("./routes/mall");
+//details
+const product=require("./routes/details");
 
 var app = express();
 
@@ -57,3 +59,4 @@ app.use("/mall",hotsell);
 app.use("/mall",vrush);
 app.use("/mall",boutique);
 app.use("/mall",parts);
+app.use("/details",product);
