@@ -60,11 +60,12 @@ INSERT INTO micos VALUES
 /**商城热卖**/
 CREATE TABLE hotsell(
     cid INT PRIMARY KEY AUTO_INCREMENT,
-    img VARCHAR(128)
+    img VARCHAR(128),
+    href VARCHAR(128)
 );
 INSERT INTO hotsell VALUES
-(NULL,'hot01.png'),
-(NULL,'hot02.png');
+(NULL,'hot01.png','/Details?lid=1'),
+(NULL,'hot02.png','/Details?lid=2');
 
 /**商城V抢购**/
 CREATE TABLE vrush(
@@ -122,7 +123,7 @@ INSERT INTO parts VALUES
 
 /**商品详情-product**/
 CREATE TABLE product(
-    pid INT PRIMARY KEY AUTO_INCREMENT,
+    pid INT PRIMARY KEY,
     lid INT,
     img VARCHAR(128),
     title VARCHAR(128),
@@ -131,7 +132,7 @@ CREATE TABLE product(
     discount VARCHAR(128),
 
     /**已选规格**/
-    active VARCHAR(128)
+    specs VARCHAR(128)
 );
 INSERT INTO product VALUES
 (1,1,'lid01.png','S1 Pro 6GB+256GB 仲夏梦','[享12期免息，加赠半年延保，购机即享价值869元礼包（免费善诊体验+399红酒兑换券），联系客服领取！]','19.5:9零界全面屏，升降式摄像头，3200万前置超清自拍，4800万后置三摄，3700mAh大电池，双引擎闪充','iQOO限时至高下单立减400，立即抢购>>','全网通版 8GB+128GB 印象夏日 官方标配'),

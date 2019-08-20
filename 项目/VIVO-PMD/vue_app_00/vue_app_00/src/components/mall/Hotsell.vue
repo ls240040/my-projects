@@ -1,13 +1,13 @@
 <template>
     <div id="hotsell">
         <h1><span>—</span> 热卖专区 <span>—</span></h1>
-        <a href="javascript:;" class="banner">
+        <router-link to="javascript:;" class="banner">
             <img src="../../assets/img/hot-banner.jpg" alt="">
-        </a>
+        </router-link>
         <div id="hotpro">
-            <a href="javascript:;" v-for="(item,i) of items" :key="i">
+            <router-link :to="`${item.href}`"  v-for="(item,i) of items" :key="i">
                 <img :src="`http://127.0.0.1:5050/${item.img}`" alt="">
-            </a>
+            </router-link>
         </div>
     </div>
 </template>

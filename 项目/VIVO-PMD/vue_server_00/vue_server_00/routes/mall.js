@@ -25,7 +25,7 @@ router.get('/micos',(req,res)=>{
 //商城热卖
 //http://127.0.0.1:5050/mall/hotsell
 router.get('/hotsell',(req,res)=>{
-    var sql="SELECT cid,img FROM hotsell";
+    var sql="SELECT cid,img,href FROM hotsell";
     pool.query(sql,(err,result)=>{
         if(err) throw err;
         res.send({code:1,msg:"查询成功",data:result});

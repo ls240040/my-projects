@@ -1,12 +1,13 @@
 <template>
     <div id="pro">
+        <!-- nav -->
         <div class="nav">
             <router-link :to="{path:'/Mall'}">
                 <img class="im1" src="../../assets/img/arrow-left.png" alt="">
             </router-link>
-            
             <img class="im2" src="../../assets/img/ellipsis.png" alt="">
         </div>
+        <!-- mt-swipe -->
         <mt-swipe :auto=0>
             <mt-swipe-item>
                 <img :src="`http://127.0.0.1:5050/lid01.png`"/>
@@ -15,7 +16,7 @@
                 <img :src="`http://127.0.0.1:5050/${item.img}`"/>
             </mt-swipe-item> 
         </mt-swipe> 
-        <div class="new" @click="drop()">
+        <div class="new">
             <img src="../../assets/img/xin.png" alt="">
         </div>
     </div>
@@ -24,24 +25,17 @@
 export default {
     data(){
         return{
-            items:[],
-            i:0
+
         }
     },
-    methods:{
-        loadMore(){
-            var url="/details/product";
-            this.axios.get(url).then(res=>{
-                console.log(res.data.data);
-                this.items=res.data.data;
-            })
-        },
-        drop(e){
-            e.target.style.background="red";
-        },
+    props:{
+        lid:{default:""},
+        src:{default:""},
+        items:{default:""},
+        i:{default:""}
     },
     created(){
-        this.loadMore();
+
     }
 }
 </script>

@@ -14,6 +14,6 @@ export default new Router({
     //组件访问路径    组件名
     {path:'/Index',component:Index},
     {path:'/Mall',component:Mall},
-    {path:'/Details',component:Details},
+    {path:'/Details/:lid',component:Details,props:true},
   ]
 })
