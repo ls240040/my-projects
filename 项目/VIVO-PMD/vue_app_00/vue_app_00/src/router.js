@@ -12,7 +12,7 @@ Vue.use(Router)
 export default new Router({
   routes: [
     //组件访问路径    组件名
-    {path:'/Index',component:Index},
+    {path:'/',component:Index},
     {path:'/Mall',component:Mall},
     {path:'/Details/:lid',component:Details,props:true},
   ]

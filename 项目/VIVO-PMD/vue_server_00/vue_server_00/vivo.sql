@@ -64,8 +64,8 @@ CREATE TABLE hotsell(
     href VARCHAR(128)
 );
 INSERT INTO hotsell VALUES
-(NULL,'hot01.png','/Details?lid=1'),
-(NULL,'hot02.png','/Details?lid=2');
+(NULL,'hot01.png','/Details/1'),
+(NULL,'hot02.png','/Details/2');
 
 /**商城V抢购**/
 CREATE TABLE vrush(
@@ -123,7 +123,7 @@ INSERT INTO parts VALUES
 
 /**商品详情-product**/
 CREATE TABLE product(
-    pid INT PRIMARY KEY,
+    pid INT PRIMARY KEY AUTO_INCREMENT,
     lid INT,
     img VARCHAR(128),
     title VARCHAR(128),

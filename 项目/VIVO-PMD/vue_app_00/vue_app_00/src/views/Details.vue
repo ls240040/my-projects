@@ -1,7 +1,7 @@
 <template>
     <div id="details">
         <!-- 商品 -->
-        <my-product :lid="lid" :src="src" :items="items" :i="i">
+        <my-product :src="src" :items="items" :i="i">
         </my-product>
         <!-- 底部导航栏 -->
         <mt-tabbar fixed>
@@ -34,10 +34,10 @@ import Product from "../components/details/Product.vue"
 export default {
     data(){
         return{
-            lid:"",
+            // lid:"",
             src:"",
-            items:"",
-            i:""
+            items:[],
+            i:"0"
         }
     },
     methods:{
@@ -52,18 +52,23 @@ export default {
         },
         loadMore(){
             var url="/details/product";
-            this.axios.get(url).then(res=>{
+            var obj={lid:this.lid};
+            this.axios.get(url,{params:obj}).then(res=>{
                 console.log(res.data.data);
                 this.items=res.data.data;
+                // let {lid} = this.$route.query;
+                // this.lid=lid;
             })
         },
     },
-   
     created(){
         this.loadMore();
     },
     components:{
         "my-product":Product
+    },
+    props:{
+        lid:{default:""}
     }
 }
 </script>

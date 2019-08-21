@@ -6,6 +6,7 @@ const pool=require("../pool");
 //http://127.0.0.1:5050/details/product
 router.get('/product',(req,res)=>{
     var lid=req.query.lid;
+    console.log(lid);
     var sql="SELECT pid,img FROM product WHERE lid=?";
     pool.query(sql,[lid],(err,result)=>{
         if(err) throw err;
