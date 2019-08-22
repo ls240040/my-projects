@@ -5,7 +5,17 @@
             <router-link :to="{path:'/Mall'}">
                 <img class="im1" src="../../assets/img/arrow-left.png" alt="">
             </router-link>
-            <img class="im2" src="../../assets/img/ellipsis.png" alt="">
+            <img class="im2" src="../../assets/img/ellipsis.png" @click="drop">
+        </div>
+        <!-- drop -->
+        <div id="maskbox" class="hide show">
+            <div id="dropdown">
+                <router-link :to="{path:'/Mall'}">商城首页</router-link>
+                <router-link :to="{path:'/Mall'}">个人中心</router-link>
+                <router-link :to="{path:'/Mall'}">全部分类</router-link>
+                <router-link :to="{path:'/Mall'}">分享好友</router-link>
+            </div>
+            <div class="mask"></div>
         </div>
         <!-- mt-swipe -->
         <mt-swipe :auto=0>
@@ -74,6 +84,22 @@ export default {
             src:"",
         }
     },
+    methods:{
+        drop(e){
+            var elli=document.getElementsByClassName("im2")[0];
+            var maskbox=document.getElementById("maskbox");
+            if(maskbox.className=="hide"){
+                maskbox.className="";
+            }else{
+                maskbox.className="hide";
+            }
+            document.onclick=function(e){
+                if(e.target.className!="im2" && e.target.className!=""){
+                    maskbox.className="hide";
+                }
+            }
+        },
+    },
     props:{
         lid:{default:""},
         items:{default:""},
@@ -96,7 +122,7 @@ export default {
      ul li{
          list-style: none;
     }
-    ul li a{
+    a{
         text-decoration: none;
     }
     [v-cloak]{
@@ -144,7 +170,7 @@ export default {
     }
     .new{
         position: absolute;
-        top:2rem;
+        top:3rem;
         right:20px;
         z-index: 3;
     }
@@ -308,4 +334,29 @@ export default {
         margin-left:-.6rem;
         margin-top:.3rem
     }
+    #dropdown{
+        position:fixed;
+        background-color: #fff;
+        z-index: 999;
+        padding: 1rem 3rem;
+        right:20px;
+        top:20vw;
+    }
+    #dropdown a{
+        color:#999;
+        display: block;
+        outline: 0;
+        line-height: 3rem;
+    }
+    .mask{
+        position: fixed;
+        background-color: rgba(0,0,0,.5);
+        z-index: 998;
+        width: 100%;
+        height: 92%;
+        bottom:0
+    }
+    .hide{
+        display: none;
+    } 
 </style>
