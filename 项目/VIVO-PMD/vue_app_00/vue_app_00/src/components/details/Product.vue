@@ -54,9 +54,16 @@
             </div>
         </div>
         <!-- actived -->
-        <div class="actived">
-            <div class="name">已选</div>
-            <div v-text="items[lid].specs"></div>
+        <div class="spec-act">
+            <div class="actived">
+                <div class="name">已选</div>
+                <div v-text="items[lid].specs"></div>
+            </div>
+            <ul>
+                <li>顺丰急速达</li>
+                <li>7天包退换</li>
+                <li>全国联保</li>
+            </ul>
         </div>
     </div>
 </template>
@@ -266,8 +273,39 @@ export default {
     }
     .actived{
         padding:6vw 3vw;
+        border-bottom-right-radius:0;
+        border-bottom-left-radius:0;
+        border-bottom: 1px solid rgb(236, 236, 236);
     }
     .actived .name{
         margin-right:1rem;
+    }
+    .spec-act ul{
+        width: 92vw;
+        margin: auto;
+        padding:5vw 3vw 12vw;
+        border-bottom-right-radius:3vw;
+        border-bottom-left-radius:3vw;
+        background-color: #fff;
+        box-sizing: border-box;
+        position: relative;
+    }
+    .spec-act ul li{
+        float: left;
+        margin-right: 1rem;
+        margin-left: 1rem;
+        font-size: .6rem;
+        color:#999;
+    }
+    .spec-act ul li::before{
+        content: "";
+        width:5px;
+        height: 5px;
+        background: #ff5e72;
+        border-radius: 50%;
+        vertical-align: center;
+        position: absolute;
+        margin-left:-.6rem;
+        margin-top:.3rem
     }
 </style>
