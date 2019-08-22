@@ -1,7 +1,7 @@
 <template>
     <div id="details">
         <!-- 商品 -->
-        <my-product v-if="items[lid] && items[lid].price" :items="items" :price="price" :title="title" :lid="lid">
+        <my-product v-if="items[lid] && items[lid].price" :items="items" :price="price" :title="title" :lid="lid" :info="info" :subinfo="subinfo" :discount="discount" :specs="specs">
         </my-product>
         <!-- 底部导航栏 -->
         <mt-tabbar fixed>
@@ -36,7 +36,11 @@ export default {
         return{
             items:[],
             price:"",
-            title:""
+            title:"",
+            info:"",
+            subinfo:"",
+            discount:"",
+            specs:""
         }
     },
     methods:{
