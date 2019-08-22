@@ -25,10 +25,10 @@
         </div>
         </div>
         <div id="dropContent" class="hide">
-            <span class="close" @click="close"></span>
+            <span class="close"></span>
             <div>
                 <img class="search" src="../../assets/img/search-grey.png">
-                <input type="text" placeholder="iQoo">
+                <input type="text" placeholder="iQoo" @focus="keyWord" @blur="check">
             </div>
             <img class="cart" src="../../assets/img/cart-grey.png">
         </div>
@@ -67,12 +67,21 @@ export default {
                 middle.style.backgroundColor="#fff";
             }
         },
-        close(e){
-            var close=document.getElementsByClassName("close")[0];
-            console.log(11111);
-            if(e.target.className=="close"){
-                e.target.parentNode.className="hide";
-            }
+        keyWord(){
+            var search=document.getElementsByClassName("search")[0];
+            var cart=document.getElementsByClassName("cart")[0];
+            search.style.right="6vw";
+            search.style.height="6vw";
+            search.style.marginTop="1vw";
+            cart.style.opacity="0";
+        },
+        check(){
+            var search=document.getElementsByClassName("search")[0];
+            var cart=document.getElementsByClassName("cart")[0];
+            search.style.right="";
+            search.style.height="4vw";
+            search.style.marginTop="2.5vw";
+            cart.style.opacity="1";
         }
     }
 }                                                                                                    

@@ -7,7 +7,7 @@ const pool=require("../pool");
 router.get('/product',(req,res)=>{
     var lid=req.query.lid;
     console.log(lid);
-    var sql="SELECT pid,img FROM product WHERE lid=?";
+    var sql="SELECT pid,img,price,title,lid FROM product WHERE lid=?";
     pool.query(sql,[lid],(err,result)=>{
         if(err) throw err;
         if(result.length==0){

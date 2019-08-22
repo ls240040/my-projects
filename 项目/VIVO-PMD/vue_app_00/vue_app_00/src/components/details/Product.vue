@@ -9,15 +9,22 @@
         </div>
         <!-- mt-swipe -->
         <mt-swipe :auto=0>
-            <mt-swipe-item>
+            <!-- <mt-swipe-item>
                 <img :src="`http://127.0.0.1:5050/lid01.png`"/>
-            </mt-swipe-item> 
-            <mt-swipe-item v-for="(item,i) of items" :key="i">
+            </mt-swipe-item>  -->
+            <mt-swipe-item v-for="(item,lid) of items" :key="lid">
                 <img :src="`http://127.0.0.1:5050/${item.img}`"/>
             </mt-swipe-item> 
         </mt-swipe> 
         <div class="new">
             <img src="../../assets/img/xin.png" alt="">
+        </div>
+        <div class="infos">
+            <h1 v-cloak><span>¥</span>{{items[lid].price}}</h1>
+            <h3 v-text="items[lid].title"></h3>
+            <a href="javascript:;">
+                <img src="../../assets/img/collect.png">
+            </a>
         </div>
     </div>
 </template>
@@ -25,14 +32,14 @@
 export default {
     data(){
         return{
-
+            src:"",
         }
     },
     props:{
         lid:{default:""},
-        src:{default:""},
         items:{default:""},
-        i:{default:""}
+        price:{default:""},
+        title:{default:""}
     },
     created(){
 
@@ -43,8 +50,12 @@ export default {
     *{
         -webkit-tap-highlight-color: rgba(0,0,0,0);
     }
+    [v-cloak]{
+        display: none;
+    }
     #pro{
         position: relative;
+        background-color: #f4f4f4;
     }
     #pro .nav{
         padding: 10px;
@@ -61,7 +72,7 @@ export default {
     }
     .mint-swipe{
         width:100%;
-        height: 110vw;
+        height: 100vw;
         z-index: 1;
         text-align: center
     }
@@ -72,12 +83,8 @@ export default {
         width:100%;
     }
     .mint-swipe-item:first-child{
-        width:106%;
+        width:100%;
         margin-top:-30px;
-        margin-left:-3%;
-    }
-    .mint-swipe-item:nth-child(2){
-        width:95%;
     }
     .mint-swipe >>> .mint-swipe-indicator.is-active{
         background-color:#000;
@@ -91,5 +98,31 @@ export default {
     }
     .new img{
         width: 15vw;
+    }
+    .infos{
+        width: 94vw;
+        background-color: #fff;
+        margin: auto;
+        border-radius: 3vw;
+        padding: 3vw;
+        box-sizing: border-box;
+    }
+    .infos h3{
+        display: inline;
+        font-weight: 400;
+        font-size: 1.2rem
+    }
+    .infos h1{
+        color:#F10313;
+        font-weight: 400;
+        font-size: 1.5rem
+    }
+    .infos h1 span{
+        font-size: 1rem;
+        vertical-align: top
+    }
+    .infos a img{
+        width: 6vw;
+        float: right
     }
 </style>

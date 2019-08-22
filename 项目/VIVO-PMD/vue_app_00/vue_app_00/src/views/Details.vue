@@ -1,7 +1,7 @@
 <template>
     <div id="details">
         <!-- 商品 -->
-        <my-product :src="src" :items="items" :i="i">
+        <my-product v-if="items[lid] && items[lid].price" :items="items" :price="price" :title="title" :lid="lid">
         </my-product>
         <!-- 底部导航栏 -->
         <mt-tabbar fixed>
@@ -34,10 +34,9 @@ import Product from "../components/details/Product.vue"
 export default {
     data(){
         return{
-            // lid:"",
-            src:"",
             items:[],
-            i:"0"
+            price:"",
+            title:""
         }
     },
     methods:{
@@ -52,21 +51,22 @@ export default {
         },
         loadMore(){
             var url="/details/product";
-            var obj={lid:this.lid};
-            this.axios.get(url,{params:obj}).then(res=>{
+            var obj={lid:this.lid}; //传递lid参数
+            this.axios.get(url,{params:obj}).then(res=>{ //把obj发送给服务器获得返回数据
                 console.log(res.data.data);
-                this.items=res.data.data;
-                // let {lid} = this.$route.query;
-                // this.lid=lid;
+                this.items=res.data.data; //保存ajax数据
             })
         },
     },
     created(){
-        this.loadMore();
+        this.$nextTick(function(){
+            this.loadMore();
+        });
     },
     components:{
         "my-product":Product
     },
+    //在这里接收 路由传参
     props:{
         lid:{default:""}
     }
