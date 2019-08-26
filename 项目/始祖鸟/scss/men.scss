@@ -120,17 +120,17 @@ header{border-bottom: 1px solid #ccc;}
     .w-80{width: 80%;}
     .w-90{width: 90%;}
     }
-  .carousel-prev-icon,
-  .carousel-next-icon {
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
     height: 27.59px;
     width: 15px;
     background: transparent no-repeat center center;
     background-size: 100% 100%;
   }
-  .carousel-prev-icon {
+  .carousel-control-prev-icon {
     background-image: url("../img/men/arrow_right.png");
   }
-  .carousel-next-icon {
+  .carousel-control-next-icon {
     background-image: url("../img/men/arrow_left.png");
   }
   .rmb_border{border-right: 1px solid #000;}
