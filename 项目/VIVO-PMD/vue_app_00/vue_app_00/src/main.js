@@ -23,6 +23,12 @@ axios.defaults.withCredentials=true
 Vue.prototype.axios = axios;
 //main.js
 
+//引入video插件
+import Video from 'video.js'
+import 'video.js/dist/video-js.css'
+
+Vue.prototype.$video = Video
+
 //9:引入vuex第三方模块
 import Vuex from "vuex"
 //11：注册Vuex（先注册->再创建实例对象）
@@ -30,24 +36,45 @@ Vue.use(Vuex)
 //10：创建Vuex存储实例对象
 var store=new Vuex.Store({
   //共享数据
-  state:{cartCount:0},
-  //添加修改数据的函数
-  mutations:{
-    increment(state){//购物车数量+1
-      state.cartCount++;
-    },
-    clear(state){//清空购物车
-      state.cartCount=0;
-    }
+  state:{
+    age:23,
+    list:[1,2,4,5],
+    car:"七手QQ",
   },
+  //添加修改数据的函数
+   mutations:{
+     updataCar(state){
+       state.car="三手夏利";
+     },
+     updataAge(state,age){ //调用函数传参
+       state.age=age
+     },
+     clear(state){ //添加清除年龄方法
+       state.age=0;
+     }
+   },
   //添加获取数据函数
   getters:{
-    getCartCount(state){
-      return state.cartCount;
+    getCar(state){
+      return state.car;
+    },
+    getAge(state){
+      return state.age;
+    },
+    getList(state){
+      return state.list;
     }
   },
   //添加异步操作数据函数
-  actions:{}
+  actions:{
+    modifyAge:(context)=>{ //异步调用clear
+      setTimeout(()=>{
+        // 异步调用mutation中定义的函数
+        // 完成异步修改数据的功能
+        context.commit("clear")
+      },500)
+    }
+  }
 })
 //12：将实例对象添加Vue中
 Vue.config.productionTip = false

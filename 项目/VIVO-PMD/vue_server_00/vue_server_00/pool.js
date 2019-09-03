@@ -6,7 +6,7 @@ var pool = mysql.createPool({
   password: '',
   port:3306,
   database: 'vivo',
-  connectionLimit: 10 
+  connectionLimit: 20 
 });
 //把创建好的连接池导出
 module.exports = pool;

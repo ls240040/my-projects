@@ -1,0 +1,21 @@
+//1、$ratio的值可以由用户随意设定
+//2、当设置为37.5时，表示以屏幕宽度375px为基准
+//3、如果屏幕宽度大于375px，使用px2rem()方法计算出的值会等比例扩大
+//4、如果屏幕宽度小于375px，使用px2rem()方法计算出的值会等比例缩小
+$ratio: 375 / 10;
+//1rem=fontSize + 'px'
+//1px= 1/fontSize + rem
+@function px2rem($px){
+    @return $px / $ratio + rem;
+}
+
+@mixin center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin left {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}

@@ -19,7 +19,16 @@
         </div>
         <div class="right-head">
             <a class="a1" href="javascript:;"><img src="../../assets/img/search.png" alt=""></a>
-            <a class="a2" href="javascript:;"><img src="../../assets/img/user.png" alt=""></a>
+            <a class="a2" href="javascript:;"><img src="../../assets/img/user.png" alt=""  @click="drop"></a>
+        </div>
+        <!-- drop -->
+        <div id="maskbox" v-show="show">
+            <div id="dropdown">
+                <router-link :to="{path:'/Mall'}">商城首页</router-link>
+                <router-link :to="{path:'/Login'}">个人中心</router-link>
+                <router-link :to="{path:'/Mall'}">全部分类</router-link>
+                <router-link :to="{path:'/Mall'}">分享好友</router-link>
+            </div>
         </div>
     </div>
 </template>
@@ -27,11 +36,22 @@
 export default {
     data(){
         return{
-
+            show:false
         }
-    }
+    },
+    methods:{
+        drop(){
+           this.show=!this.show;
+        },
+    },
+    // mounted() {
+    //     document.body.addEventListener('click',()=>{
+    //         this.show=false
+    //     })
+    // },
 }
 </script>
 <style scoped>
     @import url("../../assets/css/head.css");
+   
 </style>

@@ -7,7 +7,12 @@ import Index from './views/Index.vue'
 import Mall from './views/Mall.vue'
 import Details from './views/Details.vue'
 import Login from './views/Login.vue'
+import Register from './views/Register.vue'
+import Protocol from './views/Protocol.vue'
+import Cart from './views/Cart.vue'
 import NotFound from './views/NotFound.vue'
+import A from './views/A.vue'
+import B from './views/B.vue'
 
 Vue.use(Router)
 
@@ -17,10 +22,15 @@ export default new Router({
     {path:'/',component:Index},
     {path:'/Mall',component:Mall},
     {path:'/Login',component:Login},
+    {path:'/Register',component:Register},
+    {path:'/Protocol',component:Protocol},
+    {path:'/Cart',component:Cart},
     //1.props:true  让url中参数自动成为props中的自定义属性 
     //2.在要接收参数的目标组件中，添加与路由参数同名的自定义属性变量 var details={props:["lid"]}
     //3.跳转时，/details/1  没有问号，值用'/'分割
-    {path:'/Details/:lid',component:Details,props:true}, 
+    {path:'/Details/:lid',component:Details,props:true}, //:lid是地址栏的值，后面的传参也是地址栏的值
+    {path:'/A',component:A},
+    {path:'/B',component:B},
     {path:'/*',component:NotFound},
   ]
 })

@@ -8,10 +8,10 @@
             <img class="im2" src="../../assets/img/ellipsis.png" @click="drop">
         </div>
         <!-- drop -->
-        <div id="maskbox" class="hide show">
+        <div id="maskbox" v-show="show">
             <div id="dropdown">
                 <router-link :to="{path:'/Mall'}">商城首页</router-link>
-                <router-link :to="{path:'/Mall'}">个人中心</router-link>
+                <router-link :to="{path:'/Login'}">个人中心</router-link>
                 <router-link :to="{path:'/Mall'}">全部分类</router-link>
                 <router-link :to="{path:'/Mall'}">分享好友</router-link>
             </div>
@@ -19,11 +19,20 @@
         </div>
         <!-- mt-swipe -->
         <mt-swipe :auto=0>
-            <!-- <mt-swipe-item>
-                <img :src="`http://127.0.0.1:5050/lid01.png`"/>
-            </mt-swipe-item>  -->
-            <mt-swipe-item v-for="(item,lid) of items" :key="lid">
-                <img :src="`http://127.0.0.1:5050/${item.img}`"/>
+            <mt-swipe-item class="videoSet" style="background:#fff">
+                <video :src="`http://127.0.0.1:5050/${items.video}`" controls :poster="`http://127.0.0.1:5050/${items.img01}`" style="width:100%;height:100%;object-fit:fill"></video>
+            </mt-swipe-item>
+            <mt-swipe-item>
+                <img :src="`http://127.0.0.1:5050/${items.img01}`"/>
+            </mt-swipe-item> 
+            <mt-swipe-item>
+                <img :src="`http://127.0.0.1:5050/${items.img02}`"/>
+            </mt-swipe-item> 
+            <mt-swipe-item>
+                <img :src="`http://127.0.0.1:5050/${items.img03}`"/>
+            </mt-swipe-item> 
+            <mt-swipe-item>
+                <img :src="`http://127.0.0.1:5050/${items.img04}`"/>
             </mt-swipe-item> 
         </mt-swipe> 
         <!-- new-logo -->
@@ -32,16 +41,16 @@
         </div>
         <!-- infos -->
         <div class="infos">
-            <h1 v-cloak><span>¥</span>{{items[lid].price}}</h1>
+            <h1 v-cloak><span>¥</span>{{items.price}}</h1>
             <div>
-                <h3 v-text="items[lid].title"></h3>
+                <h3 v-text="items.title"></h3>
                 <a href="javascript:;">
                     <img src="../../assets/img/collect.png">
                 </a>
             </div>
-            <span class="s1" v-text="items[lid].info"></span>
-            <p class="subinfo" v-text="items[lid].subinfo"></p>
-            <p class="discount" v-text="items[lid].discount"></p>
+            <span class="s1" v-text="items.info"></span>
+            <span class="subinfo" v-text="items.subinfo"></span>
+            <span class="discount" v-text="items.discount"></span>
             <div class="specif-box">
                 <div class="name">规格</div>
                 <div class="container">
@@ -67,7 +76,7 @@
         <div class="spec-act">
             <div class="actived">
                 <div class="name">已选</div>
-                <div v-text="items[lid].specs"></div>
+                <div v-text="items.specs"></div>
             </div>
             <ul>
                 <li>顺丰急速达</li>
@@ -82,40 +91,31 @@ export default {
     data(){
         return{
             src:"",
+            show:false
         }
     },
     methods:{
-        drop(e){
-            var elli=document.getElementsByClassName("im2")[0];
-            var maskbox=document.getElementById("maskbox");
-            if(maskbox.className=="hide"){
-                maskbox.className="";
-            }else{
-                maskbox.className="hide";
-            }
-            document.onclick=function(e){
-                if(e.target.className!="im2" && e.target.className!=""){
-                    maskbox.className="hide";
-                }
-            }
+        drop(){
+            this.show=!this.show;
         },
     },
     props:{
         lid:{default:""},
         items:{default:""},
-        price:{default:""},
-        title:{default:""},
-        info:{default:""},
-        subinfo:{default:""},
-        discount:{default:""},
-        specs:{default:""},
-    },
-    created(){
-
     }
 }
 </script>
 <style scoped>
+.videoSet video{
+    left: 0;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    float: left;
+    background-color:#f4f4f4;
+    outline: 0;
+    border: 0
+}
     *{
         -webkit-tap-highlight-color: rgba(0,0,0,0);
     }
@@ -217,10 +217,10 @@ export default {
         color:#999;
         margin: 0px;
         line-height: 1.5;
-        padding-right: 1.8rem;
     }
     .discount{
         color:#EF001E;
+        padding-right: 2.2rem;
     }
     .specif-box,.activity,.actived{
         display: flex;
@@ -356,7 +356,4 @@ export default {
         height: 92%;
         bottom:0
     }
-    .hide{
-        display: none;
-    } 
 </style>

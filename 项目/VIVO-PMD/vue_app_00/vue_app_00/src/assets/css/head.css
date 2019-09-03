@@ -29,6 +29,20 @@
         margin-left: 5vw;
         background-color: #fff;
         transition: all .5s linear; }
+  #head #dropdown {
+    position: fixed;
+    background-color: #fff;
+    z-index: 999;
+    padding: 1rem 3rem;
+    right: 20px;
+    top: 20vw;
+    box-shadow: 0.5vw .5vw .8vw; }
+  #head #dropdown a {
+    color: #999;
+    display: block;
+    outline: 0;
+    line-height: 3rem;
+    text-decoration: none; }
   #head .logo {
     margin: auto;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
