@@ -1,7 +1,7 @@
 <template>
     <div id="details">
         <!-- 商品 -->
-        <my-product v-if="items[lid]" :items="items" :lid="lid">
+        <my-product v-if="items" :items="items" :lid="lid">
         </my-product>
         <!-- 底部导航栏 -->
         <mt-tabbar fixed>

@@ -59,7 +59,7 @@ router.get('/cart',(req,res)=>{
         return;
     }
     //2.创建sql语句
-    var sql="SELECT id,img,lname,price FROM v_cart WHERE uid=?";
+    var sql="SELECT id,count,img,lname,price FROM v_cart WHERE uid=?";
     //3.执行sql语句并且将数据库返回结果发送给客户
     pool.query(sql,[uid],(err,result)=>{
         if(err) throw err;

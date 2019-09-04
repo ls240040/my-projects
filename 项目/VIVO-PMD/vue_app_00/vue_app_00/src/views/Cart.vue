@@ -6,23 +6,32 @@
             <span>购物车</span>
             <img src="../assets/img/menu-2-outline.png">
         </div>
-        <!-- 2.商品信息 -->
-        <div class="cart-item" v-for="(item,index) of list" :key="index">
-            <div class="leftText">
-                <input type="checkbox" v-model="item.cb">
-                <img :src="`http://127.0.0.1:5050/${item.img}`">
-                <div>
-                    <div class="lname">{{item.lname}}</div>
-                    <div class="price">¥{{item.price.toFixed(2)}}</div>
+        <div class="item-box">
+            <!-- 2.商品信息 -->
+            <div class="cart-item" v-for="(item,index) of list" :key="index">
+                <div class="leftText">
+                    <input type="checkbox" v-model="item.cb">
+                    <img :src="`http://127.0.0.1:5050/${item.img}`">
+                    <div>
+                        <div class="lname">{{item.lname}}</div>
+                        <div class="price"><i>¥</i>{{item.price.toFixed(2)}}</div>
+                        <div>
+                            <span>-</span>
+                            <span>{{item.count}}</span>
+                            <span>+</span>
+                        </div>
+                    </div>
                 </div>
+                <img src="../assets/img/delete.png" @click="deleteItem" :data-id="item.id">
             </div>
-            <img src="../assets/img/delete.png" @click="deleteItem" :data-id="item.id">
         </div>
         <!-- 3.购物车中商品数量：删除选中商品，清空购物车 -->
         <div>
-            购物车中商品数量：删除选中商品，清空购物车
-            <span style="color:red">0</span>
-            <mt-button @click="deleteItems" :data-id="list.id">删除选中商品</mt-button>
+            <!-- 购物车中商品数量：删除选中商品，清空购物车 -->
+            <mt-button @click="deleteItems" :data-id="list.id">
+                删除选中商品
+                <span style="color:red">{{total.pnum}}</span>
+            </mt-button>
             <mt-button>清空购物车</mt-button>
         </div>
         <!-- 结算 -->
@@ -35,7 +44,7 @@
             <mt-tab-item>
                 <div class="sum">
                     <span>合计:</span>    
-                    <span>¥4296.00</span>
+                    <span>¥{{total.sum}}</span>
                 </div>
             </mt-tab-item>
             <mt-tab-item>
@@ -49,11 +58,28 @@ export default {
     data(){
         return{
             list:[],  //当前登录用户购物车列表
+            pnum:0,
+            sum:0
         }
     },
     created(){
         //当前组件创建成功回调函数
         this.loadMore();
+    },
+    computed:{
+        total(){
+            var pnum=0;
+            var sum=0;
+            for(var item of this.list){
+                if(item.cb==true){
+                    pnum+=item.count;
+                    sum+=item.count*item.price;
+                }
+            }
+            this.pnum=pnum;
+            this.sum=sum;
+            return {pnum:pnum,sum:sum}
+        }
     },
     methods:{
         selectAll(event){
@@ -173,13 +199,18 @@ export default {
             font-size: 5vw;
         }
     }
+    .item-box{
+        background-color: #f4f4f4;
+        padding: 3vw;
+    }
     // 1.商品项目元素
     .cart-item{
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border-bottom: 1px solid #ccc;
         margin-top:25px;
+        padding: 3vw;
+        background-color: #fff;
         img{
             width: 6vw;
         }
@@ -188,13 +219,26 @@ export default {
     .leftText{
         display: flex;
         align-items: center;
+        img{
+            width: 16vw;
+            margin-left: 3vw;
+        }
     }
     // 3.商品名称
     .lname{
         margin-left:25px;
+        font-size: 4vw;
     }
     .price{
         margin-left:25px;
+        color:#f81200;
+        margin-top:2vw;
+        i{
+            font-style: normal;
+            vertical-align: text-top;
+            font-size: 1vw;
+            margin-right:2px;
+        }
     }
     .cartBottom{
         .account{
