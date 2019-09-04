@@ -49,6 +49,66 @@ router.get('/addcart',(req,res)=>{
     })
 })
 
+//http://127.0.0.1:5050/v1/login?uname=tom&upwd=123
+//http://127.0.0.1:5050/v1/delcart?uid=1&lid=2
+router.get('/delcart',(req,res)=>{
+    var uid=req.session.uid;
+    if(!uid){
+        res.send({code:-1,msg:"请先登录"});
+        return;
+    }
+    var lid=req.query.lid;
+    var count=req.query.count;
+    //4.创建查询sql：当前用户是否购买此商品
+    var sql="SELECT id FROM v_cart WHERE uid=? AND lid=? AND count>1";
+    //5.执行sql语句
+    pool.query(sql,[uid,lid],(err,result)=>{
+        if(err) throw err;
+        //6.在回调函数中 判断下一步操作
+        //已购买过此商品  更新
+            var sql=`UPDATE v_cart SET count=count-1 WHERE uid=${uid} AND lid=${lid}`;
+            //7.执行sql获取返回结果
+            pool.query(sql,(err,result)=>{
+                if(err) throw err;
+                //8.如果 sql UPDATE INSERT DELETE
+                //判断执行成功  result.affectedRows 影响行数
+                if(result.affectedRows>0){
+                    res.send({code:1,msg:"商品删除成功"})
+                }
+            })
+    })
+})
+
+//http://127.0.0.1:5050/v1/login?uname=tom&upwd=123
+//http://127.0.0.1:5050/v1/delcart?uid=1&lid=2
+router.get('/addcart2',(req,res)=>{
+    var uid=req.session.uid;
+    if(!uid){
+        res.send({code:-1,msg:"请先登录"});
+        return;
+    }
+    var lid=req.query.lid;
+    var count=req.query.count;
+    //4.创建查询sql：当前用户是否购买此商品
+    var sql="SELECT id FROM v_cart WHERE uid=? AND lid=? AND count<5";
+    //5.执行sql语句
+    pool.query(sql,[uid,lid],(err,result)=>{
+        if(err) throw err;
+        //6.在回调函数中 判断下一步操作
+        //已购买过此商品  更新
+            var sql=`UPDATE v_cart SET count=count+1 WHERE uid=${uid} AND lid=${lid}`;
+            //7.执行sql获取返回结果
+            pool.query(sql,(err,result)=>{
+                if(err) throw err;
+                //8.如果 sql UPDATE INSERT DELETE
+                //判断执行成功  result.affectedRows 影响行数
+                if(result.affectedRows>0){
+                    res.send({code:1,msg:"商品删除成功"})
+                }
+            })
+    })
+})
+
 //http://127.0.0.1:5050/v1/cart?uid=1
 //功能四：查询指定用户的购物车信息
 router.get('/cart',(req,res)=>{
@@ -59,7 +119,7 @@ router.get('/cart',(req,res)=>{
         return;
     }
     //2.创建sql语句
-    var sql="SELECT id,count,img,lname,price FROM v_cart WHERE uid=?";
+    var sql="SELECT id,count,lid,img,lname,price FROM v_cart WHERE uid=?";
     //3.执行sql语句并且将数据库返回结果发送给客户
     pool.query(sql,[uid],(err,result)=>{
         if(err) throw err;
@@ -91,6 +151,7 @@ router.get('/delItem',(req,res)=>{
         }
     })
 })
+
 
 //http://127.0.0.1:5050/v1/login?uname=tom&upwd=123
 //http://127.0.0.1:5050/v1/delItem?id=7,9

@@ -40,6 +40,7 @@ var store=new Vuex.Store({
     age:23,
     list:[1,2,4,5],
     car:"七手QQ",
+    cartCount:0,
   },
   //添加修改数据的函数
    mutations:{
@@ -51,7 +52,7 @@ var store=new Vuex.Store({
      },
      clear(state){ //添加清除年龄方法
        state.age=0;
-     }
+     },
    },
   //添加获取数据函数
   getters:{

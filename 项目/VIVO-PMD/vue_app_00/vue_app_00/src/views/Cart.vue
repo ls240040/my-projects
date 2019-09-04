@@ -2,7 +2,7 @@
     <div class="cart-box">
         <!-- top -->
         <div class="CartTop">
-            <img src="../assets/img/arrow-ee.png">
+            <img src="../assets/img/arrow-ee.png" @click="back">
             <span>购物车</span>
             <img src="../assets/img/menu-2-outline.png">
         </div>
@@ -16,9 +16,9 @@
                         <div class="lname">{{item.lname}}</div>
                         <div class="price"><i>¥</i>{{item.price.toFixed(2)}}</div>
                         <div class="count-box">
-                            <span @click="minus" :class="{disabled:item.count<=1}" :data-index="index">-</span>
-                            <span>{{item.count}}</span>
-                            <span @click="add" :data-index="index">+</span>
+                            <span @click="minus" :class="{disabled:item.count<=1}" :data-index="index" :data-lid="item.lid">-</span>
+                            <span id="countInner" :data-count="item.count">{{item.count}}</span>
+                            <span @click="add" :data-index="index" :class="{disabled:item.count>=5}">+</span>
                         </div>
                     </div>
                 </div>
@@ -79,20 +79,40 @@ export default {
             }
             this.pnum=pnum;
             this.sum=sum;
-            return {pnum:pnum,sum:sum}
+            return {pnum:pnum,sum:sum};
         }
     },
     methods:{
+        back(){
+            this.$router.go(-1)
+        },
         add(e){
             var i=e.target.dataset.index;
-            this.list[i].count++;
+            var count=this.list[i].count++;
+            if(this.list[i].count>=5){
+                this.list[i].count=5;
+            }
+            var url="v1/addcart2";
+            var lid=this.list[i].lid;
+            var obj={lid:lid,count:count};
+            console.log(this.list);
+             this.axios.get(url,{params:obj}).then(res=>{
+                 this.loadMore(); // 11.刷新
+             })
         },
         minus(e){
             var i=e.target.dataset.index;
-            this.list[i].count--;
+            var count=this.list[i].count--;
             if(this.list[i].count==0){
                 this.list[i].count=1;
             }
+            var url="v1/delcart";
+            var lid=this.list[i].lid;
+            var obj={lid:lid,count:count};
+            console.log(this.list);
+             this.axios.get(url,{params:obj}).then(res=>{
+                 this.loadMore(); // 11.刷新
+             })
         },
         selectAll(event){
             // 功能：为全选按钮绑定事件 change
@@ -105,6 +125,9 @@ export default {
             // 2.创建循环遍历所有商品属性cb值与全选状态一致
             for(var item of this.list){
                 item.cb = cb;
+                if(item.cb==false){
+                    cb=false;
+                }
             }
         },
         deleteItems(){

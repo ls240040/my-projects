@@ -34,7 +34,7 @@ import Product from "../components/details/Product.vue"
 export default {
     data(){
         return{
-            items:[],
+            items:"",
         }
     },
     methods:{
