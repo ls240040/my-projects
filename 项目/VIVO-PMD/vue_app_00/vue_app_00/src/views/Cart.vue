@@ -26,28 +26,29 @@
             </div>
         </div>
         <!-- 3.购物车中商品数量：删除选中商品，清空购物车 -->
-        <div>
+        <div class="btn-box">
             <!-- 购物车中商品数量：删除选中商品，清空购物车 -->
-            <mt-button @click="deleteItems" :data-id="list.id">
+            <mt-button @click="deleteItems" :data-id="list.id" size="large">
                 删除选中商品
                 <span style="color:red">{{total.pnum}}</span>
             </mt-button>
-            <mt-button>清空购物车</mt-button>
+            <!-- <mt-button>清空购物车</mt-button> -->
         </div>
         <!-- 结算 -->
         <mt-tabbar fixed class="cartBottom">
-            <mt-tab-item>
+            <mt-tab-item style="background-color: #fff;">
                 <div class="selectall">
-                    <input type="checkbox" @change="selectAll">全选
+                    <input type="checkbox" @change="selectAll" id="checkAll">
+                    <label for="checkAll">全选</label>
                 </div>
             </mt-tab-item>
-            <mt-tab-item>
+            <mt-tab-item style="background-color: #fff;">
                 <div class="sum">
-                    <span>合计:</span>    
-                    <span>¥{{total.sum}}</span>
+                    <span>合计：</span>    
+                    <span><i>¥</i>{{total.sum.toFixed(2)}}</span>
                 </div>
             </mt-tab-item>
-            <mt-tab-item>
+            <mt-tab-item style="background-color: #fff;">
                 <div class="account">去结算</div>
             </mt-tab-item>
         </mt-tabbar>
@@ -196,7 +197,9 @@ export default {
         font-family:"Microsoft Yahei",Arial;
     }
     .cart-box{
-        background-color: #f4f4f4;
+        background-color: #eee;
+        position: relative;
+        height: 100vh;
     }
     .CartTop{
         display: flex;
@@ -214,7 +217,6 @@ export default {
         }
     }
     .item-box{
-        background-color: #f4f4f4;
         padding:0vw 3vw;
     }
     // 1.商品项目元素
@@ -225,6 +227,7 @@ export default {
         margin-top:25px;
         padding:6vw 3vw;
         background-color: #fff;
+
         img{
             width: 6vw;
         }
@@ -249,7 +252,6 @@ export default {
         margin-top:2vw;
         i{
             font-style: normal;
-            vertical-align: text-top;
             font-size: 1vw;
             margin-right:2px;
         }
@@ -264,6 +266,22 @@ export default {
         margin-top:2vw;
         .disabled{
             color:#ccc;
+        }
+    }
+    .btn-box{
+        width: 94vw;
+        margin: auto;
+        display: flex;
+        justify-content: space-around;
+        margin-top:20px;
+        .mint-button{
+            background-color: #fff;
+            box-shadow:0 0 0 #ccc;
+            font-size: 4vw;
+            letter-spacing: 2px;
+            &:after{
+                background-color: transparent;
+            }
         }
     }
     .cartBottom{
@@ -284,25 +302,72 @@ export default {
             margin-left: 2vw;
             input{
                 margin-right: 2vw;
+                margin-left:3vw;
                 display: block;
+                margin-top:1vw;
             }
         }
         .sum{
-            line-height: 13vw;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            margin-left:2vw;
             span:first-child{
                 color:#999;
                 font-size: 3.5vw;
+                margin-bottom:2vw;
+                margin-top:1vw;
             }
             span:last-child{
                 color:#f81200;
                 font-size: 5vw;
+                 i{
+                    font-style: normal;
+                    font-size: 4vw;
+                    margin-right:2px;
+                }
             }
         } 
     }
     .mint-tab-item{
         padding: 0;
+        background-color: #fff;
     }
     .mint-tabbar{
         background-color: #fff;
+    }
+    input[type=checkbox]{
+        width: 3vw;
+        height: 3vw;
+        border-radius: 50%;
+        position: relative;
+        &:before{
+            content: "";
+            position: absolute;
+            top:-1vw;
+            left:-1vw;
+            width: 4vw;
+            height: 4vw;
+            border: 0;
+            background-color: #fff;
+            background-image: url(../assets/img/uncheck.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-blend-mode: multiply;
+        }
+        &:checked:before{
+            content: "";
+            position: absolute;
+            top:-1vw;
+            left:-1vw;
+            width: 4vw;
+            height: 4vw;
+            border: 0;
+            background-color: #fff;
+            background-image: url(../assets/img/checked.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-blend-mode: multiply;
+        }
     }
 </style>
