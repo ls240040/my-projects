@@ -16,9 +16,9 @@
                         <div class="lname">{{item.lname}}</div>
                         <div class="price"><i>¥</i>{{item.price.toFixed(2)}}</div>
                         <div class="count-box">
-                            <span @click="minus" :class="{disabled:item.count<=1}">-</span>
+                            <span @click="minus" :class="{disabled:item.count<=1}" :data-index="index">-</span>
                             <span>{{item.count}}</span>
-                            <span @click="add">+</span>
+                            <span @click="add" :data-index="index">+</span>
                         </div>
                     </div>
                 </div>
@@ -82,13 +82,16 @@ export default {
         }
     },
     methods:{
-        add(){
-            for(var item of this.list){
-                item.count--
-            }
+        add(e){
+            var i=e.target.dataset.index;
+            this.list[i].count++;
         },
-        minus(){
-
+        minus(e){
+            var i=e.target.dataset.index;
+            this.list[i].count--;
+            if(this.list[i].count==0){
+                this.list[i].count=1;
+            }
         },
         selectAll(event){
             // 功能：为全选按钮绑定事件 change
@@ -212,7 +215,7 @@ export default {
     }
     .item-box{
         background-color: #f4f4f4;
-        padding:1vw 3vw;
+        padding:0vw 3vw;
     }
     // 1.商品项目元素
     .cart-item{
@@ -220,7 +223,7 @@ export default {
         justify-content: space-between;
         align-items: center;
         margin-top:25px;
-        padding: 3vw;
+        padding:6vw 3vw;
         background-color: #fff;
         img{
             width: 6vw;
