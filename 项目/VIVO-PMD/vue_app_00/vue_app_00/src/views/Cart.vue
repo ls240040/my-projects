@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="cart-box">
         <!-- top -->
         <div class="CartTop">
             <img src="../assets/img/arrow-ee.png">
@@ -15,10 +15,10 @@
                     <div>
                         <div class="lname">{{item.lname}}</div>
                         <div class="price"><i>¥</i>{{item.price.toFixed(2)}}</div>
-                        <div>
-                            <span>-</span>
+                        <div class="count-box">
+                            <span @click="minus" :class="{disabled:item.count<=1}">-</span>
                             <span>{{item.count}}</span>
-                            <span>+</span>
+                            <span @click="add">+</span>
                         </div>
                     </div>
                 </div>
@@ -59,7 +59,7 @@ export default {
         return{
             list:[],  //当前登录用户购物车列表
             pnum:0,
-            sum:0
+            sum:0,
         }
     },
     created(){
@@ -82,6 +82,14 @@ export default {
         }
     },
     methods:{
+        add(){
+            for(var item of this.list){
+                item.count--
+            }
+        },
+        minus(){
+
+        },
         selectAll(event){
             // 功能：为全选按钮绑定事件 change
             // 当全选按钮状态为checked=true
@@ -184,6 +192,9 @@ export default {
     *{
         font-family:"Microsoft Yahei",Arial;
     }
+    .cart-box{
+        background-color: #f4f4f4;
+    }
     .CartTop{
         display: flex;
         justify-content: space-between;
@@ -201,7 +212,7 @@ export default {
     }
     .item-box{
         background-color: #f4f4f4;
-        padding: 3vw;
+        padding:1vw 3vw;
     }
     // 1.商品项目元素
     .cart-item{
@@ -238,6 +249,18 @@ export default {
             vertical-align: text-top;
             font-size: 1vw;
             margin-right:2px;
+        }
+    }
+    .count-box{
+        width: 12vw;
+        border: 1px solid #ccc;
+        display: flex;
+        justify-content: space-between;
+        padding: 1vw 3vw;
+        margin-left: 25px;
+        margin-top:2vw;
+        .disabled{
+            color:#ccc;
         }
     }
     .cartBottom{
