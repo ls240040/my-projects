@@ -10,7 +10,7 @@
             <!-- 2.商品信息 -->
             <div class="cart-item" v-for="(item,index) of list" :key="index">
                 <div class="leftText">
-                    <input type="checkbox" v-model="item.cb">
+                    <input type="checkbox" v-model="item.cb" @change="select">
                     <img :src="`http://127.0.0.1:5050/${item.img}`">
                     <div>
                         <div class="lname">{{item.lname}}</div>
@@ -38,7 +38,7 @@
         <mt-tabbar fixed class="cartBottom">
             <mt-tab-item style="background-color: #fff;">
                 <div class="selectall">
-                    <input type="checkbox" @change="selectAll" id="checkAll">
+                    <input type="checkbox" @change="selectAll" id="checkAll" v-model="selected">
                     <label for="checkAll">全选</label>
                 </div>
             </mt-tab-item>
@@ -61,6 +61,7 @@ export default {
             list:[],  //当前登录用户购物车列表
             pnum:0,
             sum:0,
+            selected:false
         }
     },
     created(){
@@ -130,6 +131,18 @@ export default {
                 }
             }
         },
+        select(event){
+            // 功能：当所有按钮都选中 全选选中
+            var cb=event.target.checked;
+            if(cb==false){
+                this.selected=false;
+            }else{// 只要有一个未被选中 全选不选中
+                var unchecked=document.querySelector(".leftText input:not(:checked)");
+                if(unchecked==null){
+                    this.selected=true;
+                }
+            }
+        },
         getList(){
             for(var item of this.list){
                 if(item.cb==true){
@@ -139,14 +152,12 @@ export default {
                     var lname=item.lname;
                     var img=item.img;
                     var count=item.count;
-                    console.log(img);s
+                    console.log(img);
                     var url="v1/list";
                     var obj={price,lid,lname,img,count};
                     this.axios.get(url,{params:obj}).then(res=>{
                         if(res.data.code==1){
-                            this.$messagebox("消息","数据插入成功").then(res=>{
-                                this.$router.push('/Order')
-                            })
+                            this.$router.push('/Order')
                         }
                     })
                 }
