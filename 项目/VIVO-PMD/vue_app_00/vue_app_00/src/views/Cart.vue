@@ -49,7 +49,7 @@
                 </div>
             </mt-tab-item>
             <mt-tab-item style="background-color: #fff;">
-                <div class="account">去结算</div>
+                <div class="account" @click="getList" >去结算</div>
             </mt-tab-item>
         </mt-tabbar>
     </div>
@@ -127,6 +127,28 @@ export default {
                 item.cb = cb;
                 if(item.cb==false){
                     cb=false;
+                }
+            }
+        },
+        getList(){
+            for(var item of this.list){
+                if(item.cb==true){
+                    // 获得当前选中商品的内容
+                    var price=item.price;
+                    var lid=item.lid;
+                    var lname=item.lname;
+                    var img=item.img;
+                    var count=item.count;
+                    console.log(img);s
+                    var url="v1/list";
+                    var obj={price,lid,lname,img,count};
+                    this.axios.get(url,{params:obj}).then(res=>{
+                        if(res.data.code==1){
+                            this.$messagebox("消息","数据插入成功").then(res=>{
+                                this.$router.push('/Order')
+                            })
+                        }
+                    })
                 }
             }
         },
@@ -220,7 +242,7 @@ export default {
         font-family:"Microsoft Yahei",Arial;
     }
     .cart-box{
-        background-color: #eee;
+        background-color: #f4f4f4;
         position: relative;
         height: 100vh;
     }

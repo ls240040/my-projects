@@ -194,10 +194,17 @@ CREATE TABLE v_cart(
     count INT,            #商品数量
     lname VARCHAR(255),   #商品名称
     uid INT               #用户编号
-    
 );
 -- INSERT INTO v_login VALUES
 -- (NULL,1,'p01.png.webp',2399,1,'S1 Pro 6GB+256GB 仲夏梦',1);
 -- (NULL,2699,'X27 8GB+128GB版 印象夏日',"2");
 
-INSERT INTO v_login VALUES (NULL,1,'p01.png.webp',2399,1,'S1 Pro 6GB+256GB 仲夏梦',1)
+CREATE TABLE v_list(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    lid INT,              #商品编号
+    img VARCHAR(255),
+    price DECIMAL(10,2),  #商品价格
+    count INT,            #商品数量
+    lname VARCHAR(255),   #商品名称
+    uid INT               #用户编号
+);

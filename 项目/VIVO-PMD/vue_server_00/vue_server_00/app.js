@@ -59,6 +59,8 @@ app.use(express.static('public'));
     const delItem=require('./routes/cart');
     const delcart=require('./routes/cart');
     const addcart2=require('./routes/cart');
+    //list
+    const list=require('./routes/order');
 
 /*使用路由器来管理路由*/
     // app.use("/index",index);
@@ -79,3 +81,4 @@ app.use(express.static('public'));
     app.use("/v1",delItem);
     app.use("/v1",delcart);
     app.use("/v1",addcart2);
+    app.use("/v1",list);
