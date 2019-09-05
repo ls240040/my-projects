@@ -5,10 +5,10 @@
             <div class="head" v-if="show">
                 <div class="head-content">
                     <img src="../../assets/img/arrow-left02.png">
-                    <div @click="changeState(0)">商品</div>
-                    <div @click="changeState(1)">评价</div>
-                    <div @click="changeState(2)">详情</div>
-                    <div @click="changeState(3)">推荐</div>
+                    <div @click="changeState(0)" :class="{active:currentIndex[0].isSelect}">商品</div>
+                    <div @click="changeState(1)"  :class="{active:currentIndex[1].isSelect}">评价</div>
+                    <div @click="changeState(2)"  :class="{active:currentIndex[2].isSelect}">详情</div>
+                    <div @click="changeState(3)"  :class="{active:currentIndex[3].isSelect}">推荐</div>
                     <img src="../../assets/img/ellipsis02.png"  @click="drop">
                 </div>
             </div>
@@ -190,6 +190,7 @@ export default {
         }
         div{
             line-height: 50px;
+            color:#999;
         }
     }
     .active{
