@@ -23,9 +23,12 @@
                 <div>商品清单</div>
                 <div class="pro" v-for="(item,index) of list" :key="index">
                     <img :src="`http://127.0.0.1:5050/${item.img}`">
-                    <div>
+                    <div class="proinfo">
                         <div class="lname">{{item.lname}}</div>
                         <div class="price"><i>¥</i>{{item.price.toFixed(2)}}</div>
+                    </div>
+                    <div class="pronum">
+                        x{{item.count}}
                     </div>
                 </div>
             </div>
@@ -47,7 +50,7 @@
 export default {
     data(){
         return{
-            list:[],  //当前登录用户购物车列表
+            list:[],  //当前商品清单列表
             pnum:0,
             sum:0,
         }
@@ -57,10 +60,8 @@ export default {
             var pnum=0;
             var sum=0;
             for(var item of this.list){
-                if(item.cb==true){
-                    pnum+=item.count;
-                    sum+=item.count*item.price;
-                }
+                pnum+=item.count;
+                sum+=item.count*item.price;
             }
             this.pnum=pnum;
             this.sum=sum;
@@ -71,38 +72,28 @@ export default {
         back(){
             this.$router.go(-1)
         },
-         loadMore(){
-            //功能：获取当前用户购物车列表
-            //1.创建url请求服务器地址
-            var url="v1/cart";
-            //2.发送ajax请求（让服务器程序完成功能）
+        loadMore(){
+            var url="v1/list2";
             this.axios.get(url).then(res=>{
-                //3.获取服务器返回数据
-                //4.如果服务器返回-1 请登录
-                if(res.data.code == -1){
+               if(res.data.code == -1){
                     this.$messagebox("消息","请登录").then(res => { //回调函数(用户点击确认按钮后调用函数)
                         this.$router.push('/Login')
                     })
                 }else{
                     // this.list=res.data.data;
-                    // 添加一个新功能：为数据添加属性cb
                     // 3.1创建循环遍历res.data.data中数据
                     var rows = res.data.data;
-                    for(var item of rows){
-                        // 3.2为其添加属性cb值为false
-                        item.cb = false;
-                    }
                     // 3.3将新数组赋值list(顺序)
                     this.list = rows;
                     console.log(this.list)
                 }
             })
         },
-        created(){
+    },
+    created(){
             //当前组件创建成功回调函数
             this.loadMore();
         },
-    }
 }
 </script>
 <style lang="scss" scoped>
@@ -157,7 +148,7 @@ export default {
             margin-left:6vw;
             span{
                 color:#f81200;
-                font-size: 8vw;
+                font-size: 7vw;
                 line-height: 41px;
                  i{
                     font-style: normal;
@@ -201,5 +192,32 @@ export default {
             margin-left:5px;
         }
     }
-    
+    .proList{
+        margin-top:10px;
+        background-color: #fff;
+        padding:4vw;
+        .pro{
+            margin-top:20px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 4vw;
+            padding:4vw 0; 
+            img{
+                width: 20vw;
+                margin-top:-7px;
+            }
+            .proinfo{
+                .price{
+                    line-height: 8vw;
+                    color:#ff193a;
+                    i{
+                        font-style: normal;
+                    }
+                }
+            }
+            .pronum{
+                color:#999;
+            }
+        }
+    }
 </style>

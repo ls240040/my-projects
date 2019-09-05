@@ -40,6 +40,22 @@ router.get('/list',(req,res)=>{
         }  
     })
 })
-    
+
+//http://127.0.0.1:5050/v1/list2?uid=1   
+router.get('/list2',(req,res)=>{
+    //1.参数 uid
+    var uid=req.session.uid;
+    if(!uid){
+        res.send({code:-1,msg:"请登录"});
+        return;
+    }
+    //2.创建sql语句
+    var sql="SELECT id,count,lid,img,lname,price FROM v_list WHERE uid=?";
+    //3.执行sql语句并且将数据库返回结果发送给客户
+    pool.query(sql,[uid],(err,result)=>{
+        if(err) throw err;
+        res.send({code:1,msg:"查询成功",data:result})
+    })
+})
 
 module.exports=router;

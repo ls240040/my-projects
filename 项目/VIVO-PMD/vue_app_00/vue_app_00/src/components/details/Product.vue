@@ -1,14 +1,28 @@
 <template>
     <div id="pro">
+        <!-- head -->
+        <transition name="slide-fade">
+            <div class="head" v-if="show">
+                <div class="head-content">
+                    <img src="../../assets/img/arrow-left02.png">
+                    <div @click="changeState(0)">商品</div>
+                    <div @click="changeState(1)">评价</div>
+                    <div @click="changeState(2)">详情</div>
+                    <div @click="changeState(3)">推荐</div>
+                    <img src="../../assets/img/ellipsis02.png"  @click="drop">
+                </div>
+            </div>
+        </transition>
         <!-- nav -->
-        <div class="nav">
-            <router-link :to="{path:'/Mall'}">
-                <img class="im1" src="../../assets/img/arrow-left.png" alt="">
-            </router-link>
-            <img class="im2" src="../../assets/img/ellipsis.png" @click="drop">
-        </div>
+            <div class="nav">
+                <router-link :to="{path:'/Mall'}">
+                    <img class="im1" src="../../assets/img/arrow-left.png" alt="">
+                </router-link>
+                <img class="im2" src="../../assets/img/ellipsis.png" @click="drop">
+            </div>
+        
         <!-- drop -->
-        <div id="maskbox" v-show="show">
+        <div id="maskbox" v-show="dshow">
             <div id="dropdown">
                 <router-link :to="{path:'/Mall'}">商城首页</router-link>
                 <router-link :to="{path:'/Login'}">个人中心</router-link>
@@ -91,12 +105,37 @@ export default {
     data(){
         return{
             src:"",
-            show:false
+            dshow:false,
+            show:false,
+            categoryIndex: 0, //点击当前文字变成黑色索引
+            currentIndex:[
+                {isSelect:true},
+                {isSelect:false},
+                {isSelect:false},
+                {isSelect:false}
+            ]
         }
     },
+    mounted () {
+        window.addEventListener('scroll',this.handleScroll)
+    },
     methods:{
+        changeState(idx){//idx：表示按钮的下标
+            for(var i=0;i<this.currentIndex.length;i++){
+                if(i==idx){
+                    this.currentIndex[i].isSelect=true;
+                }else{
+                    this.currentIndex[i].isSelect=false;
+                }
+            }
+        },
+        handleScroll(){
+            var scrollTop=document.documentElement.scrollTop || document.body.scrollTop
+                scrollTop>50 ? this.show=true :　this.show=false
+
+        },
         drop(){
-            this.show=!this.show;
+            this.dshow=!this.dshow;
         },
     },
     props:{
@@ -105,7 +144,59 @@ export default {
     }
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
+    .slide-fade-enter-active {
+        animation: bounce-in .3s;
+    }
+    .slide-fade-leave-active {
+        animation: bounce-in .3s reverse;
+    }
+    @keyframes bounce-in {
+        0% {
+            opacity: 0;
+        }
+        25%{
+            opacity: 0.3;  
+        }
+        50% {
+            opacity: 0.6;
+        }
+        75%{
+            opacity: 0.8;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    .head{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50px;
+        background: #fff;
+        z-index: 100;
+    }
+    .head-content{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 3vw;
+        img{
+            width: 4vw;
+            &:last-child{
+                width: 6vw;
+            }
+        }
+        div{
+            line-height: 50px;
+        }
+    }
+    .active{
+        color:#252525;
+    }
+
+
 .videoSet video{
     left: 0;
     height: 100%;

@@ -152,7 +152,7 @@ export default {
                     var lname=item.lname;
                     var img=item.img;
                     var count=item.count;
-                    console.log(img);
+                    // console.log(img);
                     var url="v1/list";
                     var obj={price,lid,lname,img,count};
                     this.axios.get(url,{params:obj}).then(res=>{
