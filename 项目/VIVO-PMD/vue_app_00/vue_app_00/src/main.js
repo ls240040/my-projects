@@ -26,8 +26,10 @@ Vue.prototype.axios = axios;
 //引入video插件
 import Video from 'video.js'
 import 'video.js/dist/video-js.css'
+// import  Velocity from 'velocity-animate'
 
 Vue.prototype.$video = Video
+// Vue.prototype.$velocity = Velocity
 
 //9:引入vuex第三方模块
 import Vuex from "vuex"

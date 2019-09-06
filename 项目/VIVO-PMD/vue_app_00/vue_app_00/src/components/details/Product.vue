@@ -1,20 +1,15 @@
 <template>
     <div id="pro">
         <!-- head -->
-        <!-- <mt-tabbar v-model="active">
-            <mt-tab-item  id="message">
-
-            </mt-tab-item>
-        </mt-tabbar> -->
         <transition name="slide-fade">
             <div class="head" v-if="show">
-                <div class="head-content" :v-model="active">
+                <div class="head-content">
                     <img src="../../assets/img/arrow-left02.png">
-                    <div @click="changeState(0)" :style="{color:currentIndex[0].isSelect?'#000':'#999'}" id="message">商品</div>
-                    <div @click="changeState(1)"   :style="{color:currentIndex[1].isSelect?'#000':'#999'}">评价</div>
-                    <div @click="changeState(2)"   :style="{color:currentIndex[2].isSelect?'#000':'#999'}">详情</div>
-                    <div @click="changeState(3)"   :style="{color:currentIndex[3].isSelect?'#000':'#999'}">推荐</div>
-                    <img src="../../assets/img/ellipsis02.png"  @click="drop">
+                    <a href="javascript:;" :class="active=='#content1'?'active':''" @click="toTarget('#content1')">商品</a>
+                    <a href="javascript:;" :class="active=='#content2'?'active':''" @click="toTarget('#content2')">评价</a>
+                    <a href="javascript:;" :class="active=='#content3'?'active':''" @click="toTarget('#content3')">详情</a>
+                    <a href="javascript:;" :class="active=='#content4'?'active':''" @click="toTarget('#content4')">推荐</a>
+                    <img src="../../assets/img/ellipsis02.png" @click="drop">
                 </div>
             </div>
         </transition>
@@ -36,21 +31,12 @@
             <div class="mask"></div>
         </div>
         <!--  -->
-        <mt-tab-container v-model="active">
-            <mt-tab-container-item id="message">
-                <messagelist v-if="items" :items="items" :lid="lid"></messagelist>
-            </mt-tab-container-item>
-            <mt-tab-container-item>
-                111
-            </mt-tab-container-item>
-            <mt-tab-container-item>
-                222
-            </mt-tab-container-item>
-            <mt-tab-container-item>
-                333
-            </mt-tab-container-item>
-        </mt-tab-container>
-        
+        <messagelist v-if="items" :items="items" :lid="lid" id="content1"></messagelist>
+
+        <div id="content2" style="width:100%;height:800px;background:red"></div>
+        <div id="content3" style="width:100%;height:800px;background:blue"></div>
+        <div id="content4" style="width:100%;height:800px;background:pink"></div>
+
     </div>
 </template>
 <script>
@@ -60,40 +46,51 @@ export default {
         return{
             src:"",
             dshow:false,
-            show:false,
-            active:"message",
-            currentIndex:[
-                {isSelect:true},
-                {isSelect:false},
-                {isSelect:false},
-                {isSelect:false}
-            ]
+            show:true,
+            active:"#content1",
         }
     },
     components:{
         "messagelist":MessageList
     },
     mounted () {
-        window.addEventListener('scroll',this.handleScroll)
+        window.addEventListener('scroll',this.handleScroll);
+        //一次性计算赋值，减少滚动计算节点位置次数
+        this.distance_content1 = document.querySelector('#content1').offsetTop - 0
+        this.distance_content2 = document.querySelector('#content2').offsetTop - 0
+        this.distance_content3 = document.querySelector('#content3').offsetTop - 0
+        this.distance_content4 = document.querySelector('#content4').offsetTop - 0
+        this.$nextTick(function () {
+            document.querySelector('#pro').addEventListener('scroll', this.onScroll)
+        })
     },
     methods:{
-        changeState(idx){//idx：表示按钮的下标
-            for(var i=0;i<this.currentIndex.length;i++){
-                if(i==idx){
-                    this.currentIndex[i].isSelect=true;
-                }else{
-                    this.currentIndex[i].isSelect=false;
-                }
-            }
-        },
         handleScroll(){
             var scrollTop=document.documentElement.scrollTop || document.body.scrollTop
                 scrollTop>50 ? this.show=true :　this.show=false
-
         },
         drop(){
             this.dshow=!this.dshow;
         },
+        toTarget(target){
+            console.log(target)
+            this.active = target
+            let toElement = document.querySelector(target);
+            let container = document.querySelector('#pro');
+            toElement.scrollIntoView({behavior: "smooth", block: "start"});
+        },
+          onScroll () {
+            let scrolled = document.querySelector('#pro').scrollTop
+            if (scrolled < this.distance_content1) {
+                this.active = "#content1"
+            } else if (scrolled >= this.distance_content1 && scrolled < this.distance_content2) {
+                this.active = "#content2"
+            } else if (scrolled >= this.distance_content2 && scrolled < this.distance_content3) {
+                this.active = "#content3"
+            } else {
+                this.active = "#content4"
+            }
+        }
     },
     props:{
         lid:{default:""},
@@ -148,9 +145,13 @@ export default {
                 width: 6vw;
             }
         }
-        div{
+        a{
+            text-decoration: none;
             line-height: 50px;
             color:#999;
+            &.active{
+                color:#252525;
+            }
         }
     }
 
@@ -158,6 +159,9 @@ export default {
         position: relative;
         background-color: #f4f4f4;
         padding-bottom: 20vw;
+        width: 100%;
+        height: 100vh;
+        overflow-y: scroll;
     }
     #pro .nav{
         padding: 10px;
