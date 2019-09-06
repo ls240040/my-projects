@@ -30,7 +30,7 @@
             </div>
             <div class="mask"></div>
         </div>
-        <!--  -->
+        <!-- messagelist -->
         <messagelist v-if="items" :items="items" :lid="lid" id="content1"></messagelist>
 
         <div id="content2" style="width:100%;height:800px;background:red"></div>
@@ -46,7 +46,7 @@ export default {
         return{
             src:"",
             dshow:false,
-            show:true,
+            show:false,
             active:"#content1",
         }
     },
@@ -54,20 +54,24 @@ export default {
         "messagelist":MessageList
     },
     mounted () {
-        window.addEventListener('scroll',this.handleScroll);
         //一次性计算赋值，减少滚动计算节点位置次数
-        this.distance_content1 = document.querySelector('#content1').offsetTop - 0
-        this.distance_content2 = document.querySelector('#content2').offsetTop - 0
-        this.distance_content3 = document.querySelector('#content3').offsetTop - 0
-        this.distance_content4 = document.querySelector('#content4').offsetTop - 0
+        this.distance_content1 = document.querySelector('#content1').offsetTop - 60
+        this.distance_content2 = document.querySelector('#content2').offsetTop - 60
+        this.distance_content3 = document.querySelector('#content3').offsetTop - 60
+        this.distance_content4 = document.querySelector('#content4').offsetTop - 60
         this.$nextTick(function () {
             document.querySelector('#pro').addEventListener('scroll', this.onScroll)
+            document.querySelector('#pro').addEventListener('scroll', this.handleScroll)
         })
     },
     methods:{
         handleScroll(){
-            var scrollTop=document.documentElement.scrollTop || document.body.scrollTop
-                scrollTop>50 ? this.show=true :　this.show=false
+            let scrolled = document.querySelector('#pro').scrollTop
+            if (scrolled > 60) {
+                this.show=true
+            } else {
+                 this.show=false
+            }
         },
         drop(){
             this.dshow=!this.dshow;
@@ -77,17 +81,19 @@ export default {
             this.active = target
             let toElement = document.querySelector(target);
             let container = document.querySelector('#pro');
-            toElement.scrollIntoView({behavior: "smooth", block: "start"});
+            toElement.scrollIntoView({behavior: "smooth", block: "start",inline: "nearest"});
         },
           onScroll () {
             let scrolled = document.querySelector('#pro').scrollTop
             if (scrolled < this.distance_content1) {
                 this.active = "#content1"
             } else if (scrolled >= this.distance_content1 && scrolled < this.distance_content2) {
-                this.active = "#content2"
+                this.active = "#content1"
             } else if (scrolled >= this.distance_content2 && scrolled < this.distance_content3) {
+                this.active = "#content2"
+            } else if(scrolled >= this.distance_content3 && scrolled < this.distance_content4) {
                 this.active = "#content3"
-            } else {
+            }else {
                 this.active = "#content4"
             }
         }
@@ -155,13 +161,13 @@ export default {
         }
     }
 
-    #pro{
+    #pro{ //关键代码，需要给容器添加高度
         position: relative;
         background-color: #f4f4f4;
         padding-bottom: 20vw;
-        width: 100%;
-        height: 100vh;
-        overflow-y: scroll;
+        width: 100%; //!!!
+        height: 100vh; //!!!
+        overflow-y: scroll; //!!!
     }
     #pro .nav{
         padding: 10px;
