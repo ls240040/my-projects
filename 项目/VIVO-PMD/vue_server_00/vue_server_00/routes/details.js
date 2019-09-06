@@ -26,8 +26,8 @@ router.get('/product',(req,res)=>{
 
 
 
-//http://127.0.0.1:5050/details/product2?pno=2&pageSize=2
-router.get('/product2',(req,res)=>{
+//http://127.0.0.1:5050/details/evaluate?pno=1&pageSize=2
+router.get('/evaluate',(req,res)=>{
     var pno=req.query.pno;
     var ps=req.query.pageSize;
     //3.如果客户没有请示数据设置默认数据
@@ -35,10 +35,10 @@ router.get('/product2',(req,res)=>{
         pno=1
     }
     if(!ps){
-        ps=2
+        ps=4
     }
     //4.创建sql语句
-    var sql="SELECT pid,video,img01,img02,img03,img04,price,title,lid,info,subinfo,discount,specs FROM product LIMIT ?,?";
+    var sql="SELECT id,img,vimg,vtime,eval,vip,pimg01,pimg02,pimg03,reply FROM v_evaluate LIMIT ?,?";
     var offset=(pno-1)*ps;//起始记录数  ？
     ps=parseInt(ps); //行数  ？
     //5.发送sql语句
@@ -47,7 +47,6 @@ router.get('/product2',(req,res)=>{
         if(err) throw err;
         console.log(result[0]);
         res.send({code:1,msg:"查询成功",data:result});
-        
     })
 })
 

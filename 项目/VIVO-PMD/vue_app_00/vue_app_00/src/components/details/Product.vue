@@ -4,7 +4,9 @@
         <transition name="slide-fade">
             <div class="head" v-if="show">
                 <div class="head-content">
-                    <img src="../../assets/img/arrow-left02.png">
+                    <router-link :to="{path:'/Mall'}">
+                        <img src="../../assets/img/arrow-left02.png">
+                    </router-link>
                     <a href="javascript:;" :class="active=='#content1'?'active':''" @click="toTarget('#content1')">商品</a>
                     <a href="javascript:;" :class="active=='#content2'?'active':''" @click="toTarget('#content2')">评价</a>
                     <a href="javascript:;" :class="active=='#content3'?'active':''" @click="toTarget('#content3')">详情</a>
@@ -33,14 +35,15 @@
         <!-- messagelist -->
         <messagelist v-if="items" :items="items" :lid="lid" id="content1"></messagelist>
 
-        <div id="content2" style="width:100%;height:800px;background:red"></div>
-        <div id="content3" style="width:100%;height:800px;background:blue"></div>
-        <div id="content4" style="width:100%;height:800px;background:pink"></div>
+        <evaluate id="content2"></evaluate>
+        <div id="content3"></div>
+        <div id="content4"></div>
 
     </div>
 </template>
 <script>
 import MessageList from './MessageList'
+import Evaluate from './Evaluate'
 export default {
     data(){
         return{
@@ -51,7 +54,8 @@ export default {
         }
     },
     components:{
-        "messagelist":MessageList
+        "messagelist":MessageList,
+        "evaluate":Evaluate
     },
     mounted () {
         //一次性计算赋值，减少滚动计算节点位置次数
@@ -146,10 +150,9 @@ export default {
         align-items: center;
         padding: 0 3vw;
         img{
-            width: 4vw;
-            &:last-child{
-                width: 6vw;
-            }
+            width: 6vw;
+            vertical-align: middle;
+            opacity: .6;
         }
         a{
             text-decoration: none;
@@ -157,6 +160,11 @@ export default {
             color:#999;
             &.active{
                 color:#252525;
+            }
+            img{
+                 width: 4vw;
+                 vertical-align: middle;
+                 opacity: 1;
             }
         }
     }
