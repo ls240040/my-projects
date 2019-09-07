@@ -211,6 +211,7 @@ CREATE TABLE v_list(
 
 CREATE TABLE v_evaluate(
     id INT PRIMARY KEY AUTO_INCREMENT,
+    rate VARCHAR(25),
     img VARCHAR(255),
     vip VARCHAR(25),
     vimg VARCHAR(255),
@@ -222,12 +223,12 @@ CREATE TABLE v_evaluate(
     reply VARCHAR(255)
 );
 INSERT INTO v_evaluate VALUES
-(NULL,'avatar.png','v***2','silver.png','2019.09.04','手机是正品的，反应可以！物流飞快！','eval01.jpg','eval02.jpg','eval03.jpg','八百里加急，只因心系于您，不舍得您等太久，所以我们马不停蹄……'),
-(NULL,'avatar.png','v***2','silver.png','2019.09.04','竹林幻夜特别新颖，运行特别流畅，拍摄效果不错。特别满意的一次购物。','eval01.jpg','eval02.jpg','eval03.jpg','每一次的匠心之作，都只为让你多喜欢一点，更喜欢一点...'),
-(NULL,'avatar.png','v***3','golden.png','2019.09.04','超级好看，货到的很快，像素特别棒，一直用的vivo的手机','eval01.jpg','eval02.jpg','eval03.jpg','人世间有百媚千红，唯独你是我情之所钟。'),
-(NULL,'avatar.png','v***2','silver.png','2019.09.04','产品跟官方商城上面的图片一模一样，手机运行速度很快很好用，包装盒也很精美，顺丰快递发货速度很快！','eval01.jpg','eval02.jpg','eval03.jpg','八百里加急，只因心系于您，不舍得您等太久，所以我们马不停蹄……'),
-(NULL,'avatar.png','v***4','normal.png','2019.09.04','手机挺好的，刚收到试用了一下，感觉各方面都挺不错，手机颜值也不错的。','eval01.jpg','eval02.jpg','eval03.jpg','八百里加急，只因心系于您，不舍得您等太久，所以我们马不停蹄……'),
-(NULL,'avatar.png','v***4','silver.png','2019.09.04','3天到货正在试用！感觉良好！','eval01.jpg','eval02.jpg','eval03.jpg','八百里加急，只因心系于您，不舍得您等太久，所以我们马不停蹄……'),
-(NULL,'avatar.png','v***3','golden.png','2019.09.04','用了这门久了，挺好用的，打游戏不卡，像素很好，解锁很快','eval01.jpg','eval02.jpg','eval03.jpg','八百里加急，只因心系于您，不舍得您等太久，所以我们马不停蹄……'),
-(NULL,'avatar.png','v***4','normal.png','2019.09.04','好看，一如既往的好用','eval01.jpg','eval02.jpg','eval03.jpg','八百里加急，只因心系于您，不舍得您等太久，所以我们马不停蹄……'),
-(NULL,'avatar.png','v***4','normal.png','2019.09.04','手机是正品的，反应可以！物流飞快！','eval01.jpg','eval02.jpg','eval03.jpg','八百里加急，只因心系于您，不舍得您等太久，所以我们马不停蹄……');
+(NULL,'100','avatar.png','v***2','silver.png','2019.09.04','手机是正品的，反应可以！物流飞快！','eval01.jpg','eval02.jpg','eval03.jpg','八百里加急，只因心系于您，不舍得您等太久，所以我们马不停蹄……'),
+(NULL,'100','avatar.png','v***2','silver.png','2019.09.04','竹林幻夜特别新颖，运行特别流畅，拍摄效果不错。特别满意的一次购物。','eval01.jpg','eval02.jpg','eval03.jpg','每一次的匠心之作，都只为让你多喜欢一点，更喜欢一点...'),
+(NULL,'100','avatar.png','v***3','golden.png','2019.09.04','超级好看，货到的很快，像素特别棒，一直用的vivo的手机','eval01.jpg','eval02.jpg','eval03.jpg','人世间有百媚千红，唯独你是我情之所钟。'),
+(NULL,'100','avatar.png','v***2','silver.png','2019.09.04','产品跟官方商城上面的图片一模一样，手机运行速度很快很好用，包装盒也很精美，顺丰快递发货速度很快！','eval01.jpg','eval02.jpg','eval03.jpg','八百里加急，只因心系于您，不舍得您等太久，所以我们马不停蹄……'),
+(NULL,'100','avatar.png','v***4','normal.png','2019.09.04','手机挺好的，刚收到试用了一下，感觉各方面都挺不错，手机颜值也不错的。','eval01.jpg','eval02.jpg','eval03.jpg','八百里加急，只因心系于您，不舍得您等太久，所以我们马不停蹄……'),
+(NULL,'100','avatar.png','v***4','silver.png','2019.09.04','3天到货正在试用！感觉良好！','eval01.jpg','eval02.jpg','eval03.jpg','八百里加急，只因心系于您，不舍得您等太久，所以我们马不停蹄……'),
+(NULL,'100','avatar.png','v***3','golden.png','2019.09.04','用了这门久了，挺好用的，打游戏不卡，像素很好，解锁很快','eval01.jpg','eval02.jpg','eval03.jpg','八百里加急，只因心系于您，不舍得您等太久，所以我们马不停蹄……'),
+(NULL,'100','avatar.png','v***4','normal.png','2019.09.04','好看，一如既往的好用','eval01.jpg','eval02.jpg','eval03.jpg','八百里加急，只因心系于您，不舍得您等太久，所以我们马不停蹄……'),
+(NULL,'100','avatar.png','v***4','normal.png','2019.09.04','手机是正品的，反应可以！物流飞快！','eval01.jpg','eval02.jpg','eval03.jpg','八百里加急，只因心系于您，不舍得您等太久，所以我们马不停蹄……');

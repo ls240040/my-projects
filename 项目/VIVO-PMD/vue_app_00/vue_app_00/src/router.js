@@ -17,11 +17,18 @@ import B from './views/B.vue'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     //组件访问路径    组件名
     {path:'/',component:Index},
-    {path:'/Mall',component:Mall},
+    {
+      path:'/Mall',
+      component:Mall
+      // meta:{
+      //   keepAlive:true, //需要被缓存
+      //   isBack: false
+      // }
+    },
     {path:'/Login',component:Login},
     {path:'/Register',component:Register},
     {path:'/Protocol',component:Protocol},
@@ -30,9 +37,16 @@ export default new Router({
     //1.props:true  让url中参数自动成为props中的自定义属性 
     //2.在要接收参数的目标组件中，添加与路由参数同名的自定义属性变量 var details={props:["lid"]}
     //3.跳转时，/details/1  没有问号，值用'/'分割
-    {path:'/Details/:lid',component:Details,props:true}, //:lid是地址栏的值，后面的传参也是地址栏的值
+    {
+      path:'/Details/:lid',//:lid是地址栏的值，后面的传参也是地址栏的值
+      component:Details,props:true
+    }, 
     {path:'/A',component:A},
     {path:'/B',component:B},
     {path:'/*',component:NotFound},
   ]
 })
+
+
+
+export default router;

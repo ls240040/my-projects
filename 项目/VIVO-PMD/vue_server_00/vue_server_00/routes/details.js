@@ -35,17 +35,18 @@ router.get('/evaluate',(req,res)=>{
         pno=1
     }
     if(!ps){
-        ps=4
+        ps=2
     }
     //4.创建sql语句
-    var sql="SELECT id,img,vimg,vtime,eval,vip,pimg01,pimg02,pimg03,reply FROM v_evaluate LIMIT ?,?";
+    var sql="SELECT id,rate,img,vimg,vtime,eval,vip,pimg01,pimg02,pimg03,reply FROM v_evaluate LIMIT ?,?";
     var offset=(pno-1)*ps;//起始记录数  ？
     ps=parseInt(ps); //行数  ？
+    console.log(offset,ps)
     //5.发送sql语句
     pool.query(sql,[offset,ps],(err,result)=>{
         //6.获取返回结果发送客户端
         if(err) throw err;
-        console.log(result[0]);
+        // console.log(result);
         res.send({code:1,msg:"查询成功",data:result});
     })
 })

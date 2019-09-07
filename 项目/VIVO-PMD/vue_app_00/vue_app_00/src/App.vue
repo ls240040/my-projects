@@ -1,12 +1,6 @@
 <template>
  <div class="app-container">
-    <!--显示组件容器-->
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div> -->
-    <router-view>
-    </router-view>
+    <router-view></router-view>
  </div>
 </template>
 <style>
@@ -36,12 +30,10 @@
     padding-top: 0;
     padding-bottom: 0;
 }
-
 .mui-bar-tab .mui-tab-item-tao .mui-icon~.mui-tab-label {
    font-size:11px;
    display:block;
    overflow:hidden;
    text-overflow:ellipsis;
-
 }
 </style>
