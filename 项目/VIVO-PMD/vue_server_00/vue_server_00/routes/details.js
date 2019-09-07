@@ -19,6 +19,38 @@ router.get('/product',(req,res)=>{
     })
 })
 
+//详情-product
+//http://127.0.0.1:5050/details/introduce?lid=1
+router.get('/introduce',(req,res)=>{
+    var lid=req.query.lid; //获取ajax传过来的lid(也就是地址栏的lid)
+    console.log(lid);
+    var sql="SELECT dimg01,dimg02,dimg03,dimg04,dimg05,dimg06,dimg07,dimg08 FROM v_intro WHERE lid=?";
+    pool.query(sql,[lid],(err,result)=>{
+        if(err) throw err;
+        if(result.length==0){
+            res.send({code:-1,msg:"查询失败",data:result});
+        }else{
+            res.send({code:1,msg:"查询成功",data:result});
+        }
+        
+    })
+})
+
+//详情-product
+//http://127.0.0.1:5050/details/recommend?lid=1
+router.get('/recommend',(req,res)=>{
+    var sql="SELECT img,names,price FROM v_recommend";
+    pool.query(sql,(err,result)=>{
+        if(err) throw err;
+        if(result.length==0){
+            res.send({code:-1,msg:"查询失败",data:result});
+        }else{
+            res.send({code:1,msg:"查询成功",data:result});
+        }
+        
+    })
+})
+
 //功能二：商品分页显示
 //1.接收客户请求
 //2.接收客户请求数据

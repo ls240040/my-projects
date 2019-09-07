@@ -160,6 +160,8 @@ export default {
                             this.$router.push('/Order')
                         }
                     })
+                }else{
+                    this.$messagebox("消息","请选择要结算的商品")
                 }
             }
         },

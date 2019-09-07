@@ -10,7 +10,11 @@
                         <div>{{item.vtime}}</div>
                     </div>
                     <div class="stars">
-                        <img src="../../assets/img/rating-0.gif">
+                        <img src="../../assets/img/rating.png">
+                        <img src="../../assets/img/rating.png">
+                        <img src="../../assets/img/rating.png">
+                        <img src="../../assets/img/rating.png">
+                        <img src="../../assets/img/rating.png">
                     </div>
                 </div>
                 <div>{{item.eval}}</div>
@@ -96,9 +100,13 @@ export default {
                     width: 6vw;
                 }
                 .stars{
+                    display: flex;
+                    justify-content: space-between;
                     padding: 3vw 0 0 15vw;
                     img{
-                         width: 25vw;
+                        width: 4vw;
+                        height: 4vw;
+                        margin-right: 4px;
                     }
                 }
             }

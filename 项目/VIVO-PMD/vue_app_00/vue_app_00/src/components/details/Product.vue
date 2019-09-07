@@ -34,16 +34,16 @@
         </div>
         <!-- messagelist -->
         <messagelist v-if="items" :items="items" :lid="lid" id="content1"></messagelist>
-
-        <evaluate id="content2"></evaluate>
-        <div id="content3"></div>
-        <div id="content4"></div>
-
+        <evaluate  v-if="items.lid" :lid="lid" id="content2"></evaluate>
+        <introduce  v-if="items.lid" :lid="lid" id="content3"></introduce>
+        <recommend id="content4"></recommend>
     </div>
 </template>
 <script>
 import MessageList from './MessageList'
 import Evaluate from './Evaluate'
+import Introduce from './Introduce'
+import Recommend from './Recommend'
 export default {
     data(){
         return{
@@ -55,14 +55,16 @@ export default {
     },
     components:{
         "messagelist":MessageList,
-        "evaluate":Evaluate
+        "evaluate":Evaluate,
+        "introduce":Introduce,
+        "recommend":Recommend
     },
     mounted () {
         //一次性计算赋值，减少滚动计算节点位置次数
-        this.distance_content1 = document.querySelector('#content1').offsetTop - 60
-        this.distance_content2 = document.querySelector('#content2').offsetTop - 60
-        this.distance_content3 = document.querySelector('#content3').offsetTop - 60
-        this.distance_content4 = document.querySelector('#content4').offsetTop - 60
+        this.distance_content1 = document.querySelector('#content1').offsetTop
+        this.distance_content2 = document.querySelector('#content2').offsetTop 
+        this.distance_content3 = document.querySelector('#content3').offsetTop
+        this.distance_content4 = document.querySelector('#content4').offsetTop 
         this.$nextTick(function () {
             document.querySelector('#pro').addEventListener('scroll', this.onScroll)
             document.querySelector('#pro').addEventListener('scroll', this.handleScroll)
@@ -89,14 +91,14 @@ export default {
         },
           onScroll () {
             let scrolled = document.querySelector('#pro').scrollTop
-            if (scrolled < this.distance_content1) {
-                this.active = "#content1"
-            } else if (scrolled >= this.distance_content1 && scrolled < this.distance_content2) {
+            if (scrolled < this.distance_content2) {
                 this.active = "#content1"
             } else if (scrolled >= this.distance_content2 && scrolled < this.distance_content3) {
                 this.active = "#content2"
-            } else if(scrolled >= this.distance_content3 && scrolled < this.distance_content4) {
+            } else if (scrolled >= this.distance_content3 && scrolled < this.distance_content4) {
                 this.active = "#content3"
+            } else if(scrolled >= this.distance_content3 && scrolled < this.distance_content4) {
+                this.active = "#content4"
             }else {
                 this.active = "#content4"
             }

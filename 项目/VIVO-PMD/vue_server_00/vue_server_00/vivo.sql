@@ -232,3 +232,37 @@ INSERT INTO v_evaluate VALUES
 (NULL,'100','avatar.png','v***3','golden.png','2019.09.04','用了这门久了，挺好用的，打游戏不卡，像素很好，解锁很快','eval01.jpg','eval02.jpg','eval03.jpg','八百里加急，只因心系于您，不舍得您等太久，所以我们马不停蹄……'),
 (NULL,'100','avatar.png','v***4','normal.png','2019.09.04','好看，一如既往的好用','eval01.jpg','eval02.jpg','eval03.jpg','八百里加急，只因心系于您，不舍得您等太久，所以我们马不停蹄……'),
 (NULL,'100','avatar.png','v***4','normal.png','2019.09.04','手机是正品的，反应可以！物流飞快！','eval01.jpg','eval02.jpg','eval03.jpg','八百里加急，只因心系于您，不舍得您等太久，所以我们马不停蹄……');
+
+CREATE TABLE v_intro(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    lid INT,              #商品编号
+    dimg01 VARCHAR(255),
+    dimg02 VARCHAR(255),
+    dimg03 VARCHAR(255),
+    dimg04 VARCHAR(255),
+    dimg05 VARCHAR(255),
+    dimg06 VARCHAR(255),
+    dimg07 VARCHAR(255),
+    dimg08 VARCHAR(255)
+);
+INSERT INTO v_intro VALUES
+(NULL,1,'d1.webp','d2.webp','d3.webp','d4.webp','d5.webp','d6.webp','d7.webp','d8.webp'),
+(NULL,2,'d1.webp','d2.webp','d3.webp','d4.webp','d5.webp','d6.webp','d7.webp','d8.webp'),
+(NULL,3,'d1.webp','d2.webp','d3.webp','d4.webp','d5.webp','d6.webp','d7.webp','d8.webp'),
+(NULL,4,'d1.webp','d2.webp','d3.webp','d4.webp','d5.webp','d6.webp','d7.webp','d8.webp'),
+(NULL,5,'d1.webp','d2.webp','d3.webp','d4.webp','d5.webp','d6.webp','d7.webp','d8.webp'),
+(NULL,6,'d1.webp','d2.webp','d3.webp','d4.webp','d5.webp','d6.webp','d7.webp','d8.webp'),
+(NULL,7,'d1.webp','d2.webp','d3.webp','d4.webp','d5.webp','d6.webp','d7.webp','d8.webp'),
+(NULL,8,'d1.webp','d2.webp','d3.webp','d4.webp','d5.webp','d6.webp','d7.webp','d8.webp');
+
+CREATE TABLE v_recommend(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    img VARCHAR(255),
+    names VARCHAR(255),
+    price DECIMAL(10,2)
+);
+INSERT INTO v_recommend VALUES
+(NULL,'r1.webp','iQOO Neo 6GB+128GB 碳纤黑',1998),
+(NULL,'r2.webp','X27 8GB+128GB版 印象夏日',2698),
+(NULL,'r3.webp','Z5x 6GB+128GB 极光色',1598),
+(NULL,'r4.webp','Z3 6GB+64GB 极光蓝',1248);

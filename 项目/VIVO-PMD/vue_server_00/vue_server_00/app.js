@@ -51,6 +51,8 @@ app.use(express.static('public'));
     //details
     const product=require("./routes/details");
     const evaluate=require("./routes/details");
+    const introduce=require("./routes/details");
+    const recommend=require("./routes/details");
     //login
     const login=require('./routes/login');
     const register=require('./routes/login');
@@ -76,6 +78,8 @@ app.use(express.static('public'));
     app.use("/mall",parts);
     app.use("/details",product);
     app.use("/details",evaluate);
+    app.use("/details",introduce);
+    app.use("/details",recommend);
     app.use("/v1",login);
     app.use("/v1",register);
     app.use("/v1",addcart);

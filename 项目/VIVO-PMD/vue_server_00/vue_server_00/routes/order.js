@@ -10,7 +10,7 @@ router.get('/list',(req,res)=>{
     //2.判断当前用户是否登录成功
     var uid=req.session.uid;
     if(!uid){
-        res.send({code:-1,msg:"请先登录"});
+        res.send({code:-2,msg:"请先登录"});
         return;
     }
     //3.获取客户端数据
@@ -29,7 +29,12 @@ router.get('/list',(req,res)=>{
             //5.执行sql语句
             pool.query(sql,(err,result)=>{
                 if(err) throw err;
-                res.send({code:1,msg:"插入数据成功",data:result})
+                if(result.affectedRows>0){
+                    res.send({code:1,msg:"插入数据成功",data:result})
+                }else{
+                    res.send({code:-1,msg:"请选择要插入的数据"})
+                }
+                
             })
         }else{//count变化数据库跟着变化
             var sql=`UPDATE v_list SET count=(SELECT count FROM v_cart WHERE uid=${uid} AND lid=${lid}) WHERE uid=${uid} AND lid=${lid}`;
