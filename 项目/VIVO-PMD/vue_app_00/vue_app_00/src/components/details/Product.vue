@@ -213,7 +213,7 @@ export default {
         background-color: rgba(0,0,0,.5);
         z-index: 998;
         width: 100%;
-        height: 92%;
+        height: 93%;
         bottom:0
     }
 </style>

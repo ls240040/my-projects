@@ -1,11 +1,7 @@
 <template>
      <div id="head">
         <div class="left-head">
-            <div class="menu">
-                <span class="menu-top"></span>
-                <span class="menu-middle"></span>
-                <span class="menu-bottom"></span>
-            </div>
+            <img src="../../assets/img/arrow-white.png" @click="back">
         </div>
         
         <div class="logo">
@@ -18,7 +14,6 @@
                 </a>
         </div>
         <div class="right-head">
-            <a class="a1" href="javascript:;"><img src="../../assets/img/search.png" alt=""></a>
             <a class="a2" href="javascript:;"><img src="../../assets/img/user.png" alt=""  @click="drop"></a>
         </div>
         <!-- drop -->
@@ -40,6 +35,9 @@ export default {
         }
     },
     methods:{
+        back(){
+            this.$router.go(-1)
+        },
         drop(){
            this.show=!this.show;
         },
