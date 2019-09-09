@@ -27,10 +27,10 @@
         <div id="dropContent" class="hide">
             <span class="close"></span>
             <div>
-                <img class="search" src="../../assets/img/search-grey.png">
-                <input type="text" placeholder="iQoo" @focus="keyWord" @blur="check">
+                <img class="search" src="../../assets/img/search-grey.png" @click="search">
+                <input type="text" placeholder="iQoo" @focus="keyWord" v-model="search">
             </div>
-            <img class="cart" src="../../assets/img/cart-grey.png">
+            <router-link :to="{path:'/Cart'}"><img class="cart" src="../../assets/img/cart-grey.png"></router-link>
         </div>
     </div>
 </template>
@@ -38,7 +38,7 @@
 export default {
     data() {
         return {
-            
+            search:""
         }
     },
     methods:{
@@ -73,16 +73,16 @@ export default {
             search.style.right="6vw";
             search.style.height="6vw";
             search.style.marginTop="1vw";
-            cart.style.opacity="0";
+            cart.style.display="none";
         },
-        check(){
-            var search=document.getElementsByClassName("search")[0];
-            var cart=document.getElementsByClassName("cart")[0];
-            search.style.right="";
-            search.style.height="4vw";
-            search.style.marginTop="2.5vw";
-            cart.style.opacity="1";
-        }
+        // check(){
+        //     var search=document.getElementsByClassName("search")[0];
+        //     var cart=document.getElementsByClassName("cart")[0];
+        //     search.style.right="";
+        //     search.style.height="4vw";
+        //     search.style.marginTop="2.5vw";
+        //     // cart.style.display="block";
+        // }
     }
 }                                                                                                    
 </script>

@@ -1,7 +1,8 @@
 <template>
      <div id="head">
         <div class="left-head">
-            <img src="../../assets/img/arrow-white.png" @click="back">
+            <router-link :to="{path:'/'}"><img src="../../assets/img/arrow-white.png"></router-link>
+            
         </div>
         
         <div class="logo">
@@ -19,7 +20,7 @@
         <!-- drop -->
         <div id="maskbox" v-show="show">
             <div id="dropdown">
-                <router-link :to="{path:'/Mall'}">商城首页</router-link>
+                <router-link :to="{path:'/'}">商城首页</router-link>
                 <router-link :to="{path:'/Login'}">个人中心</router-link>
                 <router-link :to="{path:'/Mall'}">全部分类</router-link>
                 <router-link :to="{path:'/Mall'}">分享好友</router-link>
@@ -35,9 +36,6 @@ export default {
         }
     },
     methods:{
-        back(){
-            this.$router.go(-1)
-        },
         drop(){
            this.show=!this.show;
         },
