@@ -53,7 +53,7 @@ export default {
     },
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
   *{
         -webkit-tap-highlight-color: rgba(0,0,0,0);
     }

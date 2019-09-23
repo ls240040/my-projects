@@ -3,7 +3,7 @@
     <router-view></router-view>
  </div>
 </template>
-<style>
+<style lang="scss" scoped>
    .app-container{
      padding-top:0px;
      padding-bottom:0px;
