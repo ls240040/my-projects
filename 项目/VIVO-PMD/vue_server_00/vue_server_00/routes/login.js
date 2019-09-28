@@ -3,10 +3,10 @@ const router=express.Router();
 const pool=require("../pool");
 
 //http://127.0.0.1:5050/v1/login?uname=tom&upwd=123
-router.get("/login",(req,res)=>{
+router.post("/login",(req,res)=>{
     // 接收网页传递数据
-    var u=req.query.uname;
-    var p=req.query.upwd;
+    var u=req.body.uname;
+    var p=req.body.upwd;
     var sql="SELECT id FROM v_login WHERE uname=? AND upwd=md5(?)";
     pool.query(sql,[u,p],(err,result)=>{
         if(err) throw err;
@@ -15,12 +15,11 @@ router.get("/login",(req,res)=>{
         }else{
             //获取当前登录用户id
             //result=[{id:2}]
-            var id=result[0].id;
+            var uid=result[0].id;
             //将用户id保存session对象中
             //uid当前登录：用户凭证
-            req.session.uid=id;
-            console.log(req.session);
-            res.send({code:1,msg:"登录成功"})
+            console.log(uid);
+            res.send({code:1,msg:"登录成功",id:uid})
         }
     })
 })

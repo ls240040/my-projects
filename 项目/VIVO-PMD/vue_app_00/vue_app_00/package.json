@@ -9,6 +9,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "mint-ui": "^2.2.9",
+    "nprogress": "^0.2.0",
     "velocity-animate": "^2.0.5",
     "video.js": "^7.6.0",
     "vue": "^2.5.16",

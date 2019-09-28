@@ -53,9 +53,8 @@ export default {
                 //http://127.0.0.1:5050/details/product?lid=1
             var url="/details/product";
             var obj={lid:this.lid}; //传递lid参数给details.js
-            console.log(obj)
             this.axios.get(url,{params:obj}).then(res=>{ //把obj发送给服务器获得返回数据
-                console.log(res.data.data);
+                // console.log(res.data.data);
                 this.items=res.data.data[0]; //保存ajax数据
             })
         },
@@ -65,23 +64,29 @@ export default {
             var lid=event.target.dataset.lid;
             var lname=event.target.dataset.lname;
             var price=event.target.dataset.price;
+            var uid=sessionStorage.getItem("accessToken");
             var img=event.target.dataset.img;
-            console.log(lid,lname,price,img);
+            console.log(lid,lname,price,img,uid);
             var url="v1/addcart";
-            var obj={lid:lid,lname:lname,price:price,img:img};
+            var obj={lid,lname,price,img,uid};
             //发送ajax请求
             this.axios.get(url,{params:obj}).then(res=>{
                 if(res.data.code==-1){
-                    this.$messagebox("消息","请登录").then(res=>{
-                        //跳转登录组件
-                        this.$router.push("/Login");
-                    })
+                    this.$messagebox("消息","请先登录")
                 }else if(res.data.code==-2){
                     this.$messagebox("消息","添加失败")
                 }else{
                     this.$messagebox("消息","添加成功").then(res=>{
                         //跳转登录组件
-                        this.$router.push("/Cart");
+                         this.$router.push({
+                            name: "Cart",
+                            params: {
+                                lid: lid,
+                                lname: lname,
+                                price: price,
+                                img: img
+                            }
+                        });
                     })
                 }
             })

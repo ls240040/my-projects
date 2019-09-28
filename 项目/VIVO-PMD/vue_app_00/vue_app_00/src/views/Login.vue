@@ -61,18 +61,22 @@ export default {
             }
             //5.发送ajax
             var url="/v1/login";
-            var obj={uname:u,upwd:p};//需要发送的数据
-            this.axios.get(url,{params:obj}).then(res=>{//6.回调函数：接收服务器返回数据
+            // var obj={uname:u,upwd:p};//需要发送的数据
+            var params = new URLSearchParams();
+            params.append("uname", u);
+            params.append("upwd", p);
+            this.axios.post(url,params).then(res=>{//6.回调函数：接收服务器返回数据
                 console.log(res);
                 if(res.data.code==-1){//7.失败 提示
                     this.$messagebox("消息","用户名或密码有误")
                 }else{//8.成功 跳转
-                    this.$router.push("/Mall")
+                    {sessionStorage.setItem('accessToken' , res.data.id) }
+                    this.$router.go(-1)
                 }
             })
-            
-            
-            
+            .catch(function(err) {
+                console.log(err);
+            });
         }
     }
 }

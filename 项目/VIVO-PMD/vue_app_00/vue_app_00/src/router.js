@@ -32,7 +32,7 @@ const router = new Router({
     {path:'/Login',component:Login},
     {path:'/Register',component:Register},
     {path:'/Protocol',component:Protocol},
-    {path:'/Cart',component:Cart},
+    {path:'/Cart',name:'Cart',component:Cart},
     {path:'/Order',component:Order},
     //1.props:true  让url中参数自动成为props中的自定义属性 
     //2.在要接收参数的目标组件中，添加与路由参数同名的自定义属性变量 var details={props:["lid"]}

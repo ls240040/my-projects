@@ -8,7 +8,7 @@ router.get('/list',(req,res)=>{
     //#此功能先行条件先登录
     //1.接收客户端请求 /addcart get
     //2.判断当前用户是否登录成功
-    var uid=req.session.uid;
+    var uid=req.query.uid;
     if(!uid){
         res.send({code:-2,msg:"请先登录"});
         return;
@@ -37,7 +37,7 @@ router.get('/list',(req,res)=>{
                 
             })
         }else{//count变化数据库跟着变化
-            var sql=`UPDATE v_list SET count=(SELECT count FROM v_cart WHERE uid=${uid} AND lid=${lid}) WHERE uid=${uid} AND lid=${lid}`;
+            var sql=`UPDATE v_list SET count=(SELECT count FROM v_cart WHERE id=${uid} AND lid=${lid})`;
             pool.query(sql,(err,result)=>{
                 if(err) throw err;
                 res.send({code:1,msg:"更新数据成功",data:result})
@@ -49,7 +49,7 @@ router.get('/list',(req,res)=>{
 //http://127.0.0.1:5050/v1/list2?uid=1   
 router.get('/list2',(req,res)=>{
     //1.参数 uid
-    var uid=req.session.uid;
+    var uid=req.query.uid;
     if(!uid){
         res.send({code:-1,msg:"请登录"});
         return;

@@ -22,7 +22,7 @@
                         </div>
                     </div>
                 </div>
-                <img src="../assets/img/delete.png" @click="deleteItem" :data-id="item.id">
+                <img src="../assets/img/delete.png" @click="deleteItem(index,$event)" :data-id="item.id">
             </div>
         </div>
         <!-- 3.购物车中商品数量：删除选中商品，清空购物车 -->
@@ -95,7 +95,8 @@ export default {
             }
             var url="v1/addcart2";
             var lid=this.list[i].lid;
-            var obj={lid:lid,count:count};
+            var uid=sessionStorage.getItem("accessToken");
+            var obj={lid,count,uid};
             console.log(this.list);
              this.axios.get(url,{params:obj}).then(res=>{
                  this.loadMore(); // 11.刷新
@@ -108,8 +109,9 @@ export default {
                 this.list[i].count=1;
             }
             var url="v1/delcart";
+            var uid=sessionStorage.getItem("accessToken");
             var lid=this.list[i].lid;
-            var obj={lid:lid,count:count};
+            var obj={lid,count,uid};
             console.log(this.list);
              this.axios.get(url,{params:obj}).then(res=>{
                  this.loadMore(); // 11.刷新
@@ -152,9 +154,10 @@ export default {
                     var lname=item.lname;
                     var img=item.img;
                     var count=item.count;
+                    var uid=sessionStorage.getItem("accessToken");
                     // console.log(img);
                     var url="v1/list";
-                    var obj={price,lid,lname,img,count};
+                    var obj={price,lid,lname,img,count,uid};
                     this.axios.get(url,{params:obj}).then(res=>{
                         if(res.data.code==1){
                             this.$router.push('/Order')
@@ -202,7 +205,7 @@ export default {
 
             })
         },
-        deleteItem(event){
+        deleteItem(i,event){
             // 功能：用户点击删除按钮完成删除指定商品任务
             // 1.为按钮绑定点击事件调用deleteItem
             // 2.显示确认框，如果用户选确定
@@ -210,9 +213,12 @@ export default {
             // 4.发送ajax请求完成删除任务
             // 5.删除成功 提示“删除成功”
             this.$messagebox.confirm("是否删除指定数据").then(res=>{
-                var id=event.target.dataset.id;
+                var index=parseInt(i)+1;
+                console.log(index)
+                var id=index;
+                var uid=sessionStorage.getItem("accessToken");
                 var url="v1/delItem";
-                var obj={id:id}
+                var obj={id,uid}
                 this.axios.get(url,{params:obj}).then(res=>{
                     this.$toast("删除成功");
                     this.loadMore();//刷新 
@@ -225,8 +231,10 @@ export default {
             //功能：获取当前用户购物车列表
             //1.创建url请求服务器地址
             var url="v1/cart";
+            var uid=sessionStorage.getItem("accessToken");
+            var obj={uid};
             //2.发送ajax请求（让服务器程序完成功能）
-            this.axios.get(url).then(res=>{
+            this.axios.get(url,{params:obj}).then(res=>{
                 //3.获取服务器返回数据
                 //4.如果服务器返回-1 请登录
                 if(res.data.code == -1){
@@ -244,6 +252,7 @@ export default {
                     }
                     // 3.3将新数组赋值list(顺序)
                     this.list = rows;
+                    console.log(this.list)
                 }
             })
         }
