@@ -155,7 +155,6 @@ export default {
                     var img=item.img;
                     var count=item.count;
                     var uid=sessionStorage.getItem("accessToken");
-                    // console.log(img);
                     var url="v1/list";
                     var obj={price,lid,lname,img,count,uid};
                     this.axios.get(url,{params:obj}).then(res=>{

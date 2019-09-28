@@ -74,12 +74,10 @@ export default {
         },
         loadMore(){
             var url="v1/list2";
-            this.axios.get(url).then(res=>{
-               if(res.data.code == -1){
-                    this.$messagebox("消息","请登录").then(res => { //回调函数(用户点击确认按钮后调用函数)
-                        this.$router.push('/Login')
-                    })
-                }else{
+            var uid=sessionStorage.getItem("accessToken");
+            var obj={uid};
+            this.axios.get(url,{params:obj}).then(res=>{
+               if(res.data.code==1){
                     // this.list=res.data.data;
                     // 3.1创建循环遍历res.data.data中数据
                     var rows = res.data.data;

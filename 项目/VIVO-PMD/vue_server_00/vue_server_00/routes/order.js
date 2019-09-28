@@ -9,10 +9,6 @@ router.get('/list',(req,res)=>{
     //1.接收客户端请求 /addcart get
     //2.判断当前用户是否登录成功
     var uid=req.query.uid;
-    if(!uid){
-        res.send({code:-2,msg:"请先登录"});
-        return;
-    }
     //3.获取客户端数据
     var lid=req.query.lid;
     var price=req.query.price;
@@ -50,10 +46,6 @@ router.get('/list',(req,res)=>{
 router.get('/list2',(req,res)=>{
     //1.参数 uid
     var uid=req.query.uid;
-    if(!uid){
-        res.send({code:-1,msg:"请登录"});
-        return;
-    }
     //2.创建sql语句
     var sql="SELECT id,count,lid,img,lname,price FROM v_list WHERE uid=?";
     //3.执行sql语句并且将数据库返回结果发送给客户

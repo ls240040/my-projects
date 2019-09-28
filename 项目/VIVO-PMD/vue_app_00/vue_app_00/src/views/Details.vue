@@ -71,24 +71,15 @@ export default {
             var obj={lid,lname,price,img,uid};
             //发送ajax请求
             this.axios.get(url,{params:obj}).then(res=>{
-                if(res.data.code==-1){
-                    this.$messagebox("消息","请先登录")
-                }else if(res.data.code==-2){
-                    this.$messagebox("消息","添加失败")
-                }else{
+                console.log(res);
+               if(res.data.code==1){
                     this.$messagebox("消息","添加成功").then(res=>{
                         //跳转登录组件
-                         this.$router.push({
-                            name: "Cart",
-                            params: {
-                                lid: lid,
-                                lname: lname,
-                                price: price,
-                                img: img
-                            }
-                        });
+                         this.$router.push('/Cart');
                     })
-                }
+                }else{
+                    this.$messagebox("消息","请先登录")
+                } 
             })
 
         }

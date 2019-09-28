@@ -11,19 +11,14 @@ router.get('/addcart',(req,res)=>{
     //1.接收客户端请求 /addcart get
     //2.判断当前用户是否登录成功
     var uid=req.query.uid;
-    if(!uid){
-        res.send({code:-1,msg:"请先登录"});
-        return;
-    }
+    
     //3.获取客户端数据
     var lid=req.query.lid;
     var price=req.query.price;
     var lname=req.query.lname;
     var img=req.query.img;
-    console.log(img)
-    // res.send(lid,price,lname)
     //4.创建查询sql：当前用户是否购买此商品
-    var sql="SELECT id FROM v_cart WHERE id=? AND lid=?";
+    var sql="SELECT id FROM v_cart WHERE uid=? AND lid=?";
     //5.执行sql语句
     pool.query(sql,[uid,lid],(err,result)=>{
         if(err) throw err;
@@ -31,9 +26,9 @@ router.get('/addcart',(req,res)=>{
         //没有购买过此商品  添加
         //已购买过此商品  更新
         if(result.length==0){
-            var sql=`INSERT INTO v_cart VALUES(NULL,${lid},'${img}',${price},1,'${lname}')`
+            var sql=`INSERT INTO v_cart VALUES(NULL,${lid},'${img}',${price},1,'${lname}',${uid})`
         }else{
-            var sql=`UPDATE v_cart SET count=count+1 WHERE id=${uid} AND lid=${lid}`;
+            var sql=`UPDATE v_cart SET count=count+1 WHERE uid=${uid} AND lid=${lid}`;
         }          
         //7.执行sql获取返回结果
         pool.query(sql,(err,result)=>{
@@ -60,13 +55,13 @@ router.get('/delcart',(req,res)=>{
     var lid=req.query.lid;
     var count=req.query.count;
     //4.创建查询sql：当前用户是否购买此商品
-    var sql="SELECT id FROM v_cart WHERE id=? AND lid=? AND count>1";
+    var sql="SELECT id FROM v_cart WHERE uid=? AND lid=? AND count>1";
     //5.执行sql语句
     pool.query(sql,[uid,lid],(err,result)=>{
         if(err) throw err;
         //6.在回调函数中 判断下一步操作
         //已购买过此商品  更新
-            var sql=`UPDATE v_cart SET count=count-1 WHERE id=${uid} AND lid=${lid}`;
+            var sql=`UPDATE v_cart SET count=count-1 WHERE uid=${uid} AND lid=${lid}`;
             //7.执行sql获取返回结果
             pool.query(sql,(err,result)=>{
                 if(err) throw err;
@@ -90,13 +85,13 @@ router.get('/addcart2',(req,res)=>{
     var lid=req.query.lid;
     var count=req.query.count;
     //4.创建查询sql：当前用户是否购买此商品
-    var sql="SELECT id FROM v_cart WHERE id=? AND lid=? AND count<5";
+    var sql="SELECT id FROM v_cart WHERE uid=? AND lid=? AND count<5";
     //5.执行sql语句
     pool.query(sql,[uid,lid],(err,result)=>{
         if(err) throw err;
         //6.在回调函数中 判断下一步操作
         //已购买过此商品  更新
-            var sql=`UPDATE v_cart SET count=count+1 WHERE id=${uid} AND lid=${lid}`;   //!!
+            var sql=`UPDATE v_cart SET count=count+1 WHERE uid=${uid} AND lid=${lid}`;   //!!
             //7.执行sql获取返回结果
             pool.query(sql,(err,result)=>{
                 if(err) throw err;
@@ -115,7 +110,7 @@ router.get('/cart',(req,res)=>{
     //1.参数 uid
     var uid=req.query.uid;
     //2.创建sql语句
-    var sql="SELECT id,count,lid,img,lname,price FROM v_cart WHERE id=?";
+    var sql="SELECT id,count,lid,img,lname,price FROM v_cart WHERE uid=?";
     //3.执行sql语句并且将数据库返回结果发送给客户
     pool.query(sql,[uid],(err,result)=>{
         if(err) throw err;
