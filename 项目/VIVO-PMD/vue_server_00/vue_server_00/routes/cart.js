@@ -59,9 +59,13 @@ router.get('/delcart',(req,res)=>{
     //5.执行sql语句
     pool.query(sql,[uid,lid],(err,result)=>{
         if(err) throw err;
-        //6.在回调函数中 判断下一步操作
-        //已购买过此商品  更新
+        if(count<=5 && count>1){
+            //6.在回调函数中 判断下一步操作
+            //已购买过此商品  更新
             var sql=`UPDATE v_cart SET count=count-1 WHERE uid=${uid} AND lid=${lid}`;
+            if(count==1){
+                var sql=`UPDATE v_cart SET count=1 WHERE uid=${uid} AND lid=${lid}`;
+            }
             //7.执行sql获取返回结果
             pool.query(sql,(err,result)=>{
                 if(err) throw err;
@@ -71,6 +75,7 @@ router.get('/delcart',(req,res)=>{
                     res.send({code:1,msg:"商品删除成功"})
                 }
             })
+        }
     })
 })
 
@@ -91,16 +96,18 @@ router.get('/addcart2',(req,res)=>{
         if(err) throw err;
         //6.在回调函数中 判断下一步操作
         //已购买过此商品  更新
-            var sql=`UPDATE v_cart SET count=count+1 WHERE uid=${uid} AND lid=${lid}`;   //!!
-            //7.执行sql获取返回结果
-            pool.query(sql,(err,result)=>{
-                if(err) throw err;
-                //8.如果 sql UPDATE INSERT DELETE
-                //判断执行成功  result.affectedRows 影响行数
-                if(result.affectedRows>0){
-                    res.send({code:1,msg:"商品删除成功"})
-                }
-            })
+            if(count<5){
+                var sql=`UPDATE v_cart SET count=count+1 WHERE uid=${uid} AND lid=${lid}`;
+                //7.执行sql获取返回结果
+                pool.query(sql,(err,result)=>{
+                    if(err) throw err;
+                    //8.如果 sql UPDATE INSERT DELETE
+                    //判断执行成功  result.affectedRows 影响行数
+                    if(result.affectedRows>0){
+                        res.send({code:1,msg:"商品删除成功"})
+                    }
+                })
+            }
     })
 })
 

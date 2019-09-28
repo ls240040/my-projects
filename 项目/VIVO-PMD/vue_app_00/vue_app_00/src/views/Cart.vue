@@ -89,7 +89,8 @@ export default {
         },
         add(e){
             var i=e.target.dataset.index;
-            var count=this.list[i].count++;
+            var count=this.list[i].count;
+            
             if(this.list[i].count>=5){
                 this.list[i].count=5;
             }
