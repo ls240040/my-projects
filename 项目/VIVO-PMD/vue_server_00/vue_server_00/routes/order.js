@@ -41,7 +41,7 @@ router.get('/list',(req,res)=>{
         }  
     })
 })
-
+// 11111111111
 //http://127.0.0.1:5050/v1/list2?uid=1   
 router.get('/list2',(req,res)=>{
     //1.参数 uid
