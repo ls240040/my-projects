@@ -62,6 +62,7 @@ export default {
             for(var item of this.list){
                 pnum+=item.count;
                 sum+=item.count*item.price;
+                console.log(this.list)
             }
             this.pnum=pnum;
             this.sum=sum;

@@ -156,9 +156,10 @@ export default {
                     var count=item.count;
                     var uid=sessionStorage.getItem("accessToken");
                     var url="v1/list";
-                    var obj={price,lid,lname,img,count,uid};
+                    var obj={price,lid,lname,img,uid,count};
                     this.axios.get(url,{params:obj}).then(res=>{
                         if(res.data.code==1){
+                            // console.log(count)
                             this.$router.push('/Order')
                         }
                     })

@@ -33,7 +33,7 @@ router.get('/list',(req,res)=>{
                 
             })
         }else{//count变化数据库跟着变化
-            var sql=`UPDATE v_list SET count=(SELECT count FROM v_cart WHERE id=${uid} AND lid=${lid})`;
+            var sql=`UPDATE v_list SET count=(SELECT count FROM v_cart WHERE uid=${uid} AND lid=${lid})`;
             pool.query(sql,(err,result)=>{
                 if(err) throw err;
                 res.send({code:1,msg:"更新数据成功",data:result})
