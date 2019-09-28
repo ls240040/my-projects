@@ -15,6 +15,12 @@ Vue.use(vue_router)
 //4:将字体图标引入到当前项目中
 import "./font/iconfont.css"
 
+// app.use(cors({
+//  origin:"http://127.0.0.1:8080",
+//  credentials:true
+//  //不能用*
+// }));
+
 //5:引入axios 第三方ajax模块
 import axios from "axios"
 //6:配置axios 基础路径
